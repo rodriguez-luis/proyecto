@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: ingsoft
+  datasource:
+    name: demo_mysql_db
+    platform: mysql
+    url: jdbc:mysql://database-2.cy0oy0of4zui.us-west-2.rds.amazonaws.com:3306/proyecto_pc
+    username: admin
+    password: ***REMOVED***
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      connectionTestQuery: select 1
+      maximum-pool-size: 2
+      connection-timeout: 60000
+
+logging:
+  level:
+    com:
+      spring:
+        ibatis:
+          UserMapper=DEBUG:
+mybatis:
+  configuration:
+    default-fetch-size: 100
+    default-statement-timeout: 30
+  mapper-locations: classpath:/dao/*Dao.xml

@@ -1,0 +1,14 @@
+POST http://localhost:8080/v1/user
+Accept: application/json
+Content-Type: application/json
+
+{
+  "userId": 0,
+  "personId": 0,
+  "companyId": 0,
+  "statusId": 1,
+  "username": "juanito123",
+  "password": "abc123",
+  "salt": "123",
+  "token": 123
+}
