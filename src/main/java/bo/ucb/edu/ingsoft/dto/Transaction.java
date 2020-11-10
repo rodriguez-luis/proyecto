@@ -8,9 +8,15 @@ public class Transaction {
     private Integer txUserId;
     private Date txDate;
 
-    public Transaction() {
+    public Transaction(Integer txId,String txHost,Integer txUser,Date txDate) {
+        this.setTxId(txId);
+        this.setTxHost(txHost);
+        this.setTxUserId(txUser);
+        this.setTxDate(txDate);
     }
+    public Transaction(){
 
+    }
     @Override
     public String toString() {
         return "Transaction{" +

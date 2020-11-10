@@ -22,15 +22,14 @@ public class User {
         this.setPassword(password);
         this.setSalt(salt);
         this.setToken(token);
-        this.transaction.setTxId(txId);
-        this.transaction.setTxHost(txHost);
-        this.transaction.setTxUserId(txUserId);
-        this.transaction.setTxDate(txDate);
+        this.transaction= new Transaction(txId,txHost,txUserId,txDate);
     }
 
-
+    public User(){
+        this.transaction= new Transaction();
+    }
     public Integer getTxId() {
-        return this.transaction.getTxId();
+        return transaction.getTxId();
     }
 
     public void setTxId(Integer txId) {

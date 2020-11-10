@@ -4,15 +4,14 @@ spring:
   datasource:
     name: demo_mysql_db
     platform: mysql
-    url: jdbc:mysql://database-2.cy0oy0of4zui.us-west-2.rds.amazonaws.com:3306/proyecto_pc
+    url: jdbc:mysql://proyecto.cy0oy0of4zui.us-west-2.rds.amazonaws.com:3306
     username: admin
-    password: ***REMOVED***
+    password: admin123
     driver-class-name: com.mysql.jdbc.Driver
     hikari:
       connectionTestQuery: select 1
       maximum-pool-size: 2
       connection-timeout: 60000
-
 logging:
   level:
     com:
