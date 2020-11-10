@@ -4,7 +4,7 @@ spring:
   datasource:
     name: demo_mysql_db
     platform: mysql
-    url: jdbc:mysql://proyecto.cy0oy0of4zui.us-west-2.rds.amazonaws.com:3306
+    url: jdbc:mysql://proyecto.cy0oy0of4zui.us-west-2.rds.amazonaws.com:3306/proyecto_pc
     username: admin
     password: admin123
     driver-class-name: com.mysql.jdbc.Driver

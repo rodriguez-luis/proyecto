@@ -2,7 +2,7 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.CustomerBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
-import bo.ucb.edu.ingsoft.dto.User;
+import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.slf4j.Logger;
@@ -33,7 +33,7 @@ public class UserApi {
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public User findById(HttpServletRequest request) {
-        return customerBl.findUserById(0);
+        return customerBl.findUserById(1);
     }
 
 

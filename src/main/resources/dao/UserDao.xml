@@ -3,15 +3,15 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.UserDao">
-    <select id="findByUserId" resultType="bo.ucb.edu.ingsoft.dto.User">
+    <select id="findByUserId" resultType="bo.ucb.edu.ingsoft.model.User">
         SELECT
         *
         FROM user
         WHERE
             id_user = 0
     </select>
-    <insert id="create" parameterType="bo.ucb.edu.ingsoft.dto.User">
-        INSERT INTO user VALUES (
+    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.User">
+        INSERT INTO user (id_user,person_id,company_id,id_status,username,password,salt,token,tx_id,tx_host,tx_user_id,tx_date)VALUES (
             null,#{personId},#{companyId},#{statusId},#{username},#{password},#{salt},#{token},#{transaction.txId},#{transaction.txHost},#{transaction.txUserId},#{transaction.txDate}
         )
     </insert>

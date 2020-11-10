@@ -2,7 +2,7 @@ package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.UserDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.User;
+import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.dto.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +26,7 @@ public class CustomerBl {
         user.setTxUserId(transaction.getTxUserId());
         user.setTxHost(transaction.getTxHost());
         user.setTxDate(transaction.getTxDate());
+
         userDao.create(user);
         Integer getLastId = transactionDao.getLastInsertId();
         user.setUserId(getLastId);

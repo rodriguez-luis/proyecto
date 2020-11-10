@@ -1,4 +1,4 @@
-GET http://localhost:8080/v1/user
+GET http://localhost:8080/v1/user?username=luisito
 Accept: application/json
 
 ###

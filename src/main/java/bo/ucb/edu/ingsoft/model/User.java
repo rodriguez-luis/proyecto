@@ -1,4 +1,6 @@
-package bo.ucb.edu.ingsoft.dto;
+package bo.ucb.edu.ingsoft.model;
+
+import bo.ucb.edu.ingsoft.dto.Transaction;
 
 import java.util.Date;
 
@@ -29,7 +31,7 @@ public class User {
         this.transaction= new Transaction();
     }
     public Integer getTxId() {
-        return transaction.getTxId();
+        return this.transaction.getTxId();
     }
 
     public void setTxId(Integer txId) {
