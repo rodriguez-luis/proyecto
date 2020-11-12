@@ -10,7 +10,7 @@ public class Status {
     private Transaction transaction;
 
     public Status(){
-
+        this.transaction= new Transaction();
     }
 
     public Integer getStatusId() {

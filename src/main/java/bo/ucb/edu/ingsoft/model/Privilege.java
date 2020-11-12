@@ -8,7 +8,7 @@ public class Privilege {
     private Transaction transaction;
 
     public Privilege(){
-
+        this.transaction= new Transaction();
     }
 
     public Integer getPrivilegeId() {

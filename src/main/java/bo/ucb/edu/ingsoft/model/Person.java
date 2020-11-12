@@ -13,6 +13,7 @@ public class Person {
     private Transaction transaction;
 
     public Person(){
+        this.transaction= new Transaction();
     }
 
     public Integer getPersonId() {

@@ -7,7 +7,9 @@ public class Role {
     private String roleName;
     private Transaction transaction;
 
-    public Role(){}
+    public Role(){
+        this.transaction= new Transaction();
+    }
 
     public Integer getRoleId() {
         return roleId;

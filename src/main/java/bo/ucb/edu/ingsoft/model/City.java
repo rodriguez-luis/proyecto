@@ -9,7 +9,7 @@ public class City {
     private Transaction transaction;
 
     public City(){
-
+        this.transaction= new Transaction();
     }
 
     public Integer getCityId() {

@@ -12,6 +12,7 @@ public class Company {
     private Transaction transaction;
 
     public Company() {
+        this.transaction= new Transaction();
     }
 
     public Integer getCompanyId() {

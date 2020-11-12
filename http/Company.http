@@ -9,8 +9,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Computadoras Gonzales",
-  "direction": "Av. Calatayud N255",
+  "name": "Computadoras Perez",
+  "direction": "Av. Uyustus N205",
   "phone": "25252525",
-  "email": "comgonzales@gmail.com"
+  "email": "perezs@gmail.com"
 }
