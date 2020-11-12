@@ -1,8 +1,8 @@
-##############
+###########
 GET http://localhost:8080/v1/company/2
 Accept: application/json
 
-###########333
+###########
 
 POST http://localhost:8080/v1/company
 Accept: application/json
@@ -16,12 +16,8 @@ Content-Type: application/json
   "email": "comgonzales@gmail.com"
 }
 
-###
-=======
-  "email": "perezs@gmail.com"
-}
 
-###########333
+###########
 DELETE http://localhost:8080/v1/company?companyId=1
 Accept: application/json
 
