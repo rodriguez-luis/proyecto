@@ -14,3 +14,7 @@ Content-Type: application/json
   "phone": "25252525",
   "email": "perezs@gmail.com"
 }
+
+###########333
+DELETE http://localhost:8080/v1/company?companyId=1
+Accept: application/json

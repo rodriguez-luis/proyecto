@@ -20,4 +20,14 @@
              #{txId}, #{txHost}, #{txUserId}, #{txDate}
         )
     </insert>
+
+    <update id="delete" parameterType="bo.ucb.edu.ingsoft.model.Company">
+        UPDATE company set
+        tx_id = #{transaction.txId},
+        tx_host = #{transaction.txHost},
+        tx_user_id = #{transaction.txUserId}
+        tx_date = #{transaction.txDate}
+        where
+        id_company = #{companyId}
+    </update>
 </mapper>
