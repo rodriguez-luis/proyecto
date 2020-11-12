@@ -11,53 +11,24 @@ public class User {
     private String password;
     private String salt;
     private Integer token;
-    private Transaction transaction;
+    private Integer txId;
+    private String txHost;
+    private Integer txUserId;
+    private Date txDate;
 
     public User(Integer userId, Integer personId, Integer companyId, Integer statusId, String username, String password, String salt, Integer token, Integer txId, String txHost, Integer txUserId, Date txDate) {
-        this.setUserId(userId);
-        this.setPersonId(personId);
-        this.setCompanyId(companyId);
-        this.setStatusId(statusId);
-        this.setUsername(username);
-        this.setPassword(password);
-        this.setSalt(salt);
-        this.setToken(token);
-        this.transaction= new Transaction(txId,txHost,txUserId,txDate);
-    }
-
-    public User(){
-        this.transaction= new Transaction();
-    }
-    public Integer getTxId() {
-        return this.transaction.getTxId();
-    }
-
-    public void setTxId(Integer txId) {
-        this.transaction.setTxId(txId);
-    }
-
-    public String getTxHost() {
-        return this.transaction.getTxHost();
-    }
-
-    public void setTxHost(String txHost) {
-        this.transaction.setTxHost(txHost);
-    }
-
-    public Integer getTxUserId() {
-        return this.transaction.getTxUserId();
-    }
-
-    public void setTxUserId(Integer txUserId) {
-        this.transaction.setTxUserId(txUserId);
-    }
-
-    public Date getTxDate() {
-        return this.transaction.getTxDate();
-    }
-
-    public void setTxDate(Date txDate) {
-        this.transaction.setTxDate(txDate);
+        this.userId = userId;
+        this.personId = personId;
+        this.companyId = companyId;
+        this.statusId = statusId;
+        this.username = username;
+        this.password = password;
+        this.salt = salt;
+        this.token = token;
+        this.txId = txId;
+        this.txHost = txHost;
+        this.txUserId = txUserId;
+        this.txDate = txDate;
     }
 
     public Integer getUserId() {
@@ -122,5 +93,55 @@ public class User {
 
     public void setToken(Integer token) {
         this.token = token;
+    }
+
+    public Integer getTxId() {
+        return txId;
+    }
+
+    public void setTxId(Integer txId) {
+        this.txId = txId;
+    }
+
+    public String getTxHost() {
+        return txHost;
+    }
+
+    public void setTxHost(String txHost) {
+        this.txHost = txHost;
+    }
+
+    public Integer getTxUserId() {
+        return txUserId;
+    }
+
+    public void setTxUserId(Integer txUserId) {
+        this.txUserId = txUserId;
+    }
+
+    public Date getTxDate() {
+        return txDate;
+    }
+
+    public void setTxDate(Date txDate) {
+        this.txDate = txDate;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", personId=" + personId +
+                ", companyId=" + companyId +
+                ", statusId=" + statusId +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", token=" + token +
+                ", txId=" + txId +
+                ", txHost='" + txHost + '\'' +
+                ", txUserId=" + txUserId +
+                ", txDate=" + txDate +
+                '}';
     }
 }

@@ -25,8 +25,8 @@ public class UserCreate {
     private Integer companyId;
     private Integer cityId;
     private String phone;
+    private Date birthday;
     private String email;
-    private Date birthDate;
     private Transaction transaction;
 
     public Integer getUserId() {
@@ -93,20 +93,20 @@ public class UserCreate {
         this.phone = phone;
     }
 
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
     }
 
     public Transaction getTransaction() {
@@ -164,8 +164,8 @@ public class UserCreate {
                 ", companyId=" + companyId +
                 ", cityId=" + cityId +
                 ", phone='" + phone + '\'' +
+                ", birthday=" + birthday +
                 ", email='" + email + '\'' +
-                ", birthDate=" + birthDate +
                 ", transaction=" + transaction +
                 '}';
     }
