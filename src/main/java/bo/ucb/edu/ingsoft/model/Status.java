@@ -1,17 +1,16 @@
 package bo.ucb.edu.ingsoft.model;
 
+import org.apache.logging.log4j.util.TriConsumer;
+
 import java.util.Date;
 
 public class Status {
     private Integer statusId;
     private String statusName;
-    private Integer txId;
-    private String txHost;
-    private Integer txUserId;
-    private Date txDate;
+    private Transaction transaction;
 
     public Status(){
-
+        this.transaction= new Transaction();
     }
 
     public Integer getStatusId() {
@@ -31,35 +30,35 @@ public class Status {
     }
 
     public Integer getTxId() {
-        return txId;
+        return transaction.getTxId();
     }
 
     public void setTxId(Integer txId) {
-        this.txId = txId;
+        this.transaction.setTxId(txId);
     }
 
     public String getTxHost() {
-        return txHost;
+        return transaction.getTxHost();
     }
 
     public void setTxHost(String txHost) {
-        this.txHost = txHost;
+        this.transaction.setTxHost(txHost);
     }
 
     public Integer getTxUserId() {
-        return txUserId;
+        return transaction.getTxUserId();
     }
 
     public void setTxUserId(Integer txUserId) {
-        this.txUserId = txUserId;
+        this.transaction.setTxUserId(txUserId);
     }
 
     public Date getTxDate() {
-        return txDate;
+        return transaction.getTxDate();
     }
 
     public void setTxDate(Date txDate) {
-        this.txDate = txDate;
+        this.transaction.setTxDate(txDate);
     }
 
     @Override
@@ -67,10 +66,10 @@ public class Status {
         return "Status{" +
                 "statusId=" + statusId +
                 ", statusName='" + statusName + '\'' +
-                ", txId=" + txId +
-                ", txHost='" + txHost + '\'' +
-                ", txUserId=" + txUserId +
-                ", txDate=" + txDate +
+                ", txId=" + transaction.getTxId() +
+                ", txHost='" + transaction.getTxHost() + '\'' +
+                ", txUserId=" + transaction.getTxUserId() +
+                ", txDate=" + transaction.getTxDate() +
                 '}';
     }
 }

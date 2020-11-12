@@ -10,12 +10,10 @@ public class Person {
     private String phone;
     private Date birthday;
     private String email;
-    private Integer txId;
-    private String txHost;
-    private Integer txUserId;
-    private Date txDate;
+    private Transaction transaction;
 
     public Person(){
+        this.transaction= new Transaction();
     }
 
     public Integer getPersonId() {
@@ -75,34 +73,50 @@ public class Person {
     }
 
     public Integer getTxId() {
-        return txId;
+        return transaction.getTxId();
     }
 
     public void setTxId(Integer txId) {
-        this.txId = txId;
+        this.transaction.setTxId(txId);
     }
 
     public String getTxHost() {
-        return txHost;
+        return transaction.getTxHost();
     }
 
     public void setTxHost(String txHost) {
-        this.txHost = txHost;
+        this.transaction.setTxHost(txHost);
     }
 
     public Integer getTxUserId() {
-        return txUserId;
+        return transaction.getTxUserId();
     }
 
     public void setTxUserId(Integer txUserId) {
-        this.txUserId = txUserId;
+        this.transaction.setTxUserId(txUserId);
     }
 
     public Date getTxDate() {
-        return txDate;
+        return transaction.getTxDate();
     }
 
     public void setTxDate(Date txDate) {
-        this.txDate = txDate;
+        this.transaction.setTxDate(txDate);
+    }
+    @Override
+    public String toString() {
+        return "Person{" +
+                "personId=" + personId +
+                ", cityId=" + cityId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phone='" + phone + '\'' +
+                ", birthday=" + birthday +
+                ", email='" + email + '\'' +
+                ", txId=" + transaction.getTxId() +
+                ", txHost='" + transaction.getTxHost() + '\'' +
+                ", txUserId=" + transaction.getTxUserId() +
+                ", txDate=" + transaction.getTxDate() +
+                '}';
     }
 }

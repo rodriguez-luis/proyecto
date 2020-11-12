@@ -10,6 +10,7 @@
         WHERE
             product_type_id = 0
     </select>
+<<<<<<< HEAD
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.ProductType">
         INSERT INTO product_type VALUES
         (
@@ -17,6 +18,14 @@
          #{statusId},#{status},#{txId},#{txHost},#{txUserId},#{txDate}
         )
     </insert>
+=======
+<!--    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.ProductType">-->
+<!--        INSERT INTO product_type (product_type_id,type_name,status,tx_id,tx_host,tx_user_id,tx_date)VALUES-->
+<!--        (-->
+<!--            null,#{},#{productTypeId},#{ptype_name},#{status},#{productDescription},#{unit},#{transaction.txId},#{transaction.txHost},#{transaction.txUserId},#{transaction.txDate}-->
+<!--        )-->
+<!--    </insert>-->
+>>>>>>> 01a2efea1f2efac1077d22f8e4a9f9bbbede9506
 <!--    <select id="getLastInsertId" resultType="java.lang.Integer">-->
 <!--        SELECT LAST_INSERT_ID()-->
 <!--    </select>-->
