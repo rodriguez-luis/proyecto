@@ -1,3 +1,4 @@
+
 ##########
 POST http://localhost:8080/v1/privilege
 Accept: application/json
@@ -8,7 +9,7 @@ Content-Type: application/json
 }
 
 ##########
-PATCH http://localhost:8080/v1/privilege/privilege_name
+PATCH http://localhost:8080/v1/privilege
 Accept: application/json
 Content-Type: application/json
 

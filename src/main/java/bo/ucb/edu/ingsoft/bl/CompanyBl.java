@@ -2,6 +2,7 @@ package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.CompanyDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
+import bo.ucb.edu.ingsoft.dto.PrivilegeUpdate;
 import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,9 +44,14 @@ public class CompanyBl {
         company.setTxUserId(transaction.getTxUserId());
         company.setTxHost(transaction.getTxHost());
         company.setTxDate(transaction.getTxDate());
-
         companyDao.delete(company);
-
     }
-
+    public Company updateCompany(Company company, Transaction transaction){
+        company.setTxId(transaction.getTxId());
+        company.setTxUserId(transaction.getTxUserId());
+        company.setTxHost(transaction.getTxHost());
+        company.setTxDate(transaction.getTxDate());
+        companyDao.update(company);
+        return company;
+    }
 }

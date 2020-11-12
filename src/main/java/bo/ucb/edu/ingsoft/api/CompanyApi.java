@@ -2,6 +2,7 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.CompanyBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
+import bo.ucb.edu.ingsoft.dto.PrivilegeUpdate;
 import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
@@ -44,15 +45,21 @@ public class CompanyApi {
         return companyResponse;
     }
 
-    @RequestMapping(method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public String delete(@RequestParam Integer idCompany, HttpServletRequest request ){
-        TransactionUtil transactionUtil=new TransactionUtil();
-        Transaction transaction = transactionUtil.createTransaction(request);
+    @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable("id") Integer idCompany, HttpServletRequest request ){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transaction=transactionBl.createTransaction(transaction);
         companyBl.delete(idCompany, transaction);
-        return "Compañia eliminada exitosamente ";
-
     }
 
+    @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public Company updatePrivilege(@RequestBody Company company, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction((transaction));
+        Company companyResponse = companyBl.updateCompany(company, transaction);
+        return companyResponse;
+    }
 
 
 

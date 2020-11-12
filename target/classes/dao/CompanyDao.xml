@@ -22,12 +22,14 @@
     </insert>
 
     <update id="delete" parameterType="bo.ucb.edu.ingsoft.model.Company">
-        UPDATE company set
-        tx_id = #{transaction.txId},
-        tx_host = #{transaction.txHost},
-        tx_user_id = #{transaction.txUserId}
-        tx_date = #{transaction.txDate}
-        where
-        id_company = #{companyId}
+        UPDATE company SET
+        SET tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+        WHERE
+        company_id = #{companyId}
+    </update>
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Company">
+        UPDATE `company`
+        SET name=#{name}, direction=#{direction},phone=#{phone}, email=#{email}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+        WHERE company_id = #{companyId}
     </update>
 </mapper>

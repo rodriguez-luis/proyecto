@@ -9,15 +9,25 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Computadoras Perez",
-  "direction": "Av. Uyustus N205",
+  "name": "Tecnologica SUYU",
+  "direction": "Av. Uyustus N1000",
   "phone": "25252525",
+  "email": "suyu@gmail.com"
+}
+###########
+PATCH http://localhost:8080/v1/company
+Accept: application/json
+Content-Type: application/json
 
-  "email": "comgonzales@gmail.com"
+{
+  "companyId": 11,
+  "name": "Tecnologica SUYI",
+  "direction": "Av. Uyustus N1000",
+  "phone": "25252525",
+  "email": "suyu@gmail.com"
 }
 
-
 ###########
-DELETE http://localhost:8080/v1/company?companyId=1
+DELETE http://localhost:8080/v1/company/1
 Accept: application/json
 
