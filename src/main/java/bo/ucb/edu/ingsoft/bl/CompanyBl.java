@@ -35,4 +35,17 @@ public class CompanyBl {
         return company;
     }
 
+    public void delete(Integer idCompany, Transaction transaction)
+    {
+        Company company= new Company();
+        company.setCompanyId(idCompany);
+        company.setTxId(transaction.getTxId());
+        company.setTxUserId(transaction.getTxUserId());
+        company.setTxHost(transaction.getTxHost());
+        company.setTxDate(transaction.getTxDate());
+
+        companyDao.delete(company);
+
+    }
+
 }
