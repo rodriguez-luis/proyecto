@@ -9,9 +9,8 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "name": "Ronald",
-  "direction": "Uyustus",
-  "phone": "2489822",
-  "email": "davi@gmail.com"
-
+  "name": "NO COMPANY",
+  "direction": "NOWHERE",
+  "phone": "00000000",
+  "email": "nomail"
 }
