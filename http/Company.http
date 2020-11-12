@@ -1,0 +1,17 @@
+##############
+GET http://localhost:8080/v1/company
+Accept: application/json
+
+###########333
+
+POST http://localhost:8080/v1/company
+Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Ronald",
+  "direction": "Uyustus",
+  "phone": "2489822",
+  "email": "davi@gmail.com"
+
+}

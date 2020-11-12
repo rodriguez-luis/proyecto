@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.CompanyDao">
+    <select id="findByCompanyId" resultType="bo.ucb.edu.ingsoft.model.Company">
+        SELECT
+               company_id as companyId,
+               name as name,
+               direction as direction,
+               phone as phone,
+               email as email
+        FROM company
+        WHERE
+            company_id = 2
+    </select>
+    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Company">
+        INSERT INTO company VALUES (
+            null, #{name}, #{direction},#{phone}, #{email},
+             #{txId}, #{txHost}, #{txUserId}, #{txDate}
+        )
+    </insert>
+</mapper>
