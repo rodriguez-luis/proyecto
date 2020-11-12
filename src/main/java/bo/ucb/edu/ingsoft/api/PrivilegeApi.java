@@ -1,8 +1,8 @@
 package bo.ucb.edu.ingsoft.api;
 
-import bo.ucb.edu.ingsoft.bl.CityBl;
+import bo.ucb.edu.ingsoft.bl.PrivilegeBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
-import bo.ucb.edu.ingsoft.dto.CityCreate;
+import bo.ucb.edu.ingsoft.dto.PrivilegeCreate;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.slf4j.Logger;
@@ -16,25 +16,25 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping(value = "/v1/city")
-public class CityApi {
-    private CityBl cityBl;
+@RequestMapping(value = "/v1/privilege")
+public class PrivilegeApi {
+    private PrivilegeBl privilegeBl;
     private TransactionBl transactionBl;
     private static final Logger LOGGER = LoggerFactory.getLogger(CompanyApi.class);
 
     @Autowired
-    public CityApi(CityBl cityBl, TransactionBl transactionBl) {
-        this.cityBl = cityBl;
+    public PrivilegeApi(PrivilegeBl privilegeBl, TransactionBl transactionBl) {
+        this.privilegeBl = privilegeBl;
         this.transactionBl = transactionBl;
     }
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public CityCreate createCity(@RequestBody CityCreate cityCreate, HttpServletRequest request){
+    public PrivilegeCreate createPrivilege(@RequestBody PrivilegeCreate privilegeCreate, HttpServletRequest request){
         //Creamos transaccion para la operacion.
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        CityCreate cityCreateResponse = cityBl.createCity(cityCreate, transaction);
-        return cityCreateResponse;
+        PrivilegeCreate privilegeCreateResponse = privilegeBl.createPrivilege(privilegeCreate, transaction);
+        return privilegeCreateResponse;
     }
 }
