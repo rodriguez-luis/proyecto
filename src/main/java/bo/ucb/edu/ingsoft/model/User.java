@@ -1,7 +1,5 @@
 package bo.ucb.edu.ingsoft.model;
 
-import bo.ucb.edu.ingsoft.dto.Transaction;
-
 import java.util.Date;
 
 public class User {
