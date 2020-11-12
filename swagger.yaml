@@ -16,22 +16,23 @@ servers:
 # Added by API Auto Mocking Plugin
 # Added by API Auto Mocking Plugin
 - description: SwaggerHub API Auto Mocking
-  url: https://virtserver.swaggerhub.com/angular5/proyecto/1.0.0
+  url: https://virtserver.swaggerhub.com/U939/Grupo5/1.0.0
 - description: PCs API Auto Mocking
   url: https://www.pcbigsale.com/angular5/proyecto/1.0.0
 tags:
-- name: PC
-  description: Everything about your PCs
-  externalDocs:
-    description: Find out more
-    url: http://www.pcbigsale.com
+- name: company
+- name: user
 - name: store
   description: Access to Pcstore orders
 
 - name: admin
   description: Operations about users
-- name: company
 - name: products
+- name: PC
+  description: Everything about your PCs  Noviembre
+  externalDocs:
+    description: Find out more
+    url: http://www.pcbigsale.com
 paths:
 
 #####################################################
@@ -346,6 +347,22 @@ paths:
                     direction: Buenos Aires
                     phone: 2456574
                     email: empresa2@gmail.com
+    patch:
+      tags:
+        - company
+      summary: Update an company
+      description: Only admins can perfom this action
+      responses:
+        '400':
+          description: Invalid user supplied
+        '404':
+          description: User not found
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/company'
+        required: true   
               
   /company/{userId}:
     get:
@@ -419,29 +436,6 @@ paths:
           description: Invalid ID supplied
         '404':
           description: Order not found
-          
-    put:
-      tags:
-        - company
-      summary: Update an company
-      description: Only admins can perfom this action
-      parameters:
-        - name: userId
-          in: path
-          required: true
-          schema:
-            type: integer
-      responses:
-        '400':
-          description: Invalid user supplied
-        '404':
-          description: User not found
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/company'
-        required: true        
 #####################################################
 #####################################################
   /product:
