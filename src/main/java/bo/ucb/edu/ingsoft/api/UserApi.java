@@ -2,6 +2,8 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.CustomerBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
+import bo.ucb.edu.ingsoft.dto.UserCreate;
+import bo.ucb.edu.ingsoft.model.Person;
 import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
@@ -17,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.servlet.http.HttpServletRequest;
 
 @RestController
-@RequestMapping(value = "/v1/user")
+@RequestMapping(value = "/v1/user/create")
 public class UserApi {
 
     private CustomerBl customerBl;
@@ -39,10 +41,10 @@ public class UserApi {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public User createUser(@RequestBody User user, HttpServletRequest request) {
+    public UserCreate createUser(@RequestBody UserCreate UserCreate, Person person, HttpServletRequest request) {
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        User userResponse = customerBl.createUser(user, transaction);
-        return userResponse;
+        UserCreate userCreateResponse = customerBl.createUser(UserCreate, transaction, person);
+        return userCreateResponse;
     }
 }

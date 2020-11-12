@@ -11,8 +11,8 @@
             id_user = 0
     </select>
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.User">
-        INSERT INTO user (id_user,person_id,company_id,id_status,username,password,salt,token,tx_id,tx_host,tx_user_id,tx_date)VALUES (
-            null,#{personId},#{companyId},#{statusId},#{username},#{password},#{salt},#{token},#{transaction.txId},#{transaction.txHost},#{transaction.txUserId},#{transaction.txDate}
+        INSERT INTO user VALUES (
+            null, #{personId}, #{companyId}, 1, #{username}, #{password}, 0, 0,#{txId}, #{txHost}, #{txUserId}, #{txDate}
         )
     </insert>
     <select id="getLastInsertId" resultType="java.lang.Integer">

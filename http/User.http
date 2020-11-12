@@ -2,19 +2,20 @@ GET http://localhost:8080/v1/user?username=luisito
 Accept: application/json
 
 ###
-POST http://localhost:8080/v1/user
+POST http://localhost:8080/v1/user/create
 Accept: application/json
 Content-Type: application/json
 
 {
-  "userId": 0,
-  "personId": 1,
+  "firstName": "Juanito",
+  "lastName": "Prueba",
+  "username": "juanprueba",
+  "password": "prueba",
   "companyId": 1,
-  "statusId": 1,
-  "username": "juanito123",
-  "password": "abc123",
-  "salt": "123",
-  "token": 1
+  "city": 1,
+  "phone": "77747774",
+  "email": "jprueba@gmail.com",
+  "birthday": "1997-08-15"
 }
 
 ###
