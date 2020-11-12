@@ -6,3 +6,12 @@ Content-Type: application/json
 {
   "privilegeName": "Admin"
 }
+
+##########
+PATCH http://localhost:8080/v1/privilege/privilege_name
+Accept: application/json
+Content-Type: application/json
+
+{
+  "privilegeName": "Create account"
+}
