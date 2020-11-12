@@ -283,7 +283,6 @@ paths:
             examples:
               empresa1:
                   value:
-                    id: 1
                     name: empresa1 loro
                     direction: Uyustus
                     phone: 25347521
@@ -826,6 +825,14 @@ paths:
           '*/*':
             schema:
               $ref: '#/components/schemas/User'
+            examples:
+              company1:
+                value:
+                  personId: 10
+                  username: juanito123
+                  password: asd123
+                  phone: 25341223
+                  salt: "120"
         required: true
       responses:
         default:
