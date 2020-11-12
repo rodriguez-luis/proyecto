@@ -13,5 +13,6 @@ Accept: application/json
 Content-Type: application/json
 
 {
+  "privilegeId": 1,
   "privilegeName": "Create account"
 }

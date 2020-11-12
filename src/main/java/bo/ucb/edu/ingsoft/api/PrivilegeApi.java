@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.PrivilegeBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
 import bo.ucb.edu.ingsoft.dto.PrivilegeCreate;
+import bo.ucb.edu.ingsoft.dto.PrivilegeUpdate;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.slf4j.Logger;
@@ -36,5 +37,14 @@ public class PrivilegeApi {
         transactionBl.createTransaction(transaction);
         PrivilegeCreate privilegeCreateResponse = privilegeBl.createPrivilege(privilegeCreate, transaction);
         return privilegeCreateResponse;
+    }
+
+    @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public PrivilegeUpdate updatePrivilege(@RequestBody PrivilegeUpdate privilegeUpdate, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction((transaction));
+        PrivilegeUpdate privilegeUpdateResponse = privilegeBl.updatePrivilege(privilegeUpdate, transaction);
+        return privilegeUpdateResponse;
     }
 }

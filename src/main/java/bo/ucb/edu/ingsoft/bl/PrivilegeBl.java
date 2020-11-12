@@ -36,6 +36,8 @@ public class PrivilegeBl {
         privilegeUpdate.setTxHost(transaction.getTxHost());
         privilegeUpdate.setTxDate(transaction.getTxDate());
         privilegeDao.update(privilegeUpdate);
+        Integer getLastId = transactionDao.getLastInsertId();
+        privilegeUpdate.setPrivilegeId(getLastId);
         return privilegeUpdate;
     }
 }
