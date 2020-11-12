@@ -27,7 +27,7 @@ public class CustomerBl {
         user.setTxHost(transaction.getTxHost());
         user.setTxDate(transaction.getTxDate());
 
-        userDao.create(user);
+        //userDao.create(user);
         Integer getLastId = transactionDao.getLastInsertId();
         user.setUserId(getLastId);
         return user;
