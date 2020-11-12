@@ -3,7 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.CompanyDao">
-    <select id="findByCompanyId" resultType="bo.ucb.edu.ingsoft.model.Company">
+    <select id="findByCompanyId" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.Company">
         SELECT
                company_id as companyId,
                name as name,
@@ -12,7 +12,7 @@
                email as email
         FROM company
         WHERE
-            company_id = 2
+            company_id = #{companyId}
     </select>
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Company">
         INSERT INTO company VALUES (

@@ -1,5 +1,5 @@
 ##############
-GET http://localhost:8080/v1/company
+GET http://localhost:8080/v1/company/2
 Accept: application/json
 
 ###########333

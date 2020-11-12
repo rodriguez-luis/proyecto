@@ -28,9 +28,9 @@ public class CompanyApi {
         this.transactionBl =  transactionBl;
     }
 
-    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public Company findById(HttpServletRequest request) {
-        return companyBl.findCompanyById(0);
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public Company findById(@PathVariable("id") Integer id, HttpServletRequest request) {
+        return companyBl.findCompanyById(id);
     }
 
 
