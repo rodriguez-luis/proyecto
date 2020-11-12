@@ -11,10 +11,7 @@ public class User {
     private String password;
     private String salt;
     private Integer token;
-    private Integer txId;
-    private String txHost;
-    private Integer txUserId;
-    private Date txDate;
+    private Transaction transaction;
 
     public User(Integer userId, Integer personId, Integer companyId, Integer statusId, String username, String password, String salt, Integer token, Integer txId, String txHost, Integer txUserId, Date txDate) {
         this.userId = userId;
@@ -25,10 +22,7 @@ public class User {
         this.password = password;
         this.salt = salt;
         this.token = token;
-        this.txId = txId;
-        this.txHost = txHost;
-        this.txUserId = txUserId;
-        this.txDate = txDate;
+        this.transaction =new Transaction(txId,txHost,txUserId,txDate);
     }
 
     public Integer getUserId() {
@@ -96,35 +90,35 @@ public class User {
     }
 
     public Integer getTxId() {
-        return txId;
+        return transaction.getTxId();
     }
 
     public void setTxId(Integer txId) {
-        this.txId = txId;
+        this.transaction.setTxId(txId);
     }
 
     public String getTxHost() {
-        return txHost;
+        return transaction.getTxHost();
     }
 
     public void setTxHost(String txHost) {
-        this.txHost = txHost;
+        this.transaction.setTxHost(txHost);
     }
 
     public Integer getTxUserId() {
-        return txUserId;
+        return transaction.getTxUserId();
     }
 
     public void setTxUserId(Integer txUserId) {
-        this.txUserId = txUserId;
+        this.transaction.setTxUserId(txUserId);
     }
 
     public Date getTxDate() {
-        return txDate;
+        return transaction.getTxDate();
     }
 
     public void setTxDate(Date txDate) {
-        this.txDate = txDate;
+        this.transaction.setTxDate(txDate);
     }
 
     @Override
@@ -138,10 +132,10 @@ public class User {
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
                 ", token=" + token +
-                ", txId=" + txId +
-                ", txHost='" + txHost + '\'' +
-                ", txUserId=" + txUserId +
-                ", txDate=" + txDate +
+                ", txId=" + transaction.getTxId() +
+                ", txHost='" + transaction.getTxHost() + '\'' +
+                ", txUserId=" + transaction.getTxUserId() +
+                ", txDate=" + transaction.getTxDate() +
                 '}';
     }
 }
