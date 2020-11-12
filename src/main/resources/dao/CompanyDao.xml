@@ -21,11 +21,10 @@
         )
     </insert>
 
-    <update id="delete" parameterType="bo.ucb.edu.ingsoft.model.Company">
-        UPDATE company SET
-        SET tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+    <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Company">
+        DELETE FROM company
         WHERE company_id = #{companyId}
-    </update>
+    </delete>
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Company">
         UPDATE `company`
         SET name=#{name}, direction=#{direction},phone=#{phone}, email=#{email}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}

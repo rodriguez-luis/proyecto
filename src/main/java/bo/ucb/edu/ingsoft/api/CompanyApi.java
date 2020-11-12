@@ -54,7 +54,7 @@ public class CompanyApi {
 
     @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Company updatePrivilege(@RequestBody Company company, HttpServletRequest request){
+    public Company updateCompany(@RequestBody Company company, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction((transaction));
         Company companyResponse = companyBl.updateCompany(company, transaction);
