@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.ProductTypeDao">
+    <select id="findByProductTypeId" resultType="bo.ucb.edu.ingsoft.model.ProductType">
+        SELECT
+            *
+        FROM product_type
+        WHERE
+            product_type_id = 0
+    </select>
+    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.ProductType">
+        INSERT INTO product_type (product_type_id,type_name,status,tx_id,tx_host,tx_user_id,tx_date)VALUES
+        (
+            null,#{},#{productTypeId},#{ptype_name},#{status},#{productDescription},#{unit},#{transaction.txId},#{transaction.txHost},#{transaction.txUserId},#{transaction.txDate}
+        )
+    </insert>
+<!--    <select id="getLastInsertId" resultType="java.lang.Integer">-->
+<!--        SELECT LAST_INSERT_ID()-->
+<!--    </select>-->
+</mapper>
