@@ -9,7 +9,7 @@
 GET http://localhost:8080/v1/producttype/1
 Accept: application/json
 
-###e
+###
 
 POST http://localhost:8080/v1/producttype
 Accept: application/json
