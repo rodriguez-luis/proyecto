@@ -4,12 +4,12 @@ import java.util.Date;
 
 public class ProductType {
     private Integer productTypeId;
-    private String type_name;
+    private String typeName;
     private Transaction transaction;
     private Integer status;
     public ProductType(Integer productTypeId, String type_name, Integer txId, String txHost, Integer txUserId, Date txDate, Integer status) {
         this.productTypeId = productTypeId;
-        this.type_name = type_name;
+        this.typeName = type_name;
         this.status = status;
         this.transaction = new Transaction(txId,txHost,txUserId,txDate);
     }
@@ -66,11 +66,11 @@ public class ProductType {
     }
 
     public String getType_name() {
-        return type_name;
+        return typeName;
     }
 
     public void setType_name(String type_name) {
-        this.type_name = type_name;
+        this.typeName = type_name;
     }
 
     public Transaction getTransaction() {
@@ -85,7 +85,7 @@ public class ProductType {
     public String toString() {
         return "ProductType{" +
                 "productTypeId=" + productTypeId +
-                ", type_name='" + type_name + '\'' +
+                ", type_name='" + typeName + '\'' +
                 ", transaction=" + transaction +
                 ", status=" + status +
                 '}';
