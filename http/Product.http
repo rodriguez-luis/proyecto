@@ -1,0 +1,25 @@
+###########
+GET http://localhost:8080/v1/product/3
+Accept: application/json
+
+###########
+
+POST http://localhost:8080/v1/product
+Accept: application/json
+Content-Type: application/json
+
+{
+  "productName": "Procesador",
+  "model": "I5 9400",
+  "productDescription": "Intel I5 novena generacion",
+  "stock": 5,
+  "weight": 5.5,
+  "companyId": 2,
+  "productTypeId": 1,
+  "cityId": 1,
+  "unitPrice": 1000,
+  "statusId": 1
+}
+###########
+
+
