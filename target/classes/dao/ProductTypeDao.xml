@@ -5,7 +5,8 @@
 <mapper namespace="bo.ucb.edu.ingsoft.dao.ProductTypeDao">
     <select id="findByProductTypeId" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.ProductType">
         SELECT
-            *
+            product_type_id as productTypeId,
+            type_name  as typeName
         FROM product_type
         WHERE
             product_type_id = #{productTypeId}
