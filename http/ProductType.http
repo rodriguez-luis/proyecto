@@ -6,7 +6,7 @@
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
 
-GET http://localhost:8080/v1/producttype
+GET http://localhost:8080/v1/producttype/1
 Accept: application/json
 
 ###e
