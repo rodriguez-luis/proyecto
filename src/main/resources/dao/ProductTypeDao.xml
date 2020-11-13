@@ -6,7 +6,8 @@
     <select id="findProductTypeById" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.ProductType">
         SELECT
             product_type_id as productTypeId,
-            type_name  as typeName
+            type_name  as typeName,
+            status_id as statusId
         FROM product_type
         WHERE
             product_type_id = #{productTypeId}
