@@ -6,7 +6,7 @@ import java.util.Date;
 
 public class ProductTypeCreate {
      /*{
-        "type_name": "MotherBoard"
+        "typename": "MotherBoard"
     }*/
      private Integer productTypeId;
      private String typeName;

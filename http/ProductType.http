@@ -16,7 +16,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "roleName": "MotherBoard"
+  "typeName": "MotherBoard"
 }
 
 ###
