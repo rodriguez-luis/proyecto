@@ -14,7 +14,7 @@
         INSERT INTO product_type VALUES
         (
             null,#{typeName},
-         #{statusId},#{status},#{txId},#{txHost},#{txUserId},#{txDate}
+         1,#{txId},#{txHost},#{txUserId},#{txDate}
         )
     </insert>
 <!--    <select id="getLastInsertId" resultType="java.lang.Integer">-->
