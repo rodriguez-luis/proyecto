@@ -6,16 +6,17 @@
     <select id="findByProductId" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.Product">
         SELECT
                product_id as productId,
-               product_name as name,
+               product_name as productName,
                model as model,
-               product_description as description,
+               product_description as productDescription,
                stock as stock,
                weight as weight,
                company_id as companyId,
                product_type_id as productTypeId,
                city_id as cityId,
                price_per_unit as unitPrice,
-               status_id as statusId
+               currency as currency,
+               brand_id as brandId
         FROM product
         WHERE
             product_id = #{productId}
@@ -23,4 +24,22 @@
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Product">
         INSERT INTO product VALUES (null, #{productName}, #{model}, #{productDescription}, #{stock}, #{weight}, #{companyId}, #{productTypeId}, #{cityId}, #{unitPrice}, #{statusId}, #{txId}, #{txHost}, #{txUserId}, #{txDate})
     </insert>
+    <select id="getProducts" resultType="bo.ucb.edu.ingsoft.model.Product">
+        SELECT
+            product_id as productId,
+            product_name as productName,
+            model as model,
+            product_description as productDescription,
+            stock as stock,
+            weight as weight,
+            company_id as companyId,
+            product_type_id as productTypeId,
+            city_id as cityId,
+            price_per_unit as unitPrice,
+            currency as currency,
+            brand_id as brandId
+        FROM product
+        WHERE
+            status = 1
+    </select>
 </mapper>

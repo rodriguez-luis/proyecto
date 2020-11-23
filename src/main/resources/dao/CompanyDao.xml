@@ -22,8 +22,9 @@
     </insert>
 
     <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Company">
-        DELETE FROM company
-        WHERE company_id = #{companyId}
+        UPDATE `company`
+        SET status=#{status}
+            WHERE company_id = #{companyId}
     </delete>
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Company">
         UPDATE `company`

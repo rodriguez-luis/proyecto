@@ -22,8 +22,15 @@ public class CompanyBl {
         this.companyDao = companyDao;
     }
 
-    public Company findCompanyById(Integer companyId) {
-        return  companyDao.findByCompanyId(companyId);
+    public CompanyDto findCompanyById(Integer companyId) {
+        Company company =  companyDao.findByCompanyId(companyId);
+        CompanyDto companyDto = new CompanyDto();
+        companyDto.setCompanyId(company.getCompanyId());
+        companyDto.setName(company.getName());
+        companyDto.setDirection(company.getDirection());
+        companyDto.setPhone(company.getPhone());
+        companyDto.setEmail(company.getEmail());
+        return companyDto;
     }
 
     public CompanyDto createCompany(CompanyDto companyDto, Transaction transaction) {
@@ -51,14 +58,21 @@ public class CompanyBl {
         company.setTxUserId(transaction.getTxUserId());
         company.setTxHost(transaction.getTxHost());
         company.setTxDate(transaction.getTxDate());
+        company.setStatus(0);
         companyDao.delete(company);
     }
-    public Company updateCompany(Company company, Transaction transaction){
+    public CompanyDto updateCompany(CompanyDto companyDto, Transaction transaction){
+        Company company = new Company();
+        company.setName(companyDto.getName());
+        company.setDirection(companyDto.getDirection());
+        company.setPhone(companyDto.getPhone());
+        company.setEmail(companyDto.getEmail());
         company.setTxId(transaction.getTxId());
         company.setTxUserId(transaction.getTxUserId());
         company.setTxHost(transaction.getTxHost());
         company.setTxDate(transaction.getTxDate());
+        company.setStatus(1);
         companyDao.update(company);
-        return company;
+        return companyDto;
     }
 }

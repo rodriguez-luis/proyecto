@@ -1,8 +1,10 @@
-package bo.ucb.edu.ingsoft.model;
+package bo.ucb.edu.ingsoft.dto;
+
+import bo.ucb.edu.ingsoft.model.Transaction;
 
 import java.util.Date;
 
-public class Product {
+public class ProductDto {
     private Integer productId;
     private String productName;
     private String model;
@@ -15,22 +17,12 @@ public class Product {
     private Double unitPrice;
     private Integer currency;
     private Integer brandId;
-    private Transaction transaction;
-    private Integer status;
-
     public Integer getCurrency() {
         return currency;
     }
 
     public void setCurrency(Integer currency) {
         this.currency = currency;
-    }
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
     }
     @Override
     public String toString() {
@@ -47,10 +39,6 @@ public class Product {
                 ", unitPrice=" + unitPrice +
                 ", currency=" + currency +
                 ", brandId=" + brandId +
-                ", txId=" + transaction.getTxId() +
-                ", txHost='" + transaction.getTxHost() + '\'' +
-                ", txUserId=" + transaction.getTxUserId() +
-                ", txDate=" + transaction.getTxDate() +
                 '}';
     }
 
@@ -134,53 +122,11 @@ public class Product {
         this.unitPrice = unitPrice;
     }
 
-    public Transaction getTransaction() {
-        return transaction;
-    }
-
-    public void setTransaction(Transaction transaction) {
-        this.transaction = transaction;
-    }
-    public Integer getTxId() {
-        return transaction.getTxId();
-    }
-
-    public void setTxId(Integer txId) {
-        this.transaction.setTxId(txId);
-    }
-
-    public String getTxHost() {
-        return transaction.getTxHost();
-    }
-
-    public void setTxHost(String txHost) {
-        this.transaction.setTxHost(txHost);
-    }
-
-    public Integer getTxUserId() {
-        return transaction.getTxUserId();
-    }
-
-    public void setTxUserId(Integer txUserId) {
-        this.transaction.setTxUserId(txUserId);
-    }
-
-    public Date getTxDate() {
-        return transaction.getTxDate();
-    }
-
-    public void setTxDate(Date txDate) {
-        this.transaction.setTxDate(txDate);
-    }
-
-    public Product() {
-        this.transaction= new Transaction();
+    public Integer getBrandId() {
+        return brandId;
     }
 
     public void setBrandId(Integer brandId) {
         this.brandId = brandId;
-    }
-    public Integer getBrandId() {
-        return this.brandId;
     }
 }
