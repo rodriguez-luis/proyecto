@@ -1,451 +1,214 @@
--- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2020-11-11 22:30:58.32
+/*select * from city;*/
+INSERT INTO `proyecto_pc2`.`city` (`city_name`) VALUES ('La Paz');
+INSERT INTO `proyecto_pc2`.`city` (`city_name`) VALUES ('Cochabamba');
+INSERT INTO `proyecto_pc2`.`city` (`city_name`) VALUES ('Santa Cruz');
+INSERT INTO `proyecto_pc2`.`city` (`city_name`) VALUES ('Oruro');
+INSERT INTO `proyecto_pc2`.`city` (`city_name`) VALUES ('Tarija');
 
--- tables
--- Table: cart
-CREATE TABLE cart (
-    cart_id int NOT NULL AUTO_INCREMENT,
-    purchase_details_id int NOT NULL,
-    status_id int NOT NULL,
-    user_id int NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT cart_pk PRIMARY KEY (cart_id)
-);
+/*select * from brands;*/
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('Asus');
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('MSI');
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('HP');
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('Nvidia');
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('Deepcool');
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('REDRAGON');
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('Intel');
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('AMD');
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('EVGA');
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('Samsung');
+INSERT INTO `proyecto_pc2`.`brands` (`name`) VALUES ('ROCCAT');
 
--- Table: category
-CREATE TABLE category (
-    category_id int NOT NULL AUTO_INCREMENT,
-    category_name varchar(120) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT category_pk PRIMARY KEY (category_id)
-);
+/*select * from category;*/
+INSERT INTO `proyecto_pc2`.`category` (`category_name`) VALUES ('Games');
+INSERT INTO `proyecto_pc2`.`category` (`category_name`) VALUES ('Work');
+INSERT INTO `proyecto_pc2`.`category` (`category_name`) VALUES ('Home');
+INSERT INTO `proyecto_pc2`.`category` (`category_name`) VALUES ('Study');
 
--- Table: category_product
-CREATE TABLE category_product (
-    category_product_id int NOT NULL AUTO_INCREMENT,
-    product_id int NOT NULL,
-    category_id int NOT NULL,
-    CONSTRAINT category_product_pk PRIMARY KEY (category_product_id)
-);
+/*select * from product_type;*/
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('Motherboard');
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('CPU');
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('GPU');
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('Keyboard');
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('Mouse');
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('Screencooler');
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('Cooler');
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('RAM');
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('SSD');
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('HDD');
+INSERT INTO `proyecto_pc2`.`product_type` (`type_name`) VALUES ('Power Supply');
 
--- Table: chat
-CREATE TABLE chat (
-    chat_id int NOT NULL AUTO_INCREMENT,
-    user_id int NOT NULL,
-    date date NOT NULL,
-    start time NOT NULL,
-    end time NOT NULL,
-    log varchar(50) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT chat_pk PRIMARY KEY (chat_id)
-);
+/*select * from payment_type;*/
+INSERT INTO `proyecto_pc2`.`payment_type` (`type_name`) VALUES ('Cash');
+INSERT INTO `proyecto_pc2`.`payment_type` (`type_name`) VALUES ('Debit card');
+INSERT INTO `proyecto_pc2`.`payment_type` (`type_name`) VALUES ('Credit card');
 
--- Table: checkout
-CREATE TABLE checkout (
-    checkout_id int NOT NULL AUTO_INCREMENT,
-    cart_id int NOT NULL,
-    payment_details_id int NOT NULL,
-    date date NOT NULL,
-    total numeric(12,6) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT checkout_pk PRIMARY KEY (checkout_id)
-);
+/*select * from privilege;*/
+INSERT INTO `proyecto_pc2`.`privilege` (`privilege_name`) VALUES ('Create account');
+INSERT INTO `proyecto_pc2`.`privilege` (`privilege_name`) VALUES ('Delete account');
+INSERT INTO `proyecto_pc2`.`privilege` (`privilege_name`) VALUES ('Add product');
+INSERT INTO `proyecto_pc2`.`privilege` (`privilege_name`) VALUES ('Delete product');
+INSERT INTO `proyecto_pc2`.`privilege` (`privilege_name`) VALUES ('Modify product');
+INSERT INTO `proyecto_pc2`.`privilege` (`privilege_name`) VALUES ('See product');
+INSERT INTO `proyecto_pc2`.`privilege` (`privilege_name`) VALUES ('Sell product');
+INSERT INTO `proyecto_pc2`.`privilege` (`privilege_name`) VALUES ('Buy product');
 
--- Table: city
-CREATE TABLE city (
-    city_id int NOT NULL AUTO_INCREMENT,
-    city_name varchar(128) NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT city_pk PRIMARY KEY (city_id)
-);
+/*select * from role;*/
+INSERT INTO `proyecto_pc2`.`role` (`rol_name`) VALUES ('Admin');
+INSERT INTO `proyecto_pc2`.`role` (`rol_name`) VALUES ('Seller');
+INSERT INTO `proyecto_pc2`.`role` (`rol_name`) VALUES ('Buyer');
 
--- Table: company
-CREATE TABLE company (
-    company_id int NOT NULL AUTO_INCREMENT,
-    name varchar(50) NOT NULL,
-    direction varchar(50) NOT NULL,
-    phone varchar(50) NOT NULL,
-    email varchar(50) NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT company_pk PRIMARY KEY (company_id)
-);
+/*select * from company;*/
+INSERT INTO `proyecto_pc2`.`company` (`name`, `direction`, `phone`, `email`) VALUES ('Big PC', 'TODO', '22222222', 'bigpc@bigpc.com');
+INSERT INTO `proyecto_pc2`.`company` (`name`, `direction`, `phone`, `email`) VALUES ('No company', 'nowhere', '00000000', 'nomail');
+INSERT INTO `proyecto_pc2`.`company` (`name`, `direction`, `phone`, `email`) VALUES ('Computadoras Gonzales', 'Av. Calatayud N. 255', '22555555', 'comgonzales@gmail.com');
+INSERT INTO `proyecto_pc2`.`company` (`name`, `direction`, `phone`, `email`) VALUES ('Grandes Partes', 'Av. Calatayud N. 480', '22555554', 'gpartes@gmail.com');
+INSERT INTO `proyecto_pc2`.`company` (`name`, `direction`, `phone`, `email`) VALUES ('Turbo', 'Av. Eloy Salmon', '22555553', 'turbo@gmail.com');
 
--- Table: h_checkout
-CREATE TABLE h_checkout (
-    h_checkout_id int NOT NULL AUTO_INCREMENT,
-    client_id int NOT NULL,
-    cart_cart_id int NOT NULL,
-    payment_details_id int NOT NULL,
-    date date NOT NULL,
-    total numeric(12,6) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT h_checkout_pk PRIMARY KEY (h_checkout_id)
-);
+/*select * from rol_privilege;*/
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('1', '1');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('1', '2');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('1', '3');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('1', '4');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('1', '5');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('1', '6');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('1', '7');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('2', '3');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('2', '4');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('2', '5');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('2', '6');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('2', '7');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('2', '8');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('3', '6');
+INSERT INTO `proyecto_pc2`.`rol_privilege` (`role_id`, `privilege_id`) VALUES ('3', '8');
 
--- Table: h_inventory
-CREATE TABLE h_inventory (
-    h_inventory_id int NOT NULL AUTO_INCREMENT,
-    in_stock decimal(8,2) NULL,
-    last_update_time timestamp NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT h_inventory_pk PRIMARY KEY (h_inventory_id)
-);
+/*select * from person;*/
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('1', 'Ricardo', 'Torrez', '77717774', '1993-10-08', 'ricar@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('1', 'Manuel', 'Daza', '77717773', '1992-10-31', 'man@gmailc.om');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('2', 'Rodrigo', 'Jaramillo', '77717772', '1977-12-03', 'rod@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('3', 'Alejandro', 'Moreno', '77727771', '1979-11-28', 'ale@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('4', 'Fernanda', 'Gomez', '77727772', '1974-07-27', 'fer@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('4', 'Marcela', 'Rios', '77727773', '1983-08-20', 'mar@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('5', 'Carlos', 'Varela', '77747771', '1977-05-17', 'car@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('5', 'Eduardo', 'Hernandez', '77747778', '1978-02-18', 'edu@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('3', 'Maximiliano', 'Lopez', '77787779', '1980-09-21', 'max@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('2', 'Jorge', 'Rojas', '77767776', '1985-06-24', 'jor@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('1', 'Francisca', 'Garcia', '77747776', '1988-04-28', 'fra@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('1', 'Mariana', 'Fernandez', '77747775', '1978-06-10', 'mar@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('3', 'Sergio', 'Chavez', '77757775', '1982-07-19', 'ser@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('5', 'Mauricio', 'Trevilla', '77747774', '1992-06-20', 'mau@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('5', 'Yamil', 'Ballarta', '77777777', '1998-02-14', 'yam@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('4', 'Rafael', 'Perez', '78888888', '1994-05-12', 'raf@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('1', 'Gabriel ', 'Loza', '75292809', '1997-08-15', 'gabriel.loza.lucero@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('1', 'Luis', 'Rodriguez', '78730291', '1998-05-12', 'luis@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('1', 'Nilson', 'Contreras', '71965701', '1997-12-20', 'nilson@gmail.com');
+INSERT INTO `proyecto_pc2`.`person` (`city_id`, `first_name`, `last_name`, `phone`, `birthday`, `email`) VALUES ('1','Alvaro', 'Moller', '60571824', '1999-01-05', 'alvaromollerlima@gmail.com');
 
--- Table: h_product
-CREATE TABLE h_product (
-    h_product_id int NOT NULL AUTO_INCREMENT,
-    product_type_id int NOT NULL,
-    company_id int NOT NULL,
-    city_id int NOT NULL,
-    status_id_status int NOT NULL,
-    product_name varchar(64) NULL,
-    product_description varchar(255) NULL,
-    unit varchar(16) NULL,
-    price_per_unit numeric(12,6) NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT h_product_pk PRIMARY KEY (h_product_id)
-);
+/*select * from product;*/
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('Asus ROG Maximus', ' XII Extreme', 'Asus ROG Maximus XII Extreme\', \'CPU support: Intel 10th Gen~Socket: LGA 1200~Memory support: 4x DIMM, up to 128GB, DDR4-4700~Video ports: 2x Thunderbolt 3 ports on extensioncard (DP1.4)~Rear USB: 10X USB 3.2, 2X USB 2.0~Network: 1x 10GB Marvell ethernet, Intel WI-FI 6 wireless', '5', '1.5', '5', '1', '1', '740', '1', '1');
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('AMD Radeon', 'RX 5700', 'Processors: 2304~Core Clock: 1465 MHz~Memory: 8GB GDDR6~Memory Clock: 14Gbps~Power Connector: 1 x 8-pin, 1 x 6-pin~Outputs: 1 x DisplayPort 1.4 with DSC, 1 x HDMI with 4k60 support', '10', '0.75', '5', '3', '1', '2997', '0', '8');
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('MSI Optix', 'Optix-MAG241C', 'Curved display[1500R]~FHD High Resolution~144Hz Refresh Rate~1ms response time~True colors~AMD FreeSync~Anti-Flicker and Less Blue Light~Frameless desing~178 wide view angle', '3', '4', '5', '6', '1', '1620', '0', '2');
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('Deepcool ', 'N9BLACK', 'Dimension: 380X279X34mm~Fan Dimension: 180x15mm~Net Weight: 1700g~Operating Voltage: 4.5-5VDC~Fan speed: 600+-150 -1000+-10%RPM', '20', '2.1', '5', '7', '1', '36', '1', '5');
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('Samsung SSD', '860 EVO', '1 TB~2.5 Inch~ SATA III~ Internal SSD', '12', '0.2', '4', '9', '1', '980', '0', '10');
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('EVGA SuperNova', '850 Ga', '80 plus Gold 850W~Fully Modular~Eco Mode with Dbb Fan~Size: 150mm', '16', '5', '3', '11', '1', '1150', '0', '9');
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('Intel Core i9', '10900K', 'Cores: 10~Threads: 20~Base Frequency: 3.70GHz~Turbo Frequency: 5.30 GHz~Cache: 20MB~Bus Speed: 8GT/s', '8', '0.85', '3', '2', '1', '3500', '0', '7');
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('ROCCAT Vulcan', '120 AIMO', 'Type: Mechanical Keyboard~3.6mm travel distance~1.8m USB cable~Polling rate: 1000Hz', '40', '3.2', '3', '4', '5', '880', '0', '11');
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('AMD Radeon', 'VII', 'Processors: 3840~Core Clock: 1400MHz~Memory: 16GB HBM2~Memory Clock: Gbps~Power Connectors: 2 x 8-pin~Outputs: 3 x DisplayPort 1.4, 1 x HDMI 2.0', '4', '2.2', '3', '3', '5', '2295', '0', '8');
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('REDRAGON MOUSE', 'IMPACT', '1000Hz 30G ACC~Super fast game engine~18 programmable buttons~5 Memory nodes~12400 DPI', '20', '0.5', '3', '5', '5', '250', '0', '6');
+INSERT INTO `proyecto_pc2`.`product` (`product_name`, `model`, `product_description`, `stock`, `weight`, `company_id`, `product_type_id`, `city_id`, `price_per_unit`, `currency`, `brand_id`) VALUES ('AMD Ryzen 3', '5300X', 'Cores: 4~Threads: 8~Base Frequency 3.9GHz~Turbo Frequency 4.5 GHz~Cache memory 16MB~Max memory capacity: 64GB~Memory types: DDR4-3200', '13', '1', '4', '2', '5', '1400', '0', '8');
 
--- Table: h_user
-CREATE TABLE h_user (
-    h_user_id int NOT NULL AUTO_INCREMENT,
-    id_user int NOT NULL,
-    person_id int NOT NULL,
-    company_id int NOT NULL,
-    id_status int NOT NULL,
-    username varchar(50) NULL,
-    password varchar(50) NULL,
-    salt varchar(50) NOT NULL,
-    token int NOT NULL,
-    created_at timestamp NOT NULL,
-    updated_at timestamp NOT NULL,
-    deleted_at timestamp NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT h_user_pk PRIMARY KEY (h_user_id)
-) COMMENT 'Tabla de usuarios';
+/*select * from user;*/
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('17', '1', 'gabriellozalucero', 'admin1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('18', '1', 'luisrodriguez', 'admin1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('19', '1', 'nilsoncontreras', 'admin1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('20', '1', 'alvaromoller', 'admin1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('1', '2', 'ricartorrez', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('2', '2', 'mandaza', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('3', '2', 'rodja', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('4', '2', 'alemo', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('5', '2', 'fergo', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('6', '2', 'marri', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('7', '2', 'carva', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('8', '2', 'eduher', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('9', '2', 'maxlo', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('10', '5', 'jorro', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('11', '5', 'fraga', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('12', '3', 'marfer', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('13', '3', 'sercha', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('14', '4', 'mautre', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('15', '2', 'yamba', 'user1');
+INSERT INTO `proyecto_pc2`.`user` (`person_id`, `company_id`, `username`, `password`) VALUES ('16', '2', 'rafpe', 'user1');
 
--- Table: message
-CREATE TABLE message (
-    message_id int NOT NULL AUTO_INCREMENT,
-    chat_id int NOT NULL,
-    time time NOT NULL,
-    content varchar(500) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT message_pk PRIMARY KEY (message_id)
-);
+/*select * from payment_data;*/
+INSERT INTO `proyecto_pc2`.`payment_data` (`payment_type_id`) VALUES ('1');
+INSERT INTO `proyecto_pc2`.`payment_data` (`payment_type_id`) VALUES ('2');
+INSERT INTO `proyecto_pc2`.`payment_data` (`payment_type_id`) VALUES ('3');
+INSERT INTO `proyecto_pc2`.`payment_data` (`payment_type_id`) VALUES ('1');
+INSERT INTO `proyecto_pc2`.`payment_data` (`payment_type_id`) VALUES ('2');
+INSERT INTO `proyecto_pc2`.`payment_data` (`payment_type_id`) VALUES ('3');
 
--- Table: payment_data
-CREATE TABLE payment_data (
-    payment_data_id int NOT NULL AUTO_INCREMENT,
-    payment_type_id int NOT NULL,
-    data_name varchar(255) NULL,
-    data_type varchar(255) NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    UNIQUE INDEX payment_data_ak_1 (payment_type_id,data_name),
-    CONSTRAINT payment_data_pk PRIMARY KEY (payment_data_id)
-);
+/*select * from payment_details;*/
+INSERT INTO `proyecto_pc2`.`payment_details` (`payment_data_id`) VALUES ('1');
+INSERT INTO `proyecto_pc2`.`payment_details` (`payment_data_id`) VALUES ('2');
+INSERT INTO `proyecto_pc2`.`payment_details` (`payment_data_id`) VALUES ('3');
+INSERT INTO `proyecto_pc2`.`payment_details` (`payment_data_id`) VALUES ('4');
+INSERT INTO `proyecto_pc2`.`payment_details` (`payment_data_id`) VALUES ('5');
+INSERT INTO `proyecto_pc2`.`payment_details` (`payment_data_id`) VALUES ('6');
 
--- Table: payment_details
-CREATE TABLE payment_details (
-    payment_details_id int NOT NULL AUTO_INCREMENT,
-    payment_data_id int NOT NULL,
-    value varchar(255) NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT payment_details_pk PRIMARY KEY (payment_details_id)
-);
+/*select * from purchase_details;*/
+INSERT INTO `proyecto_pc2`.`purchase_details` (`product_id`, `quanitity`, `unit_price`, `price`) VALUES ('2', '1', '2997', '2997');
+INSERT INTO `proyecto_pc2`.`purchase_details` (`product_id`, `quanitity`, `unit_price`, `price`) VALUES ('5', '2', '980', '1960');
+INSERT INTO `proyecto_pc2`.`purchase_details` (`product_id`, `quanitity`, `unit_price`, `price`) VALUES ('10', '5', '2295', '11475');
+INSERT INTO `proyecto_pc2`.`purchase_details` (`product_id`, `quanitity`, `unit_price`, `price`) VALUES ('11', '2', '1400', '2800');
 
--- Table: payment_type
-CREATE TABLE payment_type (
-    payment_type_id int NOT NULL AUTO_INCREMENT,
-    type_name varchar(64) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT payment_type_pk PRIMARY KEY (payment_type_id)
-) COMMENT 'e.g. card, cash, paypal, wire transfer';
+/*select * from cart;*/
+INSERT INTO `proyecto_pc2`.`cart` (`purchase_details_id`, `user_id`) VALUES ('1', '20');
+INSERT INTO `proyecto_pc2`.`cart` (`purchase_details_id`, `user_id`) VALUES ('2', '16');
+INSERT INTO `proyecto_pc2`.`cart` (`purchase_details_id`, `user_id`) VALUES ('3', '12');
+INSERT INTO `proyecto_pc2`.`cart` (`purchase_details_id`, `user_id`) VALUES ('4', '8');
 
--- Table: person
-CREATE TABLE person (
-    person_id int NOT NULL AUTO_INCREMENT,
-    city_id int NOT NULL,
-    first_name varchar(50) NOT NULL,
-    last_name varchar(50) NOT NULL,
-    phone varchar(25) NOT NULL,
-    birthday date NOT NULL,
-    email varchar(50) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT person_pk PRIMARY KEY (person_id)
-);
+/*select * from checkout;*/
+INSERT INTO `proyecto_pc2`.`checkout` (`cart_id`, `payment_details_id`, `date`, `total`) VALUES ('1', '2', '2020-11-05', '5150');
+INSERT INTO `proyecto_pc2`.`checkout` (`cart_id`, `payment_details_id`, `date`, `total`) VALUES ('2', '4', '2020-11-05', '1960');
 
--- Table: privilege
-CREATE TABLE privilege (
-    privilege_id int NOT NULL AUTO_INCREMENT,
-    privilege_name varchar(50) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT privilege_pk PRIMARY KEY (privilege_id)
-);
+/*select * from user_role;*/
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('1', '1');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('1', '2');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('1', '3');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('1', '4');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('2', '14');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('2', '15');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('2', '16');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('2', '17');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('2', '18');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '19');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '20');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '5');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '6');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '7');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '8');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '9');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '10');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '11');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '12');
+INSERT INTO `proyecto_pc2`.`user_role` (`role_id`, `user_id`) VALUES ('3', '13');
 
--- Table: product
-CREATE TABLE product (
-    product_id int NOT NULL AUTO_INCREMENT,
-    product_name varchar(64) NOT NULL,
-    model varchar(50) NOT NULL,
-    product_description varchar(255) NOT NULL,
-    stock int NOT NULL,
-    weight double(6,3) NOT NULL,
-    company_id int NOT NULL,
-    product_type_id int NOT NULL,
-    city_id int NOT NULL,
-    price_per_unit numeric(12,6) NOT NULL,
-    status_id int NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT product_pk PRIMARY KEY (product_id)
-);
-
--- Table: product_type
-CREATE TABLE product_type (
-    product_type_id int NOT NULL AUTO_INCREMENT,
-    type_name varchar(64) NOT NULL,
-    status_id int NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT product_type_pk PRIMARY KEY (product_type_id)
-) COMMENT '
-';
-
--- Table: purchase_details
-CREATE TABLE purchase_details (
-    purchase_details_id int NOT NULL AUTO_INCREMENT,
-    product_id int NOT NULL,
-    quanitity int NOT NULL,
-    price_per_unit numeric(12,6) NOT NULL,
-    price numeric(12,6) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    UNIQUE INDEX shipmet_details_ak_1 (product_id),
-    CONSTRAINT purchase_details_pk PRIMARY KEY (purchase_details_id)
-);
-
--- Table: rol_privilege
-CREATE TABLE rol_privilege (
-    role_privilege_id int NOT NULL AUTO_INCREMENT,
-    role_id int NOT NULL,
-    privilege_id int NOT NULL,
-    CONSTRAINT rol_privilege_pk PRIMARY KEY (role_privilege_id)
-);
-
--- Table: role
-CREATE TABLE role (
-    role_id int NOT NULL AUTO_INCREMENT,
-    rol_name varchar(50) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT role_pk PRIMARY KEY (role_id)
-);
-
--- Table: status
-CREATE TABLE status (
-    status_id int NOT NULL AUTO_INCREMENT,
-    status_name varchar(64) NOT NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT status_pk PRIMARY KEY (status_id)
-);
-
--- Table: transaction
-CREATE TABLE transaction (
-    transaction_id int NOT NULL AUTO_INCREMENT,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT transaction_pk PRIMARY KEY (transaction_id)
-);
-
--- Table: user
-CREATE TABLE user (
-    user_id int NOT NULL AUTO_INCREMENT,
-    person_id int NOT NULL,
-    company_id int NOT NULL,
-    status_id int NOT NULL,
-    username varchar(50) NOT NULL,
-    password varchar(50) NOT NULL,
-    salt varchar(50) NULL,
-    token int NULL,
-    created_at timestamp NULL,
-    updated_at timestamp NULL,
-    deleted_at timestamp NULL,
-    tx_id int NOT NULL,
-    tx_host varchar(50) NOT NULL,
-    tx_user_id int NOT NULL,
-    tx_date timestamp NOT NULL,
-    CONSTRAINT user_pk PRIMARY KEY (user_id)
-) COMMENT 'Tabla de usuarios';
-
--- Table: user_role
-CREATE TABLE user_role (
-    id_user_role int NOT NULL AUTO_INCREMENT,
-    user_id int NOT NULL,
-    role_id int NOT NULL,
-    CONSTRAINT user_role_pk PRIMARY KEY (id_user_role)
-);
-
--- foreign keys
--- Reference: cart_purchase_details (table: cart)
-ALTER TABLE cart ADD CONSTRAINT cart_purchase_details FOREIGN KEY cart_purchase_details (purchase_details_id)
-    REFERENCES purchase_details (purchase_details_id);
-
--- Reference: cart_status (table: cart)
-ALTER TABLE cart ADD CONSTRAINT cart_status FOREIGN KEY cart_status (status_id)
-    REFERENCES status (status_id);
-
--- Reference: cart_user (table: cart)
-ALTER TABLE cart ADD CONSTRAINT cart_user FOREIGN KEY cart_user (user_id)
-    REFERENCES user (user_id);
-
--- Reference: category_product_category (table: category_product)
-ALTER TABLE category_product ADD CONSTRAINT category_product_category FOREIGN KEY category_product_category (category_id)
-    REFERENCES category (category_id);
-
--- Reference: category_product_product (table: category_product)
-ALTER TABLE category_product ADD CONSTRAINT category_product_product FOREIGN KEY category_product_product (product_id)
-    REFERENCES product (product_id);
-
--- Reference: chat_user (table: chat)
-ALTER TABLE chat ADD CONSTRAINT chat_user FOREIGN KEY chat_user (user_id)
-    REFERENCES user (user_id);
-
--- Reference: checkout_cart (table: checkout)
-ALTER TABLE checkout ADD CONSTRAINT checkout_cart FOREIGN KEY checkout_cart (cart_id)
-    REFERENCES cart (cart_id);
-
--- Reference: checkout_payment_details (table: checkout)
-ALTER TABLE checkout ADD CONSTRAINT checkout_payment_details FOREIGN KEY checkout_payment_details (payment_details_id)
-    REFERENCES payment_details (payment_details_id);
-
--- Reference: message_chat (table: message)
-ALTER TABLE message ADD CONSTRAINT message_chat FOREIGN KEY message_chat (chat_id)
-    REFERENCES chat (chat_id);
-
--- Reference: payment_data_payment_type (table: payment_data)
-ALTER TABLE payment_data ADD CONSTRAINT payment_data_payment_type FOREIGN KEY payment_data_payment_type (payment_type_id)
-    REFERENCES payment_type (payment_type_id);
-
--- Reference: payment_details_payment_data (table: payment_details)
-ALTER TABLE payment_details ADD CONSTRAINT payment_details_payment_data FOREIGN KEY payment_details_payment_data (payment_data_id)
-    REFERENCES payment_data (payment_data_id);
-
--- Reference: person_city (table: person)
-ALTER TABLE person ADD CONSTRAINT person_city FOREIGN KEY person_city (city_id)
-    REFERENCES city (city_id);
-
--- Reference: product_city (table: product)
-ALTER TABLE product ADD CONSTRAINT product_city FOREIGN KEY product_city (city_id)
-    REFERENCES city (city_id);
-
--- Reference: product_company (table: product)
-ALTER TABLE product ADD CONSTRAINT product_company FOREIGN KEY product_company (company_id)
-    REFERENCES company (company_id);
-
--- Reference: product_product_type (table: product)
-ALTER TABLE product ADD CONSTRAINT product_product_type FOREIGN KEY product_product_type (product_type_id)
-    REFERENCES product_type (product_type_id);
-
--- Reference: product_status (table: product)
-ALTER TABLE product ADD CONSTRAINT product_status FOREIGN KEY product_status (status_id)
-    REFERENCES status (status_id);
-
--- Reference: product_type_status (table: product_type)
-ALTER TABLE product_type ADD CONSTRAINT product_type_status FOREIGN KEY product_type_status (status_id)
-    REFERENCES status (status_id);
-
--- Reference: rol_privilege_privilege (table: rol_privilege)
-ALTER TABLE rol_privilege ADD CONSTRAINT rol_privilege_privilege FOREIGN KEY rol_privilege_privilege (privilege_id)
-    REFERENCES privilege (privilege_id);
-
--- Reference: rol_privilegio_rol (table: rol_privilege)
-ALTER TABLE rol_privilege ADD CONSTRAINT rol_privilegio_rol FOREIGN KEY rol_privilegio_rol (role_id)
-    REFERENCES role (role_id);
-
--- Reference: shipmet_details_product (table: purchase_details)
-ALTER TABLE purchase_details ADD CONSTRAINT shipmet_details_product FOREIGN KEY shipmet_details_product (product_id)
-    REFERENCES product (product_id);
-
--- Reference: user_company (table: user)
-ALTER TABLE user ADD CONSTRAINT user_company FOREIGN KEY user_company (company_id)
-    REFERENCES company (company_id);
-
--- Reference: user_person (table: user)
-ALTER TABLE user ADD CONSTRAINT user_person FOREIGN KEY user_person (person_id)
-    REFERENCES person (person_id);
-
--- Reference: user_rol_user (table: user_role)
-ALTER TABLE user_role ADD CONSTRAINT user_rol_user FOREIGN KEY user_rol_user (user_id)
-    REFERENCES user (user_id);
-
--- Reference: user_role_role (table: user_role)
-ALTER TABLE user_role ADD CONSTRAINT user_role_role FOREIGN KEY user_role_role (role_id)
-    REFERENCES role (role_id);
-
--- Reference: user_status (table: user)
-ALTER TABLE user ADD CONSTRAINT user_status FOREIGN KEY user_status (status_id)
-    REFERENCES status (status_id);
-
--- End of file.
-
+/*select * from category_product;*/
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('3', '1');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('1', '2');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('1', '1');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('2', '1');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('2', '2');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('4', '1');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('4', '2');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('4', '3');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('5', '1');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('5', '2');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('6', '1');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('6', '2');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('7', '1');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('7', '2');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('8', '1');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('8', '2');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('9', '2');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('10', '1');
+INSERT INTO `proyecto_pc2`.`category_product` (`product_id`, `category_id`) VALUES ('11', '2');
