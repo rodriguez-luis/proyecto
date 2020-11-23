@@ -42,8 +42,9 @@ public class ProductBl {
     public List<ProductDto> selectProducts(){
         List<Product> products= productDao.getProducts();
         List<ProductDto> productsDto = new ArrayList<ProductDto>();
-        ProductDto productDto = new ProductDto();
-        for (Product product: products){
+        for (int i=0; i< products.size(); i++){
+            Product product= products.get(i);
+            ProductDto productDto = new ProductDto();
             productDto.setProductId(product.getProductId());
             productDto.setProductName(product.getProductName());
             productDto.setModel(product.getModel());
@@ -56,7 +57,7 @@ public class ProductBl {
             productDto.setUnitPrice(product.getUnitPrice());
             productDto.setCurrency(product.getCurrency());
             productDto.setBrandId(product.getBrandId());
-            productsDto.add(productDto);
+            productsDto.add(i,productDto);
         }
         return productsDto;
     }

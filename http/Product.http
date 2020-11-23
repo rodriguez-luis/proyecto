@@ -23,7 +23,8 @@ Content-Type: application/json
   "productTypeId": 1,
   "cityId": 1,
   "unitPrice": 1000,
-  "statusId": 1
+  "currency": 1,
+  "brandId": 1
 }
 ###########
 
