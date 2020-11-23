@@ -7,6 +7,15 @@ public class City {
     private Integer cityId;
     private String cityName;
     private Transaction transaction;
+    private Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public City(){
         this.transaction= new Transaction();

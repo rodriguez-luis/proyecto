@@ -7,6 +7,14 @@ public class ProductType {
     private String typeName;
     private Transaction transaction;
     private Integer status;
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
     public ProductType(Integer productTypeId, String type_name, Integer txId, String txHost, Integer txUserId, Date txDate, Integer status) {
         this.productTypeId = productTypeId;
         this.typeName = type_name;
@@ -47,14 +55,6 @@ public class ProductType {
 
     public void setTxDate(Date txDate) {
         this.transaction.setTxDate(txDate);
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
     }
 
     public Integer getProductTypeId() {

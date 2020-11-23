@@ -1,33 +1,33 @@
 package bo.ucb.edu.ingsoft.dto;
 
+import bo.ucb.edu.ingsoft.model.Status;
 import bo.ucb.edu.ingsoft.model.Transaction;
 
 import java.util.Date;
 
-public class PrivilegeUpdate {
+public class StatusDto {
     /*{
-        "privilegeId": "1"
-        "privilegeName": "Create account"
+        "statusName": "Active"
     }*/
 
-    private Integer privilegeId;
-    private String privilegeName;
+    private Integer statusId;
+    private String statusName;
     private Transaction transaction;
 
-    public Integer getPrivilegeId() {
-        return privilegeId;
+    public Integer getStatusId() {
+        return statusId;
     }
 
-    public void setPrivilegeId(Integer privilegeId) {
-        this.privilegeId = privilegeId;
+    public void setStatusId(Integer statusId) {
+        this.statusId = statusId;
     }
 
-    public String getPrivilegeName() {
-        return privilegeName;
+    public String getStatusName() {
+        return statusName;
     }
 
-    public void setPrivilegeName(String privilegeName) {
-        this.privilegeName = privilegeName;
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
     }
 
     public Transaction getTransaction() {
@@ -38,7 +38,7 @@ public class PrivilegeUpdate {
         this.transaction = transaction;
     }
 
-    public PrivilegeUpdate(){
+    public StatusDto(){
         this.transaction= new Transaction();
     }
 

@@ -17,7 +17,7 @@
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Company">
         INSERT INTO company VALUES (
             null, #{name}, #{direction},#{phone}, #{email},
-             #{txId}, #{txHost}, #{txUserId}, #{txDate}
+             #{txId}, #{txHost}, #{txUserId}, #{txDate}, #{status}
         )
     </insert>
 

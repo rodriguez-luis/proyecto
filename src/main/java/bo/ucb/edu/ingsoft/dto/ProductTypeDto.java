@@ -1,18 +1,33 @@
 package bo.ucb.edu.ingsoft.dto;
 
-import bo.ucb.edu.ingsoft.model.Status;
 import bo.ucb.edu.ingsoft.model.Transaction;
 
 import java.util.Date;
 
-public class StatusCreate {
-    /*{
-        "statusName": "Active"
+public class ProductTypeDto {
+     /*{
+        "typename": "MotherBoard"
     }*/
+     private Integer productTypeId;
+     private String typeName;
+     private Integer statusId;
+     private Transaction transaction;
 
-    private Integer statusId;
-    private String statusName;
-    private Transaction transaction;
+    public Integer getProductTypeId() {
+        return productTypeId;
+    }
+
+    public void setProductTypeId(Integer productTypeId) {
+        this.productTypeId = productTypeId;
+    }
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
 
     public Integer getStatusId() {
         return statusId;
@@ -20,14 +35,6 @@ public class StatusCreate {
 
     public void setStatusId(Integer statusId) {
         this.statusId = statusId;
-    }
-
-    public String getStatusName() {
-        return statusName;
-    }
-
-    public void setStatusName(String statusName) {
-        this.statusName = statusName;
     }
 
     public Transaction getTransaction() {
@@ -38,7 +45,7 @@ public class StatusCreate {
         this.transaction = transaction;
     }
 
-    public StatusCreate(){
+    public ProductTypeDto(){
         this.transaction= new Transaction();
     }
 

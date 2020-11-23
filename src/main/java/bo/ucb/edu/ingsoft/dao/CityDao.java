@@ -1,9 +1,11 @@
 package bo.ucb.edu.ingsoft.dao;
 
-import bo.ucb.edu.ingsoft.dto.CityCreate;
+import bo.ucb.edu.ingsoft.dto.CityDto;
+import bo.ucb.edu.ingsoft.model.City;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface CityDao {
-    public void create(CityCreate cityCreate);
+    public void create(City city);
+    public City findByCityId(Integer cityId);
 }

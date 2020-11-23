@@ -1,11 +1,12 @@
 package bo.ucb.edu.ingsoft.dao;
 
-import bo.ucb.edu.ingsoft.dto.PrivilegeCreate;
-import bo.ucb.edu.ingsoft.dto.PrivilegeUpdate;
+import bo.ucb.edu.ingsoft.dto.PrivilegeDto;
+import bo.ucb.edu.ingsoft.dto.PrivilegeDto;
+import bo.ucb.edu.ingsoft.model.Privilege;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface PrivilegeDao {
-    public void create(PrivilegeCreate privilegeCreate);
-    public void update(PrivilegeUpdate privilegeUpdate);
+    public void create(Privilege privilege);
+    public void update(Privilege Privilege);
 }

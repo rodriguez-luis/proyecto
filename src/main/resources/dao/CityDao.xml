@@ -5,7 +5,15 @@
 <mapper namespace="bo.ucb.edu.ingsoft.dao.CityDao">
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.City">
         INSERT INTO city VALUES (
-            null, #{cityName}, #{txId}, #{txHost}, #{txUserId}, #{txDate}
+            null, #{cityName}, #{txId}, #{txHost}, #{txUserId}, #{txDate}, #{status}
         )
     </insert>
+    <select id="findByCityId" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.City">
+        SELECT
+            city_id as cityId,
+            city_name as cityName
+        FROM city
+        WHERE
+            city_id = #{cityId} and status=1
+    </select>
 </mapper>

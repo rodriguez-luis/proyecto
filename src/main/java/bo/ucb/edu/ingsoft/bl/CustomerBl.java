@@ -3,7 +3,7 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.PersonDao;
 import bo.ucb.edu.ingsoft.dao.UserDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.UserCreate;
+import bo.ucb.edu.ingsoft.dto.UserDto;
 import bo.ucb.edu.ingsoft.model.Person;
 import bo.ucb.edu.ingsoft.model.User;
 import bo.ucb.edu.ingsoft.model.Transaction;
@@ -27,28 +27,28 @@ public class CustomerBl {
         return  userDao.findByUserId(userId);
     }
 
-    public UserCreate createUser(UserCreate userCreate, Transaction transaction, Person person) {
-        userCreate.setTxId(transaction.getTxId());
-        userCreate.setTxUserId(transaction.getTxUserId());
-        userCreate.setTxHost(transaction.getTxHost());
-        userCreate.setTxDate(transaction.getTxDate());
-        userDao.create(userCreate);
+    public UserDto createUser(UserDto userDto, Transaction transaction, Person person) {
+        userDto.setTxId(transaction.getTxId());
+        userDto.setTxUserId(transaction.getTxUserId());
+        userDto.setTxHost(transaction.getTxHost());
+        userDto.setTxDate(transaction.getTxDate());
+        userDao.create(userDto);
         Integer getLastId = transactionDao.getLastInsertId();
-        userCreate.setUserId(getLastId);
+        userDto.setUserId(getLastId);
 
         person.setTxId(transaction.getTxId());
         person.setTxHost(transaction.getTxHost());
         person.setTxUserId(transaction.getTxUserId());
         person.setTxDate(transaction.getTxDate());
-        person.setCityId(userCreate.getCityId());
-        person.setFirstName(userCreate.getFirstName());
-        person.setLastName(userCreate.getLastName());
-        person.setPhone(userCreate.getPhone());
-        person.setBirthday(userCreate.getBirthday());
-        person.setEmail(userCreate.getEmail());
-        person.setPersonId(userCreate.getUserId());
+        person.setCityId(userDto.getCityId());
+        person.setFirstName(userDto.getFirstName());
+        person.setLastName(userDto.getLastName());
+        person.setPhone(userDto.getPhone());
+        person.setBirthday(userDto.getBirthday());
+        person.setEmail(userDto.getEmail());
+        person.setPersonId(userDto.getUserId());
         personDao.create(person);
 
-        return userCreate;
+        return userDto;
     }
 }

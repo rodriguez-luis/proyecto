@@ -6,7 +6,15 @@ public class Privilege {
     private Integer privilegeId;
     private String privilegeName;
     private Transaction transaction;
+    private Integer status;
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
     public Privilege(){
         this.transaction= new Transaction();
     }

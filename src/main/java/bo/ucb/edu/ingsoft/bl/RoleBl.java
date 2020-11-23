@@ -2,7 +2,7 @@ package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.RoleDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.RoleCreate;
+import bo.ucb.edu.ingsoft.dto.RoleDto;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,14 +18,14 @@ public class RoleBl {
         this.transactionDao = transactionDao;
     }
 
-    public RoleCreate createRole(RoleCreate roleCreate, Transaction transaction){
-        roleCreate.setTxId(transaction.getTxId());
-        roleCreate.setTxUserId(transaction.getTxUserId());
-        roleCreate.setTxHost(transaction.getTxHost());
-        roleCreate.setTxDate(transaction.getTxDate());
-        roleDao.create(roleCreate);
+    public RoleDto createRole(RoleDto roleDto, Transaction transaction){
+        roleDto.setTxId(transaction.getTxId());
+        roleDto.setTxUserId(transaction.getTxUserId());
+        roleDto.setTxHost(transaction.getTxHost());
+        roleDto.setTxDate(transaction.getTxDate());
+        roleDao.create(roleDto);
         Integer getLastId = transactionDao.getLastInsertId();
-        roleCreate.setRoleId(getLastId);
-        return roleCreate;
+        roleDto.setRoleId(getLastId);
+        return roleDto;
     }
 }

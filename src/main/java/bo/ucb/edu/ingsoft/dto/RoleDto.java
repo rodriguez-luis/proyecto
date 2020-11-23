@@ -4,37 +4,29 @@ import bo.ucb.edu.ingsoft.model.Transaction;
 
 import java.util.Date;
 
-public class ProductTypeCreate {
-     /*{
-        "typename": "MotherBoard"
+public class RoleDto {
+    /*{
+        "roleName": "Admin"
     }*/
-     private Integer productTypeId;
-     private String typeName;
-     private Integer statusId;
-     private Transaction transaction;
 
-    public Integer getProductTypeId() {
-        return productTypeId;
+    private Integer roleId;
+    private String roleName;
+    private Transaction transaction;
+
+    public Integer getRoleId() {
+        return roleId;
     }
 
-    public void setProductTypeId(Integer productTypeId) {
-        this.productTypeId = productTypeId;
+    public void setRoleId(Integer roleId) {
+        this.roleId = roleId;
     }
 
-    public String getTypeName() {
-        return typeName;
+    public String getRoleName() {
+        return roleName;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
-    }
-
-    public Integer getStatusId() {
-        return statusId;
-    }
-
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 
     public Transaction getTransaction() {
@@ -45,7 +37,7 @@ public class ProductTypeCreate {
         this.transaction = transaction;
     }
 
-    public ProductTypeCreate(){
+    public RoleDto(){
         this.transaction= new Transaction();
     }
 

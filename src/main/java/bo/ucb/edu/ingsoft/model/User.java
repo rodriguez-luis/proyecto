@@ -12,7 +12,15 @@ public class User {
     private String salt;
     private Integer token;
     private Transaction transaction;
+    private Integer status;
 
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
     public User(Integer userId, Integer personId, Integer companyId, Integer statusId, String username, String password, String salt, Integer token, Integer txId, String txHost, Integer txUserId, Date txDate) {
         this.userId = userId;
         this.personId = personId;

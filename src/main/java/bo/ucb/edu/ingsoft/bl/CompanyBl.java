@@ -2,7 +2,8 @@ package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.CompanyDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.PrivilegeUpdate;
+import bo.ucb.edu.ingsoft.dto.CompanyDto;
+import bo.ucb.edu.ingsoft.dto.PrivilegeDto;
 import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,15 +26,21 @@ public class CompanyBl {
         return  companyDao.findByCompanyId(companyId);
     }
 
-    public Company createCompany(Company company, Transaction transaction) {
+    public CompanyDto createCompany(CompanyDto companyDto, Transaction transaction) {
+        Company company = new Company();
+        company.setName(companyDto.getName());
+        company.setDirection(companyDto.getDirection());
+        company.setPhone(companyDto.getPhone());
+        company.setEmail(companyDto.getEmail());
         company.setTxId(transaction.getTxId());
         company.setTxUserId(transaction.getTxUserId());
         company.setTxHost(transaction.getTxHost());
         company.setTxDate(transaction.getTxDate());
+        company.setStatus(1);
         companyDao.create(company);
         Integer getLastId = transactionDao.getLastInsertId();
-        company.setCompanyId(getLastId);
-        return company;
+        companyDto.setCompanyId(getLastId);
+        return companyDto;
     }
 
     public void delete(Integer idCompany, Transaction transaction)

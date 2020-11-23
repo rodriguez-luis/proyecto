@@ -3,7 +3,7 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.ProductTypeBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
-import bo.ucb.edu.ingsoft.dto.ProductTypeCreate;
+import bo.ucb.edu.ingsoft.dto.ProductTypeDto;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,12 +33,12 @@ public class ProductType {
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
 
-    public ProductTypeCreate productTypeCreate (@RequestBody ProductTypeCreate productTypeCreate,
-                                                HttpServletRequest request){
+    public ProductTypeDto productTypeCreate (@RequestBody ProductTypeDto productTypeDto,
+                                             HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        ProductTypeCreate productTypeCreateResponse = productTypeBl.productTypeCreate(productTypeCreate,transaction);
-        return productTypeCreateResponse;
+        ProductTypeDto productTypeDtoResponse = productTypeBl.productTypeCreate(productTypeDto,transaction);
+        return productTypeDtoResponse;
     }
 
 

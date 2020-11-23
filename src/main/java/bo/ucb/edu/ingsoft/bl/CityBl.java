@@ -2,7 +2,9 @@ package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.CityDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
-import bo.ucb.edu.ingsoft.dto.CityCreate;
+import bo.ucb.edu.ingsoft.dto.CityDto;
+import bo.ucb.edu.ingsoft.model.City;
+import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,14 +20,24 @@ public class CityBl {
         this.transactionDao = transactionDao;
     }
 
-    public CityCreate createCity(CityCreate cityCreate, Transaction transaction){
-        cityCreate.setTxId(transaction.getTxId());
-        cityCreate.setTxUserId(transaction.getTxUserId());
-        cityCreate.setTxHost(transaction.getTxHost());
-        cityCreate.setTxDate(transaction.getTxDate());
-        cityDao.create(cityCreate);
+    public CityDto createCity(CityDto cityDto, Transaction transaction){
+        City city=new City();
+        city.setCityName(cityDto.getCityName());
+        city.setTxId(transaction.getTxId());
+        city.setTxUserId(transaction.getTxUserId());
+        city.setTxHost(transaction.getTxHost());
+        city.setTxDate(transaction.getTxDate());
+        city.setStatus(1);
+        cityDao.create(city);
         Integer getLastId = transactionDao.getLastInsertId();
-        cityCreate.setCityId(getLastId);
-        return cityCreate;
+        cityDto.setCityId(getLastId);
+        return cityDto;
+    }
+    public CityDto findCityById(Integer cityId) {
+        CityDto cityDto=new CityDto();
+        City cityResponse= cityDao.findByCityId(cityId);
+        cityDto.setCityId(cityResponse.getCityId());
+        cityDto.setCityName(cityResponse.getCityName());
+        return cityDto;
     }
 }

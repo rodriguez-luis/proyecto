@@ -2,7 +2,8 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.CompanyBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
-import bo.ucb.edu.ingsoft.dto.PrivilegeUpdate;
+import bo.ucb.edu.ingsoft.dto.CompanyDto;
+import bo.ucb.edu.ingsoft.dto.PrivilegeDto;
 import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
@@ -14,7 +15,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
-@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping(value = "/v1/company")
 public class CompanyApi {
@@ -38,11 +38,11 @@ public class CompanyApi {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Company createCompany(@RequestBody Company company, HttpServletRequest request) {
+    public CompanyDto createCompany(@RequestBody CompanyDto companyDto, HttpServletRequest request) {
         // Creamos transaccion para la operación.
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        Company companyResponse = companyBl.createCompany(company, transaction);
+        CompanyDto companyResponse = companyBl.createCompany(companyDto, transaction);
         return companyResponse;
     }
 

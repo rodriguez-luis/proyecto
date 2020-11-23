@@ -4,7 +4,7 @@ import bo.ucb.edu.ingsoft.model.Transaction;
 
 import java.util.Date;
 
-public class UserCreate {
+public class UserDto {
     /*{
        "firstName": "Juanito",
        "lastName": "Prueba",
@@ -117,7 +117,7 @@ public class UserCreate {
         this.transaction = transaction;
     }
 
-    public UserCreate(){
+    public UserDto(){
         this.transaction= new Transaction();
     }
 
