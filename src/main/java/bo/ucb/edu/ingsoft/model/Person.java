@@ -13,13 +13,6 @@ public class Person {
     private Transaction transaction;
     private Integer status;
 
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
     public Person(){
         this.transaction= new Transaction();
     }
@@ -80,6 +73,22 @@ public class Person {
         this.email = email;
     }
 
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
     public Integer getTxId() {
         return transaction.getTxId();
     }
@@ -111,6 +120,7 @@ public class Person {
     public void setTxDate(Date txDate) {
         this.transaction.setTxDate(txDate);
     }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -121,10 +131,8 @@ public class Person {
                 ", phone='" + phone + '\'' +
                 ", birthday=" + birthday +
                 ", email='" + email + '\'' +
-                ", txId=" + transaction.getTxId() +
-                ", txHost='" + transaction.getTxHost() + '\'' +
-                ", txUserId=" + transaction.getTxUserId() +
-                ", txDate=" + transaction.getTxDate() +
+                ", transaction=" + transaction +
+                ", status=" + status +
                 '}';
     }
 }

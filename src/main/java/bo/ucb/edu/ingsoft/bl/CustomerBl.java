@@ -27,16 +27,32 @@ public class CustomerBl {
         return  userDao.findByUserId(userId);
     }
 
-    public UserDto createUser(UserDto userDto, Transaction transaction, Person person) {
-        userDto.setTxId(transaction.getTxId());
-        userDto.setTxUserId(transaction.getTxUserId());
-        userDto.setTxHost(transaction.getTxHost());
-        userDto.setTxDate(transaction.getTxDate());
-        userDao.create(userDto);
-        Integer getLastId = transactionDao.getLastInsertId();
-        userDto.setUserId(getLastId);
-
+    public UserDto createUser(UserDto userDto, Transaction transaction, Person person, User user) {
         person.setTxId(transaction.getTxId());
+        person.setTxHost(transaction.getTxHost());
+        person.setTxUserId(transaction.getTxUserId());
+        person.setTxDate(transaction.getTxDate());
+        person.setCityId(userDto.getCityId());
+        person.setFirstName(userDto.getFirstName());
+        person.setLastName(userDto.getLastName());
+        person.setPhone(userDto.getPhone());
+        person.setBirthday(userDto.getBirthday());
+        person.setEmail(userDto.getEmail());
+        personDao.create(person);
+        Integer getLastPersonId = transactionDao.getLastInsertId();
+        userDto.setPersonId(getLastPersonId);
+
+        user.setTxId(transaction.getTxId());
+        user.setTxHost(transaction.getTxHost());
+        user.setTxUserId(transaction.getTxUserId());
+        user.setTxDate(transaction.getTxDate());
+        user.setPersonId(userDto.getPersonId());
+        user.setCompanyId(userDto.getCompanyId());
+        user.setUsername(userDto.getUsername());
+        user.setPassword(userDto.getPassword());
+        userDao.create(user);
+
+        /*person.setTxId(transaction.getTxId());
         person.setTxHost(transaction.getTxHost());
         person.setTxUserId(transaction.getTxUserId());
         person.setTxDate(transaction.getTxDate());
@@ -48,6 +64,16 @@ public class CustomerBl {
         person.setEmail(userDto.getEmail());
         person.setPersonId(userDto.getUserId());
         personDao.create(person);
+
+        userDto.setTxId(transaction.getTxId());
+        userDto.setTxUserId(transaction.getTxUserId());
+        userDto.setTxHost(transaction.getTxHost());
+        userDto.setTxDate(transaction.getTxDate());
+        userDao.create(userDto);
+        Integer getLastUserId = transactionDao.getLastInsertId();
+        userDto.setUserId(getLastUserId);*/
+
+
 
         return userDto;
     }

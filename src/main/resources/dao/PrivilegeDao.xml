@@ -5,7 +5,7 @@
 <mapper namespace="bo.ucb.edu.ingsoft.dao.PrivilegeDao">
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Privilege">
         INSERT INTO privilege VALUES (
-            null, #{privilegeName}, #{txId}, #{txHost}, #{txUserId}, #{txDate}, #{status}
+            null, #{privilegeName}, #{txId}, #{txHost}, #{txUserId}, #{txDate}
         )
     </insert>
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Privilege">

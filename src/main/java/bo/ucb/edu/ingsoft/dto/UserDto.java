@@ -27,7 +27,16 @@ public class UserDto {
     private String phone;
     private Date birthday;
     private String email;
+    private Integer personId;
     private Transaction transaction;
+
+    public Integer getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(Integer personId) {
+        this.personId = personId;
+    }
 
     public Integer getUserId() {
         return userId;
