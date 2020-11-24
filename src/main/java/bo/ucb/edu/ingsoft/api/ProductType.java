@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping(value = "/v1/producttype")
 public class ProductType {
@@ -25,7 +26,7 @@ public class ProductType {
     }
 
     @RequestMapping( value="/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public bo.ucb.edu.ingsoft.model.ProductType findById(@PathVariable("id") Integer id, HttpServletRequest request) {
+    public bo.ucb.edu.ingsoft.dto.ProductTypeDto findById(@PathVariable("id") Integer id, HttpServletRequest request) {
         return productTypeBl.findByProductTypeById(id);
     }
 
@@ -40,6 +41,5 @@ public class ProductType {
         ProductTypeDto productTypeDtoResponse = productTypeBl.productTypeCreate(productTypeDto,transaction);
         return productTypeDtoResponse;
     }
-
 
 }

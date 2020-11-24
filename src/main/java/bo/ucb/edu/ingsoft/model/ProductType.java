@@ -15,12 +15,12 @@ public class ProductType {
     public void setStatus(Integer status) {
         this.status = status;
     }
-    public ProductType(Integer productTypeId, String type_name, Integer txId, String txHost, Integer txUserId, Date txDate, Integer status) {
-        this.productTypeId = productTypeId;
-        this.typeName = type_name;
-        this.status = status;
-        this.transaction = new Transaction(txId,txHost,txUserId,txDate);
-    }
+//    public ProductType(Integer productTypeId, String type_name, Integer txId, String txHost, Integer txUserId, Date txDate, Integer status) {
+//        this.productTypeId = productTypeId;
+//        this.typeName = type_name;
+//        this.status = status;
+//        this.transaction = new Transaction(txId,txHost,txUserId,txDate);
+//    }
 
     public ProductType(){
         this.transaction= new Transaction();
@@ -86,8 +86,11 @@ public class ProductType {
         return "ProductType{" +
                 "productTypeId=" + productTypeId +
                 ", type_name='" + typeName + '\'' +
-                ", transaction=" + transaction +
                 ", status=" + status +
+                ", txId=" + transaction.getTxId() +
+                ", txHost='" + transaction.getTxHost() + '\'' +
+                ", txUserId=" + transaction.getTxUserId() +
+                ", txDate=" + transaction.getTxDate() +
                 '}';
     }
 }

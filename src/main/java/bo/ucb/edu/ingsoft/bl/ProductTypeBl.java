@@ -13,22 +13,31 @@ public class ProductTypeBl {
     private ProductTypeDao productTypeDao;
     private TransactionDao transactionDao;
 
+
     @Autowired
     public ProductTypeBl(ProductTypeDao productTypeDao, TransactionDao transactionDao) {
         this.productTypeDao = productTypeDao;
         this.transactionDao = transactionDao;
     }
 
-    public ProductType findByProductTypeById (Integer productTypeId){
-        return productTypeDao.findProductTypeById(productTypeId);}
+    public ProductTypeDto findByProductTypeById (Integer productTypeId){
+        ProductType productType = productTypeDao.findProductTypeById(productTypeId);
+        ProductTypeDto productTypeDto = new ProductTypeDto();
+        productTypeDto.setProductTypeId(productType.getProductTypeId());
+        productTypeDto.setTypeName(productType.getType_name());
+        return productTypeDto;
+    }
 
 
     public ProductTypeDto productTypeCreate(ProductTypeDto productTypeDto, Transaction transaction){
-        productTypeDto.setTxId(transaction.getTxId());
-        productTypeDto.setTxUserId(transaction.getTxUserId());
-        productTypeDto.setTxHost(transaction.getTxHost());
-        productTypeDto.setTxDate(transaction.getTxDate());
-        productTypeDao.create(productTypeDto);
+        ProductType productType = new ProductType();
+        productType.setType_name(productTypeDto.getTypeName());
+        productType.setTxId(transaction.getTxId());
+        productType.setTxUserId(transaction.getTxUserId());
+        productType.setTxHost(transaction.getTxHost());
+        productType.setTxDate(transaction.getTxDate());
+
+        productTypeDao.create(productType);
         Integer getLastId = transactionDao.getLastInsertId();
         productTypeDto.setProductTypeId(getLastId);
         return productTypeDto;

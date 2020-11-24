@@ -16,10 +16,10 @@
         INSERT INTO product_type VALUES
         (
             null,#{typeName},
-         1,#{txId},#{txHost},#{txUserId},#{txDate}
+            1,#{txId},#{txHost},#{txUserId},#{txDate}
         )
     </insert>
-<!--    <select id="getLastInsertId" resultType="java.lang.Integer">-->
-<!--        SELECT LAST_INSERT_ID()-->
-<!--    </select>-->
+    <!--    <select id="getLastInsertId" resultType="java.lang.Integer">-->
+    <!--        SELECT LAST_INSERT_ID()-->
+    <!--    </select>-->
 </mapper>
