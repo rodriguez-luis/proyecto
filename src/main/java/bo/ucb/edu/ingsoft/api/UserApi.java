@@ -38,10 +38,10 @@ public class UserApi {
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public UserDto createUser(@RequestBody UserDto UserDto, Person person, HttpServletRequest request) {
+    public UserDto createUser(@RequestBody UserDto UserDto, Person person, User user, HttpServletRequest request) {
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        UserDto userDtoResponse = customerBl.createUser(UserDto, transaction, person);
+        UserDto userDtoResponse = customerBl.createUser(UserDto, transaction, person, user);
         return userDtoResponse;
     }
 }

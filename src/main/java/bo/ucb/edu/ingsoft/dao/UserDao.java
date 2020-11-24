@@ -7,6 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface UserDao {
     public User findByUserId(Integer userId);
-    public void create(UserDto userDto);
+    public void create(User user);
     public Integer getLastInsertId();
 }

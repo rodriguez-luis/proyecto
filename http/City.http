@@ -8,5 +8,5 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "cityName": "El alto"
+  "cityName": "Potosi"
 }

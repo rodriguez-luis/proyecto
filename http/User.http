@@ -7,12 +7,12 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "firstName": "Juanito",
+  "firstName": "Gustavo",
   "lastName": "Prueba",
-  "username": "juanprueba",
+  "username": "gustapru",
   "password": "prueba",
-  "companyId": 1,
-  "city": 1,
+  "companyId": 3,
+  "cityId": 1,
   "phone": "77747774",
   "email": "jprueba@gmail.com",
   "birthday": "1997-08-15"

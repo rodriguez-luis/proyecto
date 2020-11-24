@@ -6,7 +6,6 @@ public class User {
     private Integer userId;
     private Integer personId;
     private Integer companyId;
-    private Integer statusId;
     private String username;
     private String password;
     private String salt;
@@ -14,23 +13,25 @@ public class User {
     private Transaction transaction;
     private Integer status;
 
+    public User(Integer userId, Integer personId, Integer companyId, Integer statusId, String username, String password, String salt, Integer token, Integer txId, String txHost, Integer txUserId, Date txDate) {
+        this.userId = userId;
+        this.personId = personId;
+        this.companyId = companyId;
+        this.username = username;
+        this.password = password;
+        this.salt = salt;
+        this.token = token;
+        this.status = status;
+        this.transaction =new Transaction(txId,txHost,txUserId,txDate);
+
+    }
+
     public Integer getStatus() {
         return status;
     }
 
     public void setStatus(Integer status) {
         this.status = status;
-    }
-    public User(Integer userId, Integer personId, Integer companyId, Integer statusId, String username, String password, String salt, Integer token, Integer txId, String txHost, Integer txUserId, Date txDate) {
-        this.userId = userId;
-        this.personId = personId;
-        this.companyId = companyId;
-        this.statusId = statusId;
-        this.username = username;
-        this.password = password;
-        this.salt = salt;
-        this.token = token;
-        this.transaction =new Transaction(txId,txHost,txUserId,txDate);
     }
 
     public Integer getUserId() {
@@ -55,14 +56,6 @@ public class User {
 
     public void setCompanyId(Integer companyId) {
         this.companyId = companyId;
-    }
-
-    public Integer getStatusId() {
-        return statusId;
-    }
-
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
     }
 
     public String getUsername() {
@@ -135,7 +128,6 @@ public class User {
                 "userId=" + userId +
                 ", personId=" + personId +
                 ", companyId=" + companyId +
-                ", statusId=" + statusId +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
                 ", salt='" + salt + '\'' +
