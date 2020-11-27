@@ -2,6 +2,7 @@ package bo.ucb.edu.ingsoft.api;
 
 import bo.ucb.edu.ingsoft.bl.CustomerBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
+import bo.ucb.edu.ingsoft.dto.CompanyDto;
 import bo.ucb.edu.ingsoft.dto.UserDto;
 import bo.ucb.edu.ingsoft.model.Person;
 import bo.ucb.edu.ingsoft.model.User;
@@ -34,7 +35,6 @@ public class UserApi {
     public User findById(@PathVariable("id") Integer id, HttpServletRequest request) {
         return customerBl.findUserById(id);
     }
-
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)

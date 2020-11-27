@@ -7,15 +7,15 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "firstName": "Gustavo",
-  "lastName": "Prueba",
-  "username": "gustapru",
-  "password": "prueba",
-  "companyId": 3,
-  "cityId": 1,
-  "phone": "77747774",
-  "email": "jprueba@gmail.com",
-  "birthday": "1997-08-15"
+  "firstName": "Rodrigo",
+  "lastName": "Herbas",
+  "username": "rodrher",
+  "password": "prueba1",
+  "companyId": 2,
+  "cityId": 2,
+  "phone": "77887788",
+  "email": "rodrigoprueba@gmail.com",
+  "birthday": "1998-10-05"
 }
 
 ###
