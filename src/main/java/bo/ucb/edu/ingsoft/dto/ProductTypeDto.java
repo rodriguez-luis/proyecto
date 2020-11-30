@@ -27,7 +27,7 @@ public class ProductTypeDto {
 
     public void setTypeName(String typeName) {
         this.typeName = typeName;
-    }}
+    }
 
 //    public Integer getStatusId() {
 //        return statusId;
@@ -80,3 +80,4 @@ public class ProductTypeDto {
 //    public void setTxDate(Date txDate) {
 //        this.transaction.setTxDate(txDate);
 //    }
+}

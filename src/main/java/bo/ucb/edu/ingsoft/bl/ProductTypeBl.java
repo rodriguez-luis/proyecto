@@ -41,5 +41,4 @@ public class ProductTypeBl {
         Integer getLastId = transactionDao.getLastInsertId();
         productTypeDto.setProductTypeId(getLastId);
         return productTypeDto;
-    }
-}
+    }}
