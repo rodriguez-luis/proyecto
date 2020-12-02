@@ -14,6 +14,8 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
+
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping(value = "/v1/company")
@@ -28,6 +30,11 @@ public class CompanyApi {
     public CompanyApi(CompanyBl companyBl, TransactionBl transactionBl) {
         this.companyBl = companyBl;
         this.transactionBl =  transactionBl;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Company>  listCompany(HttpServletRequest request) {
+        return companyBl.listCompany();
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)

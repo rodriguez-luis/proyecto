@@ -9,6 +9,8 @@ import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CompanyBl {
 
@@ -20,6 +22,10 @@ public class CompanyBl {
 
         this.transactionDao = transactionDao;
         this.companyDao = companyDao;
+    }
+
+    public List<Company> listCompany(){
+        return companyDao.getCompany();
     }
 
     public CompanyDto findCompanyById(Integer companyId) {
