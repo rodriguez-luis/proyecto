@@ -9,6 +9,7 @@ import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,8 +25,23 @@ public class CompanyBl {
         this.companyDao = companyDao;
     }
 
-    public List<Company> listCompany(){
-        return companyDao.getCompany();
+    public List<CompanyDto> listCompany(){
+        List<Company> companies = companyDao.getCompany();
+        List<CompanyDto> companiesDto = new ArrayList<CompanyDto>();
+
+        for(int i=0; i < companies.size(); i++){
+            Company company = companies.get(i);
+            CompanyDto companyDto = new CompanyDto();
+
+            companyDto.setCompanyId(company.getCompanyId());
+            companyDto.setName(company.getName());
+            companyDto.setDirection(company.getDirection());
+            companyDto.setPhone(company.getPhone());
+            companyDto.setEmail(company.getEmail());
+
+            companiesDto.add(i, companyDto);
+        }
+        return companiesDto;
     }
 
     public CompanyDto findCompanyById(Integer companyId) {

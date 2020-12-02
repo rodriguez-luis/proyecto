@@ -33,7 +33,7 @@ public class CompanyApi {
     }
 
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Company>  listCompany(HttpServletRequest request) {
+    public List<CompanyDto>  listCompany(HttpServletRequest request) {
         return companyBl.listCompany();
     }
 
