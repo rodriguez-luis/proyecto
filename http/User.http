@@ -1,4 +1,4 @@
-GET http://localhost:8080/v1/user/1
+GET http://localhost:8080/v1/user/10
 Accept: application/json
 
 ###
@@ -7,15 +7,15 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "firstName": "Rodrigo",
-  "lastName": "Herbas",
-  "username": "rodrher",
-  "password": "prueba1",
-  "companyId": 2,
-  "cityId": 2,
-  "phone": "77887788",
-  "email": "rodrigoprueba@gmail.com",
-  "birthday": "1998-10-05"
+  "firstName": "Prueba",
+  "lastName": "Prueba",
+  "username": "prueba",
+  "password": "prueba",
+  "companyId": 3,
+  "cityId": 4,
+  "phone": "77777799",
+  "email": "prueba@gmail.com",
+  "birthday": "2000-10-10"
 }
 
 ###
