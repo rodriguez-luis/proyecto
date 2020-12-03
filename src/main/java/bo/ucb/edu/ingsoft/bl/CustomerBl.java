@@ -10,6 +10,9 @@ import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class CustomerBl {
     private UserDao userDao;
@@ -76,5 +79,21 @@ public class CustomerBl {
 
 
         return userDto;
+    }
+
+    public List<UserDto> listUser(){
+        List<User> users = userDao.getUser();
+        List<UserDto> usersDto = new ArrayList<UserDto>();
+
+        for(int i=0; i < users.size(); i++){
+            User user = users.get(i);
+            UserDto userDto = new UserDto();
+
+            userDto.setUsername(user.getUsername());
+            //userDto.setBirthday(user.);
+
+            usersDto.add(i, userDto);
+        }
+        return usersDto;
     }
 }

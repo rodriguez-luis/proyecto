@@ -7,10 +7,10 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "firstName": "Prueba",
-  "lastName": "Prueba",
-  "username": "prueba",
-  "password": "prueba",
+  "firstName": "Prueba1",
+  "lastName": "Prueba1",
+  "username": "prueba1",
+  "password": "prueba1",
   "companyId": 3,
   "cityId": 4,
   "phone": "77777799",
