@@ -8,6 +8,9 @@ import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class ProductTypeBl {
     private ProductTypeDao productTypeDao;
@@ -19,6 +22,24 @@ public class ProductTypeBl {
         this.productTypeDao = productTypeDao;
         this.transactionDao = transactionDao;
     }
+
+    public List<ProductTypeDto> listProducttype(){
+        List<ProductType> productTypes = productTypeDao.getProducttype();
+        List<ProductTypeDto> productTypeDtos = new ArrayList<ProductTypeDto>();
+
+        for(int i=0; i < productTypes.size(); i++){
+            ProductType productType = productTypes.get(i);
+            ProductTypeDto productTypeDto = new ProductTypeDto();
+
+            productTypeDto.setProductTypeId(productType.getProductTypeId());
+            productTypeDto.setTypeName(productType.getType_name());
+
+
+            productTypeDtos.add(i, productTypeDto);
+        }
+        return productTypeDtos;
+    }
+
 
     public ProductTypeDto findByProductTypeById (Integer productTypeId){
         ProductType productType = productTypeDao.findProductTypeById(productTypeId);

@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
@@ -23,6 +24,11 @@ public class ProductType {
     public ProductType(ProductTypeBl productTypeBl, TransactionBl transactionBl) {
         this.productTypeBl = productTypeBl;
         this.transactionBl = transactionBl;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ProductTypeDto> listProducttype(HttpServletRequest request) {
+        return productTypeBl.listProducttype();
     }
 
     @RequestMapping( value="/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
