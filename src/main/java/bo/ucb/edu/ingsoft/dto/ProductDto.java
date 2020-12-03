@@ -17,6 +17,16 @@ public class ProductDto {
     private Double unitPrice;
     private Integer currency;
     private Integer brandId;
+
+    public java.lang.String getImg() {
+        return img;
+    }
+
+    public void setImg(java.lang.String img) {
+        this.img = img;
+    }
+
+    private String img;
     public Integer getCurrency() {
         return currency;
     }

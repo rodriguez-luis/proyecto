@@ -24,7 +24,8 @@ Content-Type: application/json
   "cityId": 1,
   "unitPrice": 1000,
   "currency": 1,
-  "brandId": 1
+  "brandId": 1,
+  "img": "blablala"
 }
 ###########
 

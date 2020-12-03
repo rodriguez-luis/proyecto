@@ -15,6 +15,16 @@ public class Product {
     private Double unitPrice;
     private Integer currency;
     private Integer brandId;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    private String img;
     private Transaction transaction;
     private Integer status;
 

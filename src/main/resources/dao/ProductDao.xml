@@ -16,13 +16,14 @@
                city_id as cityId,
                price_per_unit as unitPrice,
                currency as currency,
-               brand_id as brandId
+               brand_id as brandId,
+               img as img
         FROM product
         WHERE
             product_id = #{productId}
     </select>
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Product">
-        INSERT INTO product VALUES (null, #{productName}, #{model}, #{productDescription}, #{stock}, #{weight}, #{companyId}, #{productTypeId}, #{cityId}, #{unitPrice},#{currency}, #{txId}, #{txHost}, #{txUserId}, #{txDate},#{status},#{brandId} )
+        INSERT INTO product VALUES (null, #{productName}, #{model}, #{productDescription}, #{stock}, #{weight}, #{companyId}, #{productTypeId}, #{cityId}, #{unitPrice},#{currency}, #{txId}, #{txHost}, #{txUserId}, #{txDate},#{status},#{brandId}, #{img} )
     </insert>
     <select id="getProducts" resultType="bo.ucb.edu.ingsoft.model.Product">
         SELECT
@@ -37,7 +38,8 @@
             city_id as cityId,
             price_per_unit as unitPrice,
             currency as currency,
-            brand_id as brandId
+            brand_id as brandId,
+            img as img
         FROM product
         WHERE
             status = 1

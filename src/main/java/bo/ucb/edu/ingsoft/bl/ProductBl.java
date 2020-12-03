@@ -37,6 +37,7 @@ public class ProductBl {
         productDto.setUnitPrice(product.getUnitPrice());
         productDto.setCurrency(product.getCurrency());
         productDto.setBrandId(product.getBrandId());
+        productDto.setImg(product.getImg());
         return productDto;
     }
     public List<ProductDto> selectProducts(){
@@ -57,6 +58,7 @@ public class ProductBl {
             productDto.setUnitPrice(product.getUnitPrice());
             productDto.setCurrency(product.getCurrency());
             productDto.setBrandId(product.getBrandId());
+            productDto.setImg(product.getImg());
             productsDto.add(i,productDto);
         }
         return productsDto;
@@ -74,6 +76,7 @@ public class ProductBl {
         product.setUnitPrice(productDto.getUnitPrice());
         product.setCurrency(productDto.getCurrency());
         product.setBrandId(productDto.getBrandId());
+        product.setImg(productDto.getImg());
         product.setTxId(transaction.getTxId());
         product.setTxUserId(transaction.getTxUserId());
         product.setTxHost(transaction.getTxHost());
