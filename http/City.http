@@ -10,3 +10,7 @@ Content-Type: application/json
 {
   "cityName": "Potosi"
 }
+
+##########
+GET http://localhost:8080/v1/city
+Accept: application/json
