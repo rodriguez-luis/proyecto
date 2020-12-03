@@ -32,7 +32,7 @@ public class ProductType {
     }
 
     @RequestMapping( value="/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public bo.ucb.edu.ingsoft.dto.ProductTypeDto findById(@PathVariable("id") Integer id, HttpServletRequest request) {
+    public ProductTypeDto findById(@PathVariable("id") Integer id, HttpServletRequest request) {
         return productTypeBl.findByProductTypeById(id);
     }
 
