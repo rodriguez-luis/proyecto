@@ -15,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/v1/user/create")
@@ -44,4 +45,9 @@ public class UserApi {
         UserDto userDtoResponse = customerBl.createUser(UserDto, transaction, person, user);
         return userDtoResponse;
     }
+
+    /*@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<CompanyDto> listCompany(HttpServletRequest request) {
+        return companyBl.listCompany();
+    }*/
 }
