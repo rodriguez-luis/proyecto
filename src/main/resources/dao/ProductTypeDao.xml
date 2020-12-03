@@ -35,4 +35,10 @@
     <!--    <select id="getLastInsertId" resultType="java.lang.Integer">-->
     <!--        SELECT LAST_INSERT_ID()-->
     <!--    </select>-->
+
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.ProductType">
+        UPDATE `product_type`
+        SET type_name=#{typeName}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+        WHERE product_type_id = #{productTypeId}
+    </update>
 </mapper>

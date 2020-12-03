@@ -63,4 +63,20 @@ public class ProductTypeBl {
         Integer getLastId = transactionDao.getLastInsertId();
         productTypeDto.setProductTypeId(getLastId);
         return productTypeDto;
-    }}
+    }
+
+
+    public ProductTypeDto updateCompany(ProductTypeDto productTypeDto, Transaction transaction){
+        ProductType productType = new ProductType();
+
+        productType.setType_name(productTypeDto.getTypeName());
+        productType.setTxId(transaction.getTxId());
+        productType.setTxUserId(transaction.getTxUserId());
+        productType.setTxHost(transaction.getTxHost());
+        productType.setTxDate(transaction.getTxDate());
+        productType.setStatus(1);
+        productTypeDao.update(productType);
+        return productTypeDto;
+
+    }
+}
