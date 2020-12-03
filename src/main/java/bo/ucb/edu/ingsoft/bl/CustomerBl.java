@@ -89,8 +89,9 @@ public class CustomerBl {
             User user = users.get(i);
             UserDto userDto = new UserDto();
 
+            userDto.setUserId(user.getUserId());
+            userDto.setPersonId(user.getPersonId());
             userDto.setUsername(user.getUsername());
-            //userDto.setBirthday(user.);
 
             usersDto.add(i, userDto);
         }

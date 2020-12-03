@@ -1,21 +1,21 @@
-GET http://localhost:8080/v1/user/1
+GET http://localhost:8080/v1/user
 Accept: application/json
 
 ###
-POST http://localhost:8080/v1/user/create
+POST http://localhost:8080/v1/user
 Accept: application/json
 Content-Type: application/json
 
 {
-  "firstName": "Prueba1",
-  "lastName": "Prueba1",
-  "username": "prueba1",
-  "password": "prueba1",
+  "firstName": "Prueba2",
+  "lastName": "Prueba2",
+  "username": "prueba2",
+  "password": "prueba2",
   "companyId": 3,
   "cityId": 4,
-  "phone": "77777799",
-  "email": "prueba@gmail.com",
-  "birthday": "2000-10-10"
+  "phone": "77778899",
+  "email": "prueba2@gmail.com",
+  "birthday": "1990-10-10"
 }
 
 ###

@@ -19,4 +19,13 @@
     <select id="getLastInsertId" resultType="java.lang.Integer">
         SELECT LAST_INSERT_ID()
     </select>
+    <select id="getUser" resultType="bo.ucb.edu.ingsoft.model.User">
+        SELECT
+            user_id as userId,
+            person_id as personId,
+            company_id as companyId,
+            username as username
+        FROM user
+        WHERE status = 1
+    </select>
 </mapper>

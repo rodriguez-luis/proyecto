@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/v1/user/create")
+@RequestMapping(value = "/v1/user")
 public class UserApi {
 
     private CustomerBl customerBl;
@@ -46,6 +46,10 @@ public class UserApi {
         return userDtoResponse;
     }
 
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<UserDto> listUser(HttpServletRequest request){
+        return customerBl.listUser();
+    }
     /*@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CompanyDto> listCompany(HttpServletRequest request) {
         return companyBl.listCompany();
