@@ -1,6 +1,7 @@
 package bo.ucb.edu.ingsoft.dao;
 
 import bo.ucb.edu.ingsoft.dto.ProductTypeDto;
+import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.ProductType;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -11,5 +12,7 @@ public interface ProductTypeDao {
     public List<ProductType> getProducttype();
     public ProductType findProductTypeById(Integer productTypeId);
     public void create (ProductType productType);
+    public void update(ProductType productType);
+
 
 }

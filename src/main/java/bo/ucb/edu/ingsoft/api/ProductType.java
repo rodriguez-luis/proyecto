@@ -49,4 +49,15 @@ public class ProductType {
     }
 
 
+    @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ProductTypeDto updateCompany(@RequestBody ProductTypeDto productTypeDto, HttpServletRequest request) {
+        // Creamos transaccion para la operación.
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        ProductTypeDto productTypeResponse = productTypeBl.updateCompany(productTypeDto, transaction);
+        return productTypeResponse;
+    }
+
+
 }

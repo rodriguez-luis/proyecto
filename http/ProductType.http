@@ -10,7 +10,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/v1/producttype/2
+GET http://localhost:8080/v1/producttype/11
 Accept: application/json
 
 ###
@@ -24,3 +24,19 @@ Content-Type: application/json
 }
 
 ###
+PATCH http://localhost:8080/v1/producttype
+Accept: application/json
+Content-Type: application/json
+
+{
+  "productTypeId": 11,
+  "typeName": "MB"
+
+}
+
+###########
+DELETE http://localhost:8080/v1/producttype/1
+Accept: application/json
+
+###
+
