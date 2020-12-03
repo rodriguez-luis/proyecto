@@ -57,6 +57,7 @@ public class ProductTypeBl {
         productType.setTxUserId(transaction.getTxUserId());
         productType.setTxHost(transaction.getTxHost());
         productType.setTxDate(transaction.getTxDate());
+        productType.setStatus(1);
 
         productTypeDao.create(productType);
         Integer getLastId = transactionDao.getLastInsertId();
