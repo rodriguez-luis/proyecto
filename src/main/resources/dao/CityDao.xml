@@ -16,4 +16,12 @@
         WHERE
             city_id = #{cityId} and status=1
     </select>
+    <select id="getCity" resultType="bo.ucb.edu.ingsoft.model.City">
+        SELECT
+            city_id as cityId,
+            city_name as cityName
+        FROM city
+        WHERE
+            status = 1
+    </select>
 </mapper>
