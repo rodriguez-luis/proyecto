@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.ProductTypeDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.ProductTypeDto;
+import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.ProductType;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -77,6 +78,19 @@ public class ProductTypeBl {
         productType.setStatus(1);
         productTypeDao.update(productType);
         return productTypeDto;
+
+    }
+
+    public void delete(Integer productTypeId, Transaction transaction)
+    {
+        ProductType productType= new ProductType();
+        productType.setProductTypeId(productTypeId);
+        productType.setTxId(transaction.getTxId());
+        productType.setTxUserId(transaction.getTxUserId());
+        productType.setTxHost(transaction.getTxHost());
+        productType.setTxDate(transaction.getTxDate());
+        productType.setStatus(0);
+        productTypeDao.delete(productType);
 
     }
 }

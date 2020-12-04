@@ -7,6 +7,7 @@ import bo.ucb.edu.ingsoft.dto.ProductTypeDto;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
@@ -59,5 +60,11 @@ public class ProductType {
         return productTypeResponse;
     }
 
+    @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable("id") Integer productTypeId, HttpServletRequest request ){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transaction=transactionBl.createTransaction(transaction);
+        productTypeBl.delete(productTypeId, transaction);
+    }
 
 }

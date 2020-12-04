@@ -13,6 +13,8 @@ public interface ProductTypeDao {
     public ProductType findProductTypeById(Integer productTypeId);
     public void create (ProductType productType);
     public void update(ProductType productType);
+    public void save(ProductType productType);
+    public void delete (ProductType productType);
 
 
 }
