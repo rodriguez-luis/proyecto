@@ -37,7 +37,7 @@
     <!--    </select>-->
 
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.ProductType">
-        UPDATE product_type
+        UPDATE `product_type`
         SET type_name=#{typeName},
             status=#{status},
             tx_id=#{txId},

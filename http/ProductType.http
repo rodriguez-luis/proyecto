@@ -29,18 +29,19 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "productTypeId": 11,
+  "productTypeId": 35,
   "typeName": "Mothe"
 
 }
 
 ###
 
-PUT http://localhost:8080/v1/producttype/form/2/
+PATCH http://localhost:8080/v1/producttype/
 Accept: application/json
 Content-Type: application/json
 
 {
+  "productTypeId": 2,
   "typeName": "MB"
 }
 

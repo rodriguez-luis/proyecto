@@ -97,18 +97,12 @@ public class ProductTypeBl {
 
     }
 
-    public ProductTypeDto updateProductType(Integer productTypeId,ProductTypeDto productTypeDto, Transaction transaction) {
-        // Getting inf by user id
-
-        ProductType prod = productTypeDao.productTypeInfo(productTypeId);
-        if (prod == null || prod.getStatus() == 0) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
-        }
-
+    public ProductTypeDto updateProductType(ProductTypeDto productTypeDto, Transaction transaction) {
 
         ProductType productType= new ProductType();
-        productType.setProductTypeId(productTypeId);
-        //productType.setType_name(productTypeDto.getTypeName());
+
+        //productType.setProductTypeId(productTypeId);
+        productType.setType_name(productTypeDto.getTypeName());
         productType.setType_name("MB");
         productType.setStatus(1);
         productType.setTxId(transaction.getTxUserId());
@@ -119,6 +113,30 @@ public class ProductTypeBl {
 
         productTypeDao.update(productType);
         return productTypeDto;
+
+
+
+
+
+//        ProductType prod = productTypeDao.productTypeInfo(productTypeId);
+//        if (prod == null || prod.getStatus() == 0) {
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+//        }
+//
+//
+//        ProductType productType= new ProductType();
+//        productType.setProductTypeId(productTypeId);
+//        //productType.setType_name(productTypeDto.getTypeName());
+//        productType.setType_name("MB");
+//        productType.setStatus(1);
+//        productType.setTxId(transaction.getTxUserId());
+//        productType.setTxUserId(transaction.getTxUserId());
+//        productType.setTxHost(transaction.getTxHost());
+//        productType.setTxDate(transaction.getTxDate());
+//        System.out.println(productType);
+//
+//        productTypeDao.update(productType);
+//        return productTypeDto;
 
 
 
