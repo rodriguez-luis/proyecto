@@ -3,6 +3,7 @@ package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.CustomerBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
 import bo.ucb.edu.ingsoft.dto.CompanyDto;
+import bo.ucb.edu.ingsoft.dto.ProductDto;
 import bo.ucb.edu.ingsoft.dto.UserDto;
 import bo.ucb.edu.ingsoft.model.Person;
 import bo.ucb.edu.ingsoft.model.User;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+@CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
 @RequestMapping(value = "/v1/user")
 public class UserApi {
@@ -32,8 +34,8 @@ public class UserApi {
         this.transactionBl =  transactionBl;
     }
 
-    @RequestMapping(value = "{/id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public User findById(@PathVariable("id") Integer id, HttpServletRequest request) {
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public UserDto findById(@PathVariable("id") Integer id, HttpServletRequest request) {
         return customerBl.findUserById(id);
     }
 
@@ -50,8 +52,4 @@ public class UserApi {
     public List<UserDto> listUser(HttpServletRequest request){
         return customerBl.listUser();
     }
-    /*@RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<CompanyDto> listCompany(HttpServletRequest request) {
-        return companyBl.listCompany();
-    }*/
 }

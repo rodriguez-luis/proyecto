@@ -26,8 +26,15 @@ public class CustomerBl {
         this.transactionDao = transactionDao;
     }
 
-    public User findUserById(Integer userId) {
-        return  userDao.findByUserId(userId);
+    public UserDto findUserById(Integer userId) {
+        User user = userDao.findByUserId(userId);
+        UserDto userDto = new UserDto();
+        userDto.setUserId(user.getUserId());
+        userDto.setPersonId(user.getPersonId());
+        userDto.setCompanyId(user.getCompanyId());
+        userDto.setUsername(user.getUsername());
+        userDto.setPassword(user.getPassword());
+        return userDto;
     }
 
     public UserDto createUser(UserDto userDto, Transaction transaction, Person person, User user) {
@@ -91,6 +98,7 @@ public class CustomerBl {
 
             userDto.setUserId(user.getUserId());
             userDto.setPersonId(user.getPersonId());
+            userDto.setCompanyId(user.getCompanyId());
             userDto.setUsername(user.getUsername());
 
             usersDto.add(i, userDto);

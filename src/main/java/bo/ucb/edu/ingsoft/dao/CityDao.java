@@ -11,4 +11,5 @@ public interface CityDao {
     public void create(City city);
     public City findByCityId(Integer cityId);
     public List<City> getCity();
+    public void update(City city);
 }

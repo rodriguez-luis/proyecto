@@ -25,7 +25,7 @@ Content-Type: application/json
 
 {
   "companyId": 11,
-  "name": "Tecnologica SUYI",
+  "name": "Tecnologica SUPERFANTASTICO",
   "direction": "Av. Uyustus N1000",
   "phone": "25252525",
   "email": "suyu@gmail.com"

@@ -8,7 +8,16 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "cityName": "Potosi"
+  "cityName": "Sucre"
 }
 
+##########
+PATCH http://localhost:8080/v1/city
+Accept: application/json
+Content-Type: application/json
+
+{
+  "cityId": 6,
+  "cityName": "Sucre"
+}
 

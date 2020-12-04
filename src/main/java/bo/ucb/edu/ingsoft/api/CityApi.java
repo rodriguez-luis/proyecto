@@ -46,4 +46,12 @@ public class CityApi {
     @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CityDto> listCity(HttpServletRequest request){return cityBl.listCity();}
 
+    @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CityDto updateCity(@RequestBody CityDto CityDto, HttpServletRequest request){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction((transaction));
+        CityDto CityDtoResponse = cityBl.updateCity(CityDto, transaction);
+        return CityDtoResponse;
+    }
+
 }

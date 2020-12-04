@@ -3,7 +3,6 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.CityDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.CityDto;
-import bo.ucb.edu.ingsoft.dto.CompanyDto;
 import bo.ucb.edu.ingsoft.model.City;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,5 +55,17 @@ public class CityBl {
             citiesDto.add(i, cityDto);
         }
         return citiesDto;
+    }
+    public CityDto updateCity(CityDto cityDto, Transaction transaction){
+        City city = new City();
+        city.setCityId(cityDto.getCityId());
+        city.setCityName(cityDto.getCityName());
+        city.setTxId(transaction.getTxId());
+        city.setTxUserId(transaction.getTxUserId());
+        city.setTxHost(transaction.getTxHost());
+        city.setTxDate(transaction.getTxDate());
+        city.setStatus(1);
+        cityDao.update(city);
+        return cityDto;
     }
 }

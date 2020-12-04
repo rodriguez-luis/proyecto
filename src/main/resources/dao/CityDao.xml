@@ -24,4 +24,9 @@
         WHERE
             status = 1
     </select>
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.City">
+        UPDATE `city`
+        SET `city_name` = #{cityName}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+        WHERE city_id = #{cityId}
+    </update>
 </mapper>
