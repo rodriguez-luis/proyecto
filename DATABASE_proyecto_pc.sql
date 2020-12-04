@@ -1,8 +1,11 @@
-drop proyecto_pc;
+drop database proyecto_pc;
+create database proyecto_pc;
+use proyecto_pc;
+drop database proyecto_pc;
 create database proyecto_pc;
 use proyecto_pc;
 -- Created by Vertabelo (http://vertabelo.com)
--- Last modification date: 2020-12-03 18:22:47.018
+-- Last modification date: 2020-12-03 21:40:04.273
 
 -- tables
 -- Table: brands
@@ -12,7 +15,7 @@ CREATE TABLE brands (
                         tx_id int NOT NULL DEFAULT 1,
                         tx_host varchar(50) NOT NULL DEFAULT '127.0.0.1',
                         tx_user_id int NOT NULL DEFAULT 0,
-                        tx_date timestamp NOT NULL DEFAULT '2021-11-22 00:00:00',
+                        tx_date timestamp NOT NULL DEFAULT '2020-11-22 00:00:00',
                         status int NOT NULL DEFAULT 1,
                         CONSTRAINT brands_pk PRIMARY KEY (brand_id)
 );
@@ -80,6 +83,8 @@ CREATE TABLE checkout (
                           tx_user_id int NOT NULL DEFAULT 0,
                           tx_date timestamp NOT NULL DEFAULT '2020-11-22 00:00:00',
                           status int NOT NULL DEFAULT 1,
+                          contact varchar(50) NOT NULL,
+                          address varchar(150) NOT NULL,
                           CONSTRAINT checkout_pk PRIMARY KEY (checkout_id)
 );
 

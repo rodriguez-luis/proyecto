@@ -168,8 +168,8 @@ INSERT INTO `proyecto_pc`.`cart` (`purchase_details_id`, `user_id`) VALUES ('3',
 INSERT INTO `proyecto_pc`.`cart` (`purchase_details_id`, `user_id`) VALUES ('4', '8');
 
 /*select * from checkout;*/
-INSERT INTO `proyecto_pc`.`checkout` (`cart_id`, `payment_details_id`, `date`, `total`) VALUES ('1', '2', '2020-11-22 00:00:00', '5150');
-INSERT INTO `proyecto_pc`.`checkout` (`cart_id`, `payment_details_id`, `date`, `total`) VALUES ('2', '4', '2020-11-22 00:00:00', '1960');
+INSERT INTO `proyecto_pc`.`checkout` (`cart_id`, `payment_details_id`, `date`, `total`, `contact`, `address`) VALUES ('1', '2', '2020-11-22 00:00:00', '5150', 'ejemplo@ejemplo.org', 'Calle Colombia');
+INSERT INTO `proyecto_pc`.`checkout` (`cart_id`, `payment_details_id`, `date`, `total`, `contact`, `address`) VALUES ('2', '4', '2020-11-22 00:00:00', '1960', 'yo@ejemplo.com', 'Avenida Arce');
 
 /*select * from user_role;*/
 INSERT INTO `proyecto_pc`.`user_role` (`role_id`, `user_id`) VALUES ('1', '1');
