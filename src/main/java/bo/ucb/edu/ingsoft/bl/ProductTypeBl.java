@@ -6,8 +6,11 @@ import bo.ucb.edu.ingsoft.dto.ProductTypeDto;
 import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.ProductType;
 import bo.ucb.edu.ingsoft.model.Transaction;
+import bo.ucb.edu.ingsoft.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +70,7 @@ public class ProductTypeBl {
     }
 
 
-    public ProductTypeDto updateCompany(ProductTypeDto productTypeDto, Transaction transaction){
+    public ProductTypeDto updatePtype(ProductTypeDto productTypeDto, Transaction transaction){
         ProductType productType = new ProductType();
 
         productType.setType_name(productTypeDto.getTypeName());
@@ -93,4 +96,32 @@ public class ProductTypeBl {
         productTypeDao.delete(productType);
 
     }
+
+    public ProductTypeDto updateProductType(Integer productTypeId,ProductTypeDto productTypeDto, Transaction transaction) {
+        // Getting inf by user id
+
+        ProductType prod = productTypeDao.productTypeInfo(productTypeId);
+        if (prod == null || prod.getStatus() == 0) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Unable to find resource");
+        }
+
+
+        ProductType productType= new ProductType();
+        productType.setProductTypeId(productTypeId);
+        //productType.setType_name(productTypeDto.getTypeName());
+        productType.setType_name("MB");
+        productType.setStatus(1);
+        productType.setTxId(transaction.getTxUserId());
+        productType.setTxUserId(transaction.getTxUserId());
+        productType.setTxHost(transaction.getTxHost());
+        productType.setTxDate(transaction.getTxDate());
+        System.out.println(productType);
+
+        productTypeDao.update(productType);
+        return productTypeDto;
+
+
+
+    }
+
 }

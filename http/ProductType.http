@@ -30,9 +30,21 @@ Content-Type: application/json
 
 {
   "productTypeId": 11,
-  "typeName": "MB"
+  "typeName": "Mothe"
 
 }
+
+###
+
+PUT http://localhost:8080/v1/producttype/form/2/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "typeName": "MB"
+}
+
+
 
 ###########
 DELETE http://localhost:8080/v1/producttype/11

@@ -50,15 +50,7 @@ public class ProductType {
     }
 
 
-    @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
-            consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ProductTypeDto updateCompany(@RequestBody ProductTypeDto productTypeDto, HttpServletRequest request) {
-        // Creamos transaccion para la operación.
-        Transaction transaction = TransactionUtil.createTransaction(request);
-        transactionBl.createTransaction(transaction);
-        ProductTypeDto productTypeResponse = productTypeBl.updateCompany(productTypeDto, transaction);
-        return productTypeResponse;
-    }
+
 
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Integer productTypeId, HttpServletRequest request ){
@@ -66,5 +58,17 @@ public class ProductType {
         transaction=transactionBl.createTransaction(transaction);
         productTypeBl.delete(productTypeId, transaction);
     }
+
+
+    @RequestMapping(value = "/form/{id}", method = RequestMethod.PUT, produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseStatus(value = HttpStatus.OK)
+    public ProductTypeDto updateUserInfo(@PathVariable("id") Integer productTypeId, ProductTypeDto productTypeDto,  HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transaction=transactionBl.createTransaction(transaction);
+       // productTypeBl.updateProductType(productTypeId,productTypeDto, transaction);
+        ProductTypeDto productTypeDtoResponse = productTypeBl.updateProductType(productTypeId,productTypeDto, transaction);
+        return productTypeDto;
+    }
+
 
 }
