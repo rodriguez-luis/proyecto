@@ -13,6 +13,14 @@ public class ProductTypeDto {
     //private Integer statusId;
     //private Transaction transaction;
 
+    @Override
+    public String toString() {
+        return "ProductTypeDto{" +
+                "productTypeId=" + productTypeId +
+                ", typeName='" + typeName + '\'' +
+                '}';
+    }
+
     public Integer getProductTypeId() {
         return productTypeId;
     }

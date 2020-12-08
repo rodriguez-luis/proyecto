@@ -10,7 +10,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/v1/producttype/11
+GET http://localhost:8080/v1/producttype/35
 Accept: application/json
 
 ###
@@ -30,7 +30,7 @@ Content-Type: application/json
 
 {
   "productTypeId": 35,
-  "typeName": "Mothe"
+  "typeName": "Motheira"
 
 }
 

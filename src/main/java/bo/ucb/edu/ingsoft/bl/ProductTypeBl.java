@@ -102,8 +102,9 @@ public class ProductTypeBl {
         ProductType productType= new ProductType();
 
         //productType.setProductTypeId(productTypeId);
+        productType.setProductTypeId(productTypeDto.getProductTypeId());
         productType.setType_name(productTypeDto.getTypeName());
-        productType.setType_name("MB");
+     //   productType.setType_name("MB");
         productType.setStatus(1);
         productType.setTxId(transaction.getTxUserId());
         productType.setTxUserId(transaction.getTxUserId());
@@ -112,6 +113,11 @@ public class ProductTypeBl {
         System.out.println(productType);
 
         productTypeDao.update(productType);
+
+        System.out.println(productType);
+        System.out.println(productType);
+        System.out.println(productType);
+
         return productTypeDto;
 
 
