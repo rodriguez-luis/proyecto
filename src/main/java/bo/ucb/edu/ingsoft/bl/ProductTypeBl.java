@@ -97,12 +97,17 @@ public class ProductTypeBl {
 
     }
 
-    public ProductTypeDto updateProductType(ProductTypeDto productTypeDto, Transaction transaction) {
+    public ProductTypeDto updateProductType(ProductTypeDto productTypeDto, Integer productTypeId, Transaction transaction) {
+
+        ProductType productTypeInfo = productTypeDao.productTypeInfo(productTypeId);
+        System.out.println(productTypeId);
 
         ProductType productType= new ProductType();
 
-        //productType.setProductTypeId(productTypeId);
-        productType.setProductTypeId(productTypeDto.getProductTypeId());
+        System.out.println(productType);
+
+
+        productType.setProductTypeId(productTypeId);
         productType.setType_name(productTypeDto.getTypeName());
      //   productType.setType_name("MB");
         productType.setStatus(1);

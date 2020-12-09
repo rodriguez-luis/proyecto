@@ -24,13 +24,14 @@ Content-Type: application/json
 }
 
 ###
-PATCH http://localhost:8080/v1/producttype
+//PATCH http://localhost:8080/v1/producttype/{id}
+PATCH http://localhost:8080/v1/producttype/35
 Accept: application/json
 Content-Type: application/json
 
 {
   "productTypeId": 35,
-  "typeName": "Motheira"
+  "typeName": "Motheiraaaaaaaa"
 
 }
 

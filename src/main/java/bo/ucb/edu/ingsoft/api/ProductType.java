@@ -60,11 +60,11 @@ public class ProductType {
     }
 
 
-     @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ProductTypeDto updateCity(@RequestBody ProductTypeDto ProductTypeDto, HttpServletRequest request){
+     @RequestMapping(value="/{id}", method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    public ProductTypeDto update(@PathVariable("id") Integer productTypeId, @RequestBody ProductTypeDto ProductTypeDto, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction((transaction));
-        ProductTypeDto ProductTypeDtoResponse = productTypeBl.updateProductType(ProductTypeDto, transaction);
+        ProductTypeDto ProductTypeDtoResponse = productTypeBl.updateProductType(ProductTypeDto,productTypeId , transaction);
         return ProductTypeDtoResponse;
 
 
