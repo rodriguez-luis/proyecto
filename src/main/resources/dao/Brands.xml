@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.CityDao">
+    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Brand">
+        INSERT INTO brands VALUES (
+            null, #{name}, #{txId}, #{txHost}, #{txUserId}, #{txDate}, #{status}
+        )
+    </insert>
+    <select id="findByBrandId" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.Brand">
+        SELECT
+            brand_id as brandId,
+            name as name
+        FROM brands
+        WHERE
+            brand_id = #{brandId} and status=1
+    </select>
+    <select id="getBrand" resultType="bo.ucb.edu.ingsoft.model.Brand">
+        SELECT
+            brand_id as brandId,
+            name as Name
+        FROM brands
+        WHERE
+            status = 1
+    </select>
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Brand">
+        UPDATE `brands`
+        SET `brand_id` = #{name}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+        WHERE brand_id = #{brandId}
+    </update>
+</mapper>
