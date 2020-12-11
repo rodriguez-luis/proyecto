@@ -24,7 +24,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "companyId": 11,
+  "companyId": 19,
   "name": "Tecnologica SUPERFANTASTICO",
   "direction": "Av. Uyustus N1000",
   "phone": "25252525",

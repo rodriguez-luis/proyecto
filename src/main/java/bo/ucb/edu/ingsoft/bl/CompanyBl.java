@@ -85,6 +85,7 @@ public class CompanyBl {
     }
     public CompanyDto updateCompany(CompanyDto companyDto, Transaction transaction){
         Company company = new Company();
+        company.setCompanyId(companyDto.getCompanyId());
         company.setName(companyDto.getName());
         company.setDirection(companyDto.getDirection());
         company.setPhone(companyDto.getPhone());
