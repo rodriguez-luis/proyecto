@@ -5,17 +5,17 @@
 # * 'ptr' and 'ptrp' create a POST request with a simple or parameter-like body;
 # * 'mptr' and 'fptr' create a POST request to submit a form with a text or file field (multipart/form-data);
 
-GET http://localhost:8080/v1/producttype
+GET http://localhost:8080/v1/brand
 Accept: application/json
 
 ###
 
-GET http://localhost:8080/v1/producttype/10
+GET http://localhost:8080/v1/brand/10
 Accept: application/json
 
 ###
 
-POST http://localhost:8080/v1/producttype
+POST http://localhost:8080/v1/brand
 Accept: application/json
 Content-Type: application/json
 
@@ -24,33 +24,13 @@ Content-Type: application/json
 }
 
 ###
-//PATCH http://localhost:8080/v1/producttype/{id}
-PATCH http://localhost:8080/v1/producttype/10
+//PATCH http://localhost:8080/v1/brand/{id}
+PATCH http://localhost:8080/v1/brand/10
 Accept: application/json
 Content-Type: application/json
 
 {
-  "productTypeId": 10,
-  "typeName": "Motheiraaaaaaaa"
+  "productBrandId": 10,
+  "name": "Motheiraaaaaaaa"
 
 }
-
-###
-
-PATCH http://localhost:8080/v1/producttype/
-Accept: application/json
-Content-Type: application/json
-
-{
-  "productTypeId": 2,
-  "typeName": "MB"
-}
-
-
-
-###########
-DELETE http://localhost:8080/v1/producttype/11
-Accept: application/json
-
-###
-
