@@ -72,6 +72,16 @@ public class CompanyBl {
         return companyDto;
     }
 
+    //nuevo
+    public Company delete(Integer idCompany){
+        Company company= new Company();
+        company = companyDao.findByCompanyId(idCompany);
+        if(company != null){
+            companyDao.delete(company);
+        }
+        return company;
+    }
+    /**
     public void delete(Integer idCompany, Transaction transaction)
     {
         Company company= new Company();
@@ -83,6 +93,7 @@ public class CompanyBl {
         company.setStatus(0);
         companyDao.delete(company);
     }
+     */
     public CompanyDto updateCompany(CompanyDto companyDto, Transaction transaction){
         Company company = new Company();
         company.setCompanyId(companyDto.getCompanyId());

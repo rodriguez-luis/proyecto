@@ -24,15 +24,15 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "companyId": 19,
-  "name": "Tecnologica SUPERFANTASTICO",
+  "companyId": 2,
+  "name": "monoPcmono",
   "direction": "Av. Uyustus N1000",
   "phone": "25252525",
   "email": "suyu@gmail.com"
 }
 
 ###########
-DELETE http://localhost:8080/v1/company/1
+DELETE http://localhost:8080/v1/company/9
 Accept: application/json
 
 ###
