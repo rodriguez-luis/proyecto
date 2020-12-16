@@ -8,6 +8,9 @@ import bo.ucb.edu.ingsoft.model.Brand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class BrandBl {
     private BrandDao brandDao;
@@ -32,6 +35,40 @@ public class BrandBl {
         return brandDto;
     }
 
+    public BrandDto findBrandById(Integer brandId) {
+        BrandDto brandDto= new BrandDto();
+        Brand brandResponse= brandDao.findByBrandId(brandId);
+        brandDto.setBrandId(brandResponse.getBrandId());
+        brandDto.setName(brandResponse.getName());
+        return brandDto;
+    }
 
+    public List<BrandDto> listBrand(){
+        List<Brand> brands = brandDao.getBrand();
+        List<BrandDto> brandsDto = new ArrayList<BrandDto>();
+        for(int i=0; i<brands.size(); i++){
+            Brand brand = brands.get(i);
+            BrandDto brandDto = new BrandDto();
+
+            brandDto.setBrandId(brand.getBrandId());
+            brandDto.setName(brand.getName());
+
+            brandsDto.add(i, brandDto);
+        }
+        return brandsDto;
+    }
+
+    public BrandDto updateBrand(BrandDto brandDto, Transaction transaction){
+        Brand brand = new Brand();
+        brand.setBrandId(brandDto.getBrandId());
+        brand.setName(brandDto.getName());
+        brand.setTxId(transaction.getTxId());
+        brand.setTxUserId(transaction.getTxUserId());
+        brand.setTxHost(transaction.getTxHost());
+        brand.setTxDate(transaction.getTxDate());
+        brand.setStatus(1);
+        brandDao.update(brand);
+        return brandDto;
+    }
 
 }
