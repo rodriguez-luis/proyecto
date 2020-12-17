@@ -28,6 +28,7 @@ public class BrandBl {
         brand.setTxId(transaction.getTxId());
         brand.setTxUserId(transaction.getTxUserId());
         brand.setTxHost(transaction.getTxHost());
+        brand.setTxDate(transaction.getTxDate());
         brand.setStatus(1);
         brandDao.create(brand);
         Integer getLastId = transactionDao.getLastInsertId();
