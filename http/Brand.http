@@ -10,7 +10,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/v1/brand/10
+GET http://localhost:8080/v1/brand/17
 Accept: application/json
 
 ###
@@ -34,5 +34,13 @@ Content-Type: application/json
   "name": "cougar"
 
 }
+
+
+###########
+DELETE http://localhost:8080/v1/brand/17
+Accept: application/json
+
+###
+
 
 ###

@@ -72,4 +72,17 @@ public class BrandBl {
         return brandDto;
     }
 
+    public Brand delete(Integer brandId, Transaction transaction)
+    {
+        Brand brand= new Brand();
+        brand.setBrandId(brandId);
+        brand.setTxId(transaction.getTxId());
+        brand.setTxUserId(transaction.getTxUserId());
+        brand.setTxHost(transaction.getTxHost());
+        brand.setTxDate(transaction.getTxDate());
+        brand.setStatus(0);
+        brandDao.delete(brand);
+        return brand;
+    }
+
 }

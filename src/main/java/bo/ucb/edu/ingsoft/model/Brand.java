@@ -1,8 +1,10 @@
 package bo.ucb.edu.ingsoft.model;
 
+import bo.ucb.edu.ingsoft.dto.BrandDto;
+
 import java.util.Date;
 
-public class Brand {
+public class Brand extends BrandDto {
     private Integer brandId;
     private String name;
     private Transaction transaction;

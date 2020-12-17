@@ -11,4 +11,6 @@ public interface BrandDao {
     public Brand findByBrandId (Integer brandId);
     public List<Brand> getBrand();
     public void update(Brand brand);
+    public void delete (Brand brand);
+
 }
