@@ -12,9 +12,13 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,12 +76,23 @@ public class ProductType {
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
 
-    public ProductTypeDto productTypeCreate (@RequestBody ProductTypeDto productTypeDto,
-                                             HttpServletRequest request){
+    public ResponseEntity<?> productTypeCreate (@Valid @RequestBody ProductTypeDto productTypeDto,
+                                             HttpServletRequest request, BindingResult result){
+        Map<String, Object> response = new HashMap<>();
+
+        if (result.hasErrors()) {
+            List<String> errors = new ArrayList<>();
+           for( FieldError err: result.getFieldErrors()){
+               errors.add(err.getDefaultMessage());
+           }
+            response.put("errores",errors);
+           return new ResponseEntity<Map<String, Object>>(response,HttpStatus.BAD_REQUEST);
+
+       }
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
         ProductTypeDto productTypeDtoResponse = productTypeBl.productTypeCreate(productTypeDto,transaction);
-        return productTypeDtoResponse;
+        return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
     }
 
 
