@@ -55,7 +55,6 @@ public class ProductType {
 
         try{
             productTypeDto = productTypeBl.findByProductTypeById(id);
-            System.out.println(productTypeDto);
             if (productTypeDto == null){
                 response.put("mnje", "El  pt id ".concat(id.toString().concat("no existe en db")));
                 return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
@@ -64,7 +63,6 @@ public class ProductType {
         }
         catch (DataAccessException e){
             response.put("mnje", "El  pt id ".concat(id.toString().concat("Error db")));
-            System.out.println(productTypeDto);
             return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
 
         }

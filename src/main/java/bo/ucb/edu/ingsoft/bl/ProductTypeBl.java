@@ -67,19 +67,16 @@ public class ProductTypeBl {
         lalo = productType.getProductTypeId();
             if (lalo == null){
                 response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("no existe en db")));
-                System.out.println(productTypeId);
               //  return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
             }
         }catch (DataAccessException e){
             productTypeDto.setProductTypeId(productType.getProductTypeId());
             if (lalo == null){
                 response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("no existe en db")));
-                System.out.println(productTypeId);
                 //  return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
             }
             response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("Error db")));
            // return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
-            System.out.println(productTypeId);
 
 
         }
@@ -134,11 +131,9 @@ public class ProductTypeBl {
     public ProductTypeDto updateProductType(ProductTypeDto productTypeDto, Transaction transaction) {
 
       //  ProductType productTypeInfo = productTypeDao.productTypeInfo(productTypeId);
-       // System.out.println(productTypeId);
 
         ProductType productType= new ProductType();
 
-        System.out.println(productType);
         productType.setProductTypeId(productTypeDto.getProductTypeId());
 
       //  productType.setProductTypeId(productTypeId);
@@ -149,13 +144,9 @@ public class ProductTypeBl {
         productType.setTxUserId(transaction.getTxUserId());
         productType.setTxHost(transaction.getTxHost());
         productType.setTxDate(transaction.getTxDate());
-        System.out.println(productType);
 
         productTypeDao.update(productType);
 
-        System.out.println(productType);
-        System.out.println(productType);
-        System.out.println(productType);
 
         return productTypeDto;
 
@@ -178,7 +169,6 @@ public class ProductTypeBl {
 //        productType.setTxUserId(transaction.getTxUserId());
 //        productType.setTxHost(transaction.getTxHost());
 //        productType.setTxDate(transaction.getTxDate());
-//        System.out.println(productType);
 //
 //        productTypeDao.update(productType);
 //        return productTypeDto;
