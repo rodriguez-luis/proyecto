@@ -10,7 +10,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/v1/brand/10
+GET http://localhost:8080/v1/brand/17
 Accept: application/json
 
 ###
@@ -20,17 +20,27 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "typeName": "MotherBoard"
+  "name": "Cougarin"
 }
 
 ###
 //PATCH http://localhost:8080/v1/brand/{id}
-PATCH http://localhost:8080/v1/brand/10
+PATCH http://localhost:8080/v1/brand/
 Accept: application/json
 Content-Type: application/json
 
 {
-  "productBrandId": 10,
-  "name": "Motheiraaaaaaaa"
+  "brandId": 10,
+  "name": "cougar"
 
 }
+
+
+###########
+DELETE http://localhost:8080/v1/brand/17
+Accept: application/json
+
+###
+
+
+###

@@ -26,7 +26,13 @@
     </select>
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Brand">
         UPDATE `brands`
-        SET `brand_id` = #{name}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+        SET `name` = #{name}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
         WHERE brand_id = #{brandId}
     </update>
+
+    <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Brand">
+        UPDATE `brands`
+        SET status=#{status}
+        WHERE brand_id = #{brandId}
+    </delete>
 </mapper>
