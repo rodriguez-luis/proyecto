@@ -2,12 +2,15 @@ package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.ProductDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
+import bo.ucb.edu.ingsoft.dto.CompanyDto;
 import bo.ucb.edu.ingsoft.dto.ProductDto;
+import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.Product;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.security.ProtectionDomain;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,4 +90,46 @@ public class ProductBl {
         productDto.setProductId(getLastId);
         return productDto;
     }
+
+
+    public ProductDto updateProduct(ProductDto productDto, Transaction transaction){
+        Product product = new Product();
+        product.setProductId(productDto.getProductId());
+        product.setProductName(productDto.getProductName());
+        product.setModel(productDto.getModel());
+        product.setProductDescription(productDto.getProductDescription());
+        product.setStock(productDto.getStock());
+        product.setWeight(productDto.getWeight());
+        product.setCompanyId(productDto.getCompanyId());
+        product.setProductTypeId(productDto.getProductTypeId());
+        product.setCityId(productDto.getCityId());
+        product.setUnitPrice(productDto.getUnitPrice());
+        product.setCurrency(productDto.getCurrency());
+        product.setBrandId(productDto.getBrandId());
+        product.setImg(productDto.getImg());
+
+        product.setTxId(transaction.getTxId());
+        product.setTxUserId(transaction.getTxUserId());
+        product.setTxHost(transaction.getTxHost());
+        product.setTxDate(transaction.getTxDate());
+        product.setStatus(1);
+        productDao.update(product);
+        return productDto;
+    }
+
+
+    public void delete(Integer idProduct, Transaction transaction)
+    {
+        Product product = new Product();
+        product.setProductId(idProduct);
+        product.setTxId(transaction.getTxId());
+        product.setTxUserId(transaction.getTxUserId());
+        product.setTxHost(transaction.getTxHost());
+        product.setTxDate(transaction.getTxDate());
+        product.setStatus(0);
+        productDao.delete(product);
+    }
+
+
+
 }

@@ -53,13 +53,6 @@ public class CompanyApi {
         return companyResponse;
     }
 
-    //nuevo
-    @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
-    public Company delete(@PathVariable("id") Integer idCompany, HttpServletRequest request ){
-        return companyBl.delete(idCompany);
-    }
-
-    /**
     @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Integer idCompany, HttpServletRequest request ){
         Transaction transaction = TransactionUtil.createTransaction(request);
@@ -67,7 +60,7 @@ public class CompanyApi {
         companyBl.delete(idCompany, transaction);
 
     }
-    */
+
     @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public CompanyDto updateCompany(@RequestBody CompanyDto companyDto, HttpServletRequest request) {
