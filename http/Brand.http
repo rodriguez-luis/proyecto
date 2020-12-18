@@ -10,7 +10,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/v1/brand/17
+GET http://localhost:8080/v1/brand/100
 Accept: application/json
 
 ###

@@ -8,12 +8,13 @@ import bo.ucb.edu.ingsoft.model.ProductType;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ProductTypeBl {
@@ -46,9 +47,42 @@ public class ProductTypeBl {
 
 
     public ProductTypeDto findByProductTypeById (Integer productTypeId){
+        Map<String, Object> response = new HashMap<>();
+        Integer lalo = null;
+
+        Optional<ProductType> optional = Optional.ofNullable(this.productTypeDao.findProductTypeById(productTypeId));
+        if (optional.isPresent()) {
+
+        } else {
+            throw new RuntimeException("No se pudo encontrar ese productType  " + productTypeId);
+        }
+
+
+
         ProductType productType = productTypeDao.findProductTypeById(productTypeId);
+
         ProductTypeDto productTypeDto = new ProductTypeDto();
+        try{
         productTypeDto.setProductTypeId(productType.getProductTypeId());
+        lalo = productType.getProductTypeId();
+            if (lalo == null){
+                response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("no existe en db")));
+                System.out.println(productTypeId);
+              //  return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
+            }
+        }catch (DataAccessException e){
+            productTypeDto.setProductTypeId(productType.getProductTypeId());
+            if (lalo == null){
+                response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("no existe en db")));
+                System.out.println(productTypeId);
+                //  return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
+            }
+            response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("Error db")));
+           // return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
+            System.out.println(productTypeId);
+
+
+        }
         productTypeDto.setTypeName(productType.getType_name());
         return productTypeDto;
     }

@@ -26,7 +26,9 @@ public class ProductTypeDto {
     }
 
     public void setProductTypeId(Integer productTypeId) {
+        System.out.println(productTypeId);
         this.productTypeId = productTypeId;
+
     }
 
     public String getTypeName() {
