@@ -49,20 +49,20 @@ public class ProductApi {
         return productResponse;
     }
 
-   /* @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
+    @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
     public void delete(@PathVariable("id") Integer idProduct, HttpServletRequest request ){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transaction=transactionBl.createTransaction(transaction);
-        productBl.delete(idCompany, transaction);
+        productBl.delete(idProduct, transaction);
     }
 
     @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Company updateCompany(@RequestBody Company company, HttpServletRequest request){
+    public ProductDto updateCompany(@RequestBody ProductDto productDto, HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction((transaction));
-        Company companyResponse = companyBl.updateCompany(company, transaction);
-        return companyResponse;
+        ProductDto Response = productBl.updateProduct(productDto, transaction);
+        return Response;
     }
-    */
+
 }

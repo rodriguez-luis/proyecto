@@ -29,4 +29,29 @@ Content-Type: application/json
 }
 ###########
 
+PATCH http://localhost:8080/v1/product
+Accept: application/json
+Content-Type: application/json
+
+{
+  "productId": 15,
+  "productName": "Pro Ultimate",
+  "model": "I5 900",
+  "productDescription": "Intel I7 novena generacion",
+  "stock": 10,
+  "weight": 5.1,
+  "companyId": 5,
+  "productTypeId": 1,
+  "cityId": 1,
+  "unitPrice": 1000,
+  "currency": 1,
+  "brandId": 1,
+  "img": "blablala"
+}
+
+###########
+DELETE http://localhost:8080/v1/product/15
+Accept: application/json
+
+
 
