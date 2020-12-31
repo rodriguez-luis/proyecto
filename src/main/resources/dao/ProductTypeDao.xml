@@ -28,7 +28,7 @@
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.ProductType">
         INSERT INTO product_type VALUES
         (
-            null,#{typeName},
+            null,type_name=#{typeName},
             #{txId},#{txHost},#{txUserId},#{txDate},#{status}
         )
     </insert>

@@ -74,23 +74,30 @@ public class ProductType {
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
 
-    public ResponseEntity<?> productTypeCreate (@Valid @RequestBody ProductTypeDto productTypeDto,
-                                             HttpServletRequest request, BindingResult result){
-        Map<String, Object> response = new HashMap<>();
-
-        if (result.hasErrors()) {
-            List<String> errors = new ArrayList<>();
-           for( FieldError err: result.getFieldErrors()){
-               errors.add(err.getDefaultMessage());
-           }
-            response.put("errores",errors);
-           return new ResponseEntity<Map<String, Object>>(response,HttpStatus.BAD_REQUEST);
-
-       }
+    public ProductTypeDto productTypeCreate (@RequestBody ProductTypeDto productTypeDto,
+HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        ProductTypeDto productTypeDtoResponse = productTypeBl.productTypeCreate(productTypeDto,transaction);
-        return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
+        ProductTypeDto productTypeResponse = productTypeBl.productTypeCreate(productTypeDto, transaction);
+        return productTypeResponse;
+
+//    public ResponseEntity<?> productTypeCreate (@Valid @RequestBody ProductTypeDto productTypeDto,
+//                                             HttpServletRequest request, BindingResult result){
+//        Map<String, Object> response = new HashMap<>();
+//
+//        if (result.hasErrors()) {
+//            List<String> errors = new ArrayList<>();
+//           for( FieldError err: result.getFieldErrors()){
+//               errors.add(err.getDefaultMessage());
+//           }
+//            response.put("errores",errors);
+//           return new ResponseEntity<Map<String, Object>>(response,HttpStatus.BAD_REQUEST);
+//
+//       }
+//        Transaction transaction = TransactionUtil.createTransaction(request);
+//        transactionBl.createTransaction(transaction);
+//        ProductTypeDto productTypeDtoResponse = productTypeBl.productTypeCreate(productTypeDto,transaction);
+//        return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
     }
 
 
