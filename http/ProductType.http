@@ -10,7 +10,7 @@ Accept: application/json
 
 ###
 
-GET http://localhost:8080/v1/producttype/10
+GET http://localhost:8080/v1/producttype/100
 Accept: application/json
 
 ###
@@ -20,7 +20,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "typeName": "MotherBoard"
+  "typeName": "Mdfsdfsdfdsfdfsdfsdfsdfg"
 }
 
 ###
@@ -31,7 +31,7 @@ Content-Type: application/json
 
 {
   "productTypeId": 10,
-  "typeName": "Motheiraaaaaaaa"
+  "typeName": "Motheiraaaaaaaaaaa"
 
 }
 
@@ -42,7 +42,7 @@ Accept: application/json
 Content-Type: application/json
 
 {
-  "productTypeId": 2,
+  "productTypeId": 3,
   "typeName": "MB"
 }
 

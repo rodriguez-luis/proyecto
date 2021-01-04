@@ -8,12 +8,13 @@ import bo.ucb.edu.ingsoft.model.ProductType;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class ProductTypeBl {
@@ -46,9 +47,39 @@ public class ProductTypeBl {
 
 
     public ProductTypeDto findByProductTypeById (Integer productTypeId){
+        Map<String, Object> response = new HashMap<>();
+        Integer lalo = null;
+
+        Optional<ProductType> optional = Optional.ofNullable(this.productTypeDao.findProductTypeById(productTypeId));
+        if (optional.isPresent()) {
+
+        } else {
+            throw new RuntimeException("No se pudo encontrar ese productType  " + productTypeId);
+        }
+
+
+
         ProductType productType = productTypeDao.findProductTypeById(productTypeId);
+
         ProductTypeDto productTypeDto = new ProductTypeDto();
+        try{
         productTypeDto.setProductTypeId(productType.getProductTypeId());
+        lalo = productType.getProductTypeId();
+            if (lalo == null){
+                response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("no existe en db")));
+              //  return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
+            }
+        }catch (DataAccessException e){
+            productTypeDto.setProductTypeId(productType.getProductTypeId());
+            if (lalo == null){
+                response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("no existe en db")));
+                //  return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
+            }
+            response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("Error db")));
+           // return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
+
+
+        }
         productTypeDto.setTypeName(productType.getType_name());
         return productTypeDto;
     }
@@ -97,17 +128,15 @@ public class ProductTypeBl {
 
     }
 
-    public ProductTypeDto updateProductType(ProductTypeDto productTypeDto, Integer productTypeId, Transaction transaction) {
+    public ProductTypeDto updateProductType(ProductTypeDto productTypeDto, Transaction transaction) {
 
-        ProductType productTypeInfo = productTypeDao.productTypeInfo(productTypeId);
-        System.out.println(productTypeId);
+      //  ProductType productTypeInfo = productTypeDao.productTypeInfo(productTypeId);
 
         ProductType productType= new ProductType();
 
-        System.out.println(productType);
+        productType.setProductTypeId(productTypeDto.getProductTypeId());
 
-
-        productType.setProductTypeId(productTypeId);
+      //  productType.setProductTypeId(productTypeId);
         productType.setType_name(productTypeDto.getTypeName());
      //   productType.setType_name("MB");
         productType.setStatus(1);
@@ -115,13 +144,9 @@ public class ProductTypeBl {
         productType.setTxUserId(transaction.getTxUserId());
         productType.setTxHost(transaction.getTxHost());
         productType.setTxDate(transaction.getTxDate());
-        System.out.println(productType);
 
         productTypeDao.update(productType);
 
-        System.out.println(productType);
-        System.out.println(productType);
-        System.out.println(productType);
 
         return productTypeDto;
 
@@ -144,7 +169,6 @@ public class ProductTypeBl {
 //        productType.setTxUserId(transaction.getTxUserId());
 //        productType.setTxHost(transaction.getTxHost());
 //        productType.setTxDate(transaction.getTxDate());
-//        System.out.println(productType);
 //
 //        productTypeDao.update(productType);
 //        return productTypeDto;

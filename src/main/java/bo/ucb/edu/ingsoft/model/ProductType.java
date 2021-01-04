@@ -1,9 +1,14 @@
 package bo.ucb.edu.ingsoft.model;
 
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class ProductType {
     private Integer productTypeId;
+    @NotEmpty
+    @Size(min=4, max=12)
     private String typeName;
     private Transaction transaction;
     private Integer status;

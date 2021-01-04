@@ -2,6 +2,8 @@ package bo.ucb.edu.ingsoft.dto;
 
 import bo.ucb.edu.ingsoft.model.Transaction;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class ProductTypeDto {
@@ -9,6 +11,8 @@ public class ProductTypeDto {
        "typename": "MotherBoard"
    }*/
     private Integer productTypeId;
+    @NotEmpty
+    @Size(min = 1, max = 10)
     private String typeName;
     //private Integer statusId;
     //private Transaction transaction;
@@ -27,6 +31,7 @@ public class ProductTypeDto {
 
     public void setProductTypeId(Integer productTypeId) {
         this.productTypeId = productTypeId;
+
     }
 
     public String getTypeName() {
