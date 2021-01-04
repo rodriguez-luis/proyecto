@@ -39,17 +39,21 @@ public class CheckoutBl {
         checkout.setCheckoutId(checkoutDto.getCheckoutId());
         checkout.setCartId(checkoutDto.getCartId());
         checkout.setPaymentDetailsId(checkoutDto.getPaymentDetailsId());
-        checkout.setDate(transaction.getTxDate());
+        checkout.setDate(checkoutDto.getDate());
         checkout.setTotal(checkoutDto.getTotal());
+
         checkout.setTxId(transaction.getTxId());
         checkout.setTxHost(transaction.getTxHost());
         checkout.setTxUserId(transaction.getTxUserId());
         checkout.setTxDate(transaction.getTxDate());
+
+        checkout.setContact(checkoutDto.getContact());
+        checkout.setAddress(checkoutDto.getAddress());
         checkout.setStatus(1);
         checkoutDao.create(checkout);
         Integer getLastId = transactionDao.getLastInsertId();
         checkoutDto.setCheckoutId(getLastId);
-        checkoutDto.setDate(transaction.getTxDate());
+       //checkoutDto.setDate(transaction.getTxDate());
         return checkoutDto;
     }
 }

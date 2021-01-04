@@ -17,22 +17,40 @@ public class Checkout {
     private Integer paymentDetailsId;
     private Date date;
     private Double total;
+    private String contact;
+    private String address;
+
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
     @Override
     public String toString() {
         return "Checkout{" +
                 "checkoutId=" + checkoutId +
                 ", cartId=" + cartId +
+                ", paymentDetailsId=" + paymentDetailsId +
                 ", date=" + date +
                 ", total=" + total +
-                ", paymentsDetailsId=" + paymentDetailsId +
-                ", txId=" + transaction.getTxId() +
-                ", txHost='" + transaction.getTxHost() +
-                ", txUserId=" + transaction.getTxUserId() +
-                ", txDate=" + transaction.getTxDate() +
+                ", contact='" + contact + '\'' +
+                ", address='" + address + '\'' +
+                ", transaction=" + transaction +
                 ", status=" + status +
                 '}';
     }
+
 
     private Transaction transaction;
 

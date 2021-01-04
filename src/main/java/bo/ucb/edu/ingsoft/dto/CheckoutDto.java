@@ -19,17 +19,26 @@ public class CheckoutDto {
     private Integer paymentDetailsId;
     private Date date;
     private Double total;
+    private String contact;
+    private String address;
 
-    @Override
-    public String toString() {
-        return "CheckoutDto{" +
-                "checkoutId=" + checkoutId +
-                ", cartId=" + cartId +
-                ", paymentDetailsId=" + cartId +
-                ", date=" + date +
-                ", total=" + total +
-                '}';
+    public String getContact() {
+        return contact;
     }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
 
     public CheckoutDto() {
     }
@@ -67,4 +76,16 @@ public class CheckoutDto {
     }
 
 
+    @Override
+    public String toString() {
+        return "CheckoutDto{" +
+                "checkoutId=" + checkoutId +
+                ", cartId=" + cartId +
+                ", paymentDetailsId=" + paymentDetailsId +
+                ", date=" + date +
+                ", total=" + total +
+                ", contact='" + contact + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
 }

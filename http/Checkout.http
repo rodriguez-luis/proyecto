@@ -10,7 +10,11 @@ Content-Type: application/json
 {
   "cartId": 2,
   "paymentDetailsId": 2,
-  "total": 2600
+  "date": "2020-12-20",
+  "total": 5000,
+  "contact": "alonso",
+  "address": "alonso@gmail.com"
+
 }
 ###########
 

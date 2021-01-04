@@ -48,8 +48,8 @@
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Product">
         UPDATE `product`
         SET product_name=#{productName}, model=#{model},product_description=#{productDescription}, stock=#{stock},
-            weight=#{weight}, company_id=#{companyId},product_type_id=#{productTypeId},city_id=#{cityId},
-            price_per_unit=#{unitPrice},currency=#{currency},brand_id=#{brandId}, img=#{img},
+
+            price_per_unit=#{unitPrice}, img=#{img},
             tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
         WHERE product_id = #{productId}
     </update>
