@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.SaleDao">
+
+    <select id="getCompany"  resultType="bo.ucb.edu.ingsoft.model.Company">
+        SELECT
+               company_id as companyId,
+               name as name,
+               direction as direction,
+               phone as phone,
+               email as email
+        FROM company
+        WHERE
+            status = 1
+    </select>
+    <select id="findByCompanyId" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.Company">
+        SELECT
+               company_id as companyId,
+               name as name,
+               direction as direction,
+               phone as phone,
+               email as email
+        FROM company
+        WHERE
+            company_id = #{companyId}
+    </select>
+
+
+    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Sale">
+        INSERT INTO company VALUES (
+            null,  #{companyId}, #{card},#{expirationDate}, #{securityCode}, #{name},#{phone}, #{direction},#{total},
+             #{txId}, #{txHost}, #{txUserId}, #{txDate}, #{status}
+        )
+    </insert>
+
+
+
+    <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Company">
+        UPDATE `company`
+        SET status=#{status}
+            WHERE company_id = #{companyId}
+    </delete>
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Company">
+        UPDATE `company`
+        SET name=#{name}, direction=#{direction},phone=#{phone}, email=#{email}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+        WHERE company_id = #{companyId}
+    </update>
+</mapper>
