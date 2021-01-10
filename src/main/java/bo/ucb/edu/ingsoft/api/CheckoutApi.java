@@ -17,7 +17,7 @@ import java.util.List;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
-@RequestMapping(value = "/v1")
+@RequestMapping(value = "/v1/checkout")
 public class CheckoutApi {
     private CheckoutBl checkoutBl;
     private TransactionBl transactionBl;
@@ -33,7 +33,7 @@ public class CheckoutApi {
         return checkoutBl.selectCheckouts();
     }
 
-    @RequestMapping(value = "/checkout", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
+    @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
     public CheckoutDto createCheckout(@RequestBody CheckoutDto checkoutDto, HttpServletRequest request) {
         // Creamos transaccion para la operación.

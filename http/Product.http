@@ -40,7 +40,7 @@ Content-Type: application/json
   "productDescription": "Intel I7 novena generacion",
   "stock": 10,
   "weight": 5.1,
-  "companyId": 5,
+  "companyId": 1,
   "productTypeId": 1,
   "cityId": 1,
   "unitPrice": 1000,
@@ -50,7 +50,7 @@ Content-Type: application/json
 }
 
 ###########
-DELETE http://localhost:8080/v1/product/15
+DELETE http://localhost:8080/v1/product/17
 Accept: application/json
 
 

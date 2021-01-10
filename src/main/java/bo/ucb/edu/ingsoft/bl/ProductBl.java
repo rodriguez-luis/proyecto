@@ -99,13 +99,12 @@ public class ProductBl {
         product.setModel(productDto.getModel());
         product.setProductDescription(productDto.getProductDescription());
         product.setStock(productDto.getStock());
-        product.setWeight(productDto.getWeight());
-        product.setCompanyId(productDto.getCompanyId());
-        product.setProductTypeId(productDto.getProductTypeId());
-        product.setCityId(productDto.getCityId());
+        //product.setWeight(productDto.getWeight());
+        //product.setCompanyId(productDto.getCompanyId());
+        //product.setProductTypeId(productDto.getProductTypeId());
+        //product.setCityId(productDto.getCityId());
         product.setUnitPrice(productDto.getUnitPrice());
-        product.setCurrency(productDto.getCurrency());
-        product.setBrandId(productDto.getBrandId());
+        //product.setCurrency(productDto.getCurrency())product.setBrandId(productDto.getBrandId());
         product.setImg(productDto.getImg());
 
         product.setTxId(transaction.getTxId());

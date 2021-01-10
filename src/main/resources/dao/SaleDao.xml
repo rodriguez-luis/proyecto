@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.SaleDao">
+
+    <select id="getSale"  resultType="bo.ucb.edu.ingsoft.model.Sale">
+        SELECT
+               sale_id as saleId,
+               company_id as companyId,
+               card as card
+               expiration_date as expirationDate
+               security_code as securityCode
+               name as name,
+               phone as phone,
+               direction as direction,
+               total as total
+        FROM sale
+        WHERE
+            status = 1
+    </select>
+
+
+    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Sale">
+        INSERT INTO sale VALUES (
+            null,  #{companyId}, #{card},#{expirationDate}, #{securityCode}, #{name},#{phone}, #{direction},#{total},
+             #{txId}, #{txHost}, #{txUserId}, #{txDate}, #{status}
+        )
+    </insert>
+
+
+
+    <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Company">
+        UPDATE `company`
+        SET status=#{status}
+            WHERE company_id = #{companyId}
+    </delete>
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Company">
+        UPDATE `company`
+        SET name=#{name}, direction=#{direction},phone=#{phone}, email=#{email}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+        WHERE company_id = #{companyId}
+    </update>
+</mapper>

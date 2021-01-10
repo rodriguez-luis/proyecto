@@ -4,8 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.CheckoutDao">
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Checkout">
-        INSERT INTO checkout VALUES (null, #{cartId}, #{paymentDetailsId}, #{date}, #{total}, #{txId}, #{txHost}, #{txUserId}, #{txDate},#{status})
+        INSERT INTO checkout VALUES (null, #{cartId}, #{paymentDetailsId}, #{date}, #{total},
+         #{txId}, #{txHost}, #{txUserId}, #{txDate},#{status},#{contact},#{address})
     </insert>
+
     <select id="getOrders" resultType="bo.ucb.edu.ingsoft.model.Checkout">
         SELECT
             checkout_id as checkoutId,
