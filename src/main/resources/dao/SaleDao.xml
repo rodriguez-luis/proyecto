@@ -4,32 +4,25 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="bo.ucb.edu.ingsoft.dao.SaleDao">
 
-    <select id="getCompany"  resultType="bo.ucb.edu.ingsoft.model.Company">
+    <select id="getSale"  resultType="bo.ucb.edu.ingsoft.model.Sale">
         SELECT
+               sale_id as saleId,
                company_id as companyId,
+               card as card
+               expiration_date as expirationDate
+               security_code as securityCode
                name as name,
-               direction as direction,
                phone as phone,
-               email as email
-        FROM company
+               direction as direction,
+               total as total
+        FROM sale
         WHERE
             status = 1
-    </select>
-    <select id="findByCompanyId" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.Company">
-        SELECT
-               company_id as companyId,
-               name as name,
-               direction as direction,
-               phone as phone,
-               email as email
-        FROM company
-        WHERE
-            company_id = #{companyId}
     </select>
 
 
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Sale">
-        INSERT INTO company VALUES (
+        INSERT INTO sale VALUES (
             null,  #{companyId}, #{card},#{expirationDate}, #{securityCode}, #{name},#{phone}, #{direction},#{total},
              #{txId}, #{txHost}, #{txUserId}, #{txDate}, #{status}
         )
