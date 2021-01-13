@@ -36,6 +36,12 @@
             checkout_id = #{checkoutId}
     </select>
 
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Checkout">
+        UPDATE `checkout`
+        SET date=#{date}, total=#{total},contact=#{contact}, address=#{address}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+        WHERE checkout_id = #{checkoutId}
+    </update>
+
     <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Checkout">
         UPDATE `checkout`
         SET status=#{status}

@@ -58,4 +58,13 @@ public class CheckoutApi {
         checkoutBl.delete(idCheckout, transaction);
 
     }
+
+    @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public CheckoutDto updateCheckout(@RequestBody CheckoutDto checkoutDto, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        CheckoutDto checkoutResponse = checkoutBl.updateCheckout(checkoutDto, transaction);
+        return checkoutResponse;
+    }
 }

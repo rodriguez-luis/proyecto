@@ -89,4 +89,22 @@ public class CheckoutBl {
         checkoutDao.delete(checkout);
     }
 
+    public CheckoutDto updateCheckout(CheckoutDto checkoutDto, Transaction transaction){
+        Checkout checkout = new Checkout();
+        checkout.setCheckoutId(checkoutDto.getCheckoutId());
+        checkout.setCartId(checkoutDto.getCartId());
+        checkout.setPaymentDetailsId(checkoutDto.getPaymentDetailsId());
+        checkout.setDate(checkoutDto.getDate());
+        checkout.setTotal(checkoutDto.getTotal());
+        checkout.setContact(checkoutDto.getContact());
+        checkout.setAddress(checkoutDto.getAddress());
+        checkout.setTxId(transaction.getTxId());
+        checkout.setTxUserId(transaction.getTxUserId());
+        checkout.setTxHost(transaction.getTxHost());
+        checkout.setTxDate(transaction.getTxDate());
+        checkout.setStatus(1);
+        checkoutDao.update(checkout);
+        return checkoutDto;
+    }
+
 }

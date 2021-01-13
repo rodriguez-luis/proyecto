@@ -12,5 +12,6 @@ public interface CheckoutDao {
     public void create(Checkout checkout);
     public List<Checkout> getOrders();
     public Checkout findByCheckoutId(Integer checkoutId);
+    public void update(Checkout checkout);
     public void delete(Checkout checkout);
 }
