@@ -53,10 +53,10 @@
         WHERE sale_id = #{saleId}
     </update>
 
-    <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Company">
+    <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Sale">
         UPDATE `sale`
         SET status=#{status}
-            WHERE company_id = #{companyId}
+            WHERE sale_id = #{saleId}
     </delete>
 
 </mapper>

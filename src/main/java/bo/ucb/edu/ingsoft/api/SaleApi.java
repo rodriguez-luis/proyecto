@@ -62,5 +62,13 @@ public class SaleApi {
         return saleResponse;
     }
 
+    @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable("id") Integer idSale, HttpServletRequest request ){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transaction=transactionBl.createTransaction(transaction);
+        saleBl.delete(idSale, transaction);
+
+    }
+
 
 }

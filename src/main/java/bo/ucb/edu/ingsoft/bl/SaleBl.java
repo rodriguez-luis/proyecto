@@ -121,4 +121,16 @@ public class SaleBl {
         saleDao.update(sale);
         return saleDto;
     }
+
+    public void delete(Integer idSale, Transaction transaction)
+    {
+        Sale sale = new Sale();
+        sale.setSaleId(idSale);
+        sale.setTxId(transaction.getTxId());
+        sale.setTxUserId(transaction.getTxUserId());
+        sale.setTxHost(transaction.getTxHost());
+        sale.setTxDate(transaction.getTxDate());
+        sale.setStatus(0);
+        saleDao.delete(sale);
+    }
 }

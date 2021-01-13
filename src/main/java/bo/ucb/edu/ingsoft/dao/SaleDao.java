@@ -14,5 +14,7 @@ public interface SaleDao {
     public Sale findBySaleId(Integer saleId);
     public void create(Sale sale);
     public void update(Sale sale);
+    public void delete(Sale sale);
+
 
 }

@@ -45,7 +45,7 @@ Content-Type: application/json
 }
 
 ###########
-DELETE http://localhost:8080/v1/company/9
+DELETE http://localhost:8080/v1/sale/4
 Accept: application/json
 
 ###
