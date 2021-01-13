@@ -37,6 +37,11 @@ public class SaleApi {
         return saleBl.listSale();
     }
 
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public SaleDto findById(@PathVariable("id") Integer id, HttpServletRequest request) {
+        return saleBl.findSaleById(id);
+    }
+
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -21,6 +21,23 @@
             status = 1
     </select>
 
+    <select id="findBySaleId" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.Sale">
+        SELECT
+               sale_id as saleId,
+               company_id as companyId,
+               card as card,
+               month as month,
+               year as year,
+               security_code as securityCode,
+               name as name,
+               phone as phone,
+               direction as direction,
+               total as total
+        FROM sale
+        WHERE
+            sale_id = #{saleId}
+    </select>
+
 
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Sale">
         INSERT INTO sale VALUES (
