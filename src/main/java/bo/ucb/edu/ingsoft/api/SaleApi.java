@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
@@ -29,6 +30,13 @@ public class SaleApi {
         this.transactionBl = transactionBl;
         this.saleBl = saleBl;
     }
+
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<SaleDto> listCompany(HttpServletRequest request) {
+        return saleBl.listSale();
+    }
+
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)

@@ -8,11 +8,10 @@
         SELECT
                sale_id as saleId,
                company_id as companyId,
-               card as card
-               expiration_date as expirationDate
-               month as month
-               year as year
-               security_code as securityCode
+               card as card,
+               month as month,
+               year as year,
+               security_code as securityCode,
                name as name,
                phone as phone,
                direction as direction,

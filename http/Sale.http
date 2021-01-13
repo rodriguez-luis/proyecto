@@ -2,6 +2,12 @@
 GET http://localhost:8080/v1/sale
 Accept: application/json
 
+###########
+GET http://localhost:8080/v1/sale/1
+Accept: application/json
+
+###########
+
 ##########
 POST http://localhost:8080/v1/sale
 Accept: application/json
@@ -20,6 +26,23 @@ Content-Type: application/json
 }
 
 ##########
+###########
+PATCH http://localhost:8080/v1/company
+Accept: application/json
+Content-Type: application/json
 
+{
+  "companyId": 2,
+  "name": "monoPcmono",
+  "direction": "Av. Uyustus N1000",
+  "phone": "25252525",
+  "email": "suyu@gmail.com"
+}
+
+###########
+DELETE http://localhost:8080/v1/company/9
+Accept: application/json
+
+###
 ###
 

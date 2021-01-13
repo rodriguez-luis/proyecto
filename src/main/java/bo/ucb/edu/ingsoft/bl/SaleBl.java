@@ -3,12 +3,19 @@ package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.SaleDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
+import bo.ucb.edu.ingsoft.dto.CheckoutDto;
 import bo.ucb.edu.ingsoft.dto.CompanyDto;
 import bo.ucb.edu.ingsoft.dto.SaleDto;
+import bo.ucb.edu.ingsoft.model.Checkout;
+import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.Sale;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
 
 @Service
 public class SaleBl {
@@ -21,6 +28,33 @@ public class SaleBl {
         this.transactionDao = transactionDao;
         this.saleDao = saleDao;
     }
+
+    public List<SaleDto> listSale(){
+        List<Sale> sales = saleDao.getSale();
+        List<SaleDto> salesDto = new ArrayList<SaleDto>();
+
+        for(int i=0; i < sales.size(); i++){
+            Sale sale = sales.get(i);
+            SaleDto saleDto = new SaleDto();
+
+
+            saleDto.setSaleId(sale.getSaleId());
+            saleDto.setCompanyId(sale.getCompanyId());
+            saleDto.setCard(sale.getCard());
+            saleDto.setMonth(sale.getMonth());
+            saleDto.setYear(sale.getYear());
+            saleDto.setSecurityCode(sale.getSecurityCode());
+
+            saleDto.setName(sale.getName());
+            saleDto.setPhone(sale.getPhone());
+            saleDto.setDirection(sale.getDirection());
+            saleDto.setTotal(sale.getTotal());
+
+            salesDto.add(i, saleDto);
+        }
+        return salesDto;
+    }
+
 
     public SaleDto createSale(SaleDto saleDto, Transaction transaction) {
         Sale sale = new Sale();
