@@ -3,7 +3,9 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.CheckoutDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.CheckoutDto;
+import bo.ucb.edu.ingsoft.dto.CompanyDto;
 import bo.ucb.edu.ingsoft.model.Checkout;
+import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,6 +39,22 @@ public class CheckoutBl {
         }
         return checkoutDtos;
     }
+
+    public CheckoutDto findCheckoutById(Integer checkoutId) {
+        Checkout checkout = checkoutDao.findByCheckoutId(checkoutId);
+        CheckoutDto checkoutDto = new CheckoutDto();
+        checkoutDto.setCheckoutId(checkout.getCheckoutId());
+        checkoutDto.setCartId(checkout.getCartId());
+        checkoutDto.setPaymentDetailsId(checkout.getPaymentDetailsId());
+
+        checkoutDto.setDate(checkout.getDate());
+        checkoutDto.setTotal(checkout.getTotal());
+        checkoutDto.setContact(checkout.getContact());
+        checkoutDto.setAddress(checkout.getAddress());
+        return checkoutDto;
+    }
+
+
     public CheckoutDto createCheckout(CheckoutDto checkoutDto, Transaction transaction) {
         Checkout checkout = new Checkout();
         checkout.setCheckoutId(checkoutDto.getCheckoutId());

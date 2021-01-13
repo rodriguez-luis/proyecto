@@ -4,6 +4,7 @@ package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.CheckoutBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
 import bo.ucb.edu.ingsoft.dto.CheckoutDto;
+import bo.ucb.edu.ingsoft.dto.CompanyDto;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
 import org.slf4j.Logger;
@@ -32,6 +33,12 @@ public class CheckoutApi {
     public List<CheckoutDto> selectCheckouts(HttpServletRequest request) {
         return checkoutBl.selectCheckouts();
     }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public CheckoutDto findById(@PathVariable("id") Integer id, HttpServletRequest request) {
+        return checkoutBl.findCheckoutById(id);
+    }
+
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)

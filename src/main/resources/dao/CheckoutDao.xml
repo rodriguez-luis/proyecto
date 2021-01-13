@@ -22,6 +22,20 @@
             status = 1
     </select>
 
+    <select id="findByCheckoutId" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.Checkout">
+        SELECT
+               checkout_id as checkoutId,
+               cart_id as cartId,
+               payment_details_id as paymentDetailsId,
+               date as date,
+               total as total,
+               contact as contact,
+               address as address
+        FROM checkout
+        WHERE
+            checkout_id = #{checkoutId}
+    </select>
+
     <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Checkout">
         UPDATE `checkout`
         SET status=#{status}
