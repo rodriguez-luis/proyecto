@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -70,27 +71,48 @@ public class ProductType {
 
 
     }
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public Map<String, String> handleValidationExceptions(
+            MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return errors;
+    }
+
+
 
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
 
-    public ResponseEntity<?> productTypeCreate (@Valid @RequestBody ProductTypeDto productTypeDto,
-                                             HttpServletRequest request, BindingResult result){
-        Map<String, Object> response = new HashMap<>();
-
-        if (result.hasErrors()) {
-            List<String> errors = new ArrayList<>();
-           for( FieldError err: result.getFieldErrors()){
-               errors.add(err.getDefaultMessage());
-           }
-            response.put("errores",errors);
-           return new ResponseEntity<Map<String, Object>>(response,HttpStatus.BAD_REQUEST);
-
-       }
+    public ProductTypeDto productTypeCreate (@ Valid @RequestBody ProductTypeDto productTypeDto,
+HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);
-        ProductTypeDto productTypeDtoResponse = productTypeBl.productTypeCreate(productTypeDto,transaction);
-        return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
+        ProductTypeDto productTypeResponse = productTypeBl.productTypeCreate(productTypeDto, transaction);
+        return productTypeResponse;
+
+//    public ResponseEntity<?> productTypeCreate (@Valid @RequestBody ProductTypeDto productTypeDto,
+//                                             HttpServletRequest request, BindingResult result){
+//        Map<String, Object> response = new HashMap<>();
+//
+//        if (result.hasErrors()) {
+//            List<String> errors = new ArrayList<>();
+//           for( FieldError err: result.getFieldErrors()){
+//               errors.add(err.getDefaultMessage());
+//           }
+//            response.put("errores",errors);
+//           return new ResponseEntity<Map<String, Object>>(response,HttpStatus.BAD_REQUEST);
+//
+//       }
+//        Transaction transaction = TransactionUtil.createTransaction(request);
+//        transactionBl.createTransaction(transaction);
+//        ProductTypeDto productTypeDtoResponse = productTypeBl.productTypeCreate(productTypeDto,transaction);
+//        return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
     }
 
 
