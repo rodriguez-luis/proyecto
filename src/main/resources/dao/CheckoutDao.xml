@@ -14,9 +14,17 @@
             cart_id as cartId,
             payment_details_id as paymentDetailsId,
             date as date,
-            total as total
+            total as total,
+            contact as contact,
+            address as address
         FROM checkout
         WHERE
             status = 1
     </select>
+
+    <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Checkout">
+        UPDATE `checkout`
+        SET status=#{status}
+            WHERE checkout_id = #{checkoutId}
+    </delete>
 </mapper>

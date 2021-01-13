@@ -25,11 +25,14 @@ public class CheckoutBl {
         for (int i=0; i< checkouts.size(); i++){
             Checkout checkout= checkouts.get(i);
             CheckoutDto checkoutDto = new CheckoutDto();
+
             checkoutDto.setCheckoutId (checkout.getCheckoutId());
             checkoutDto.setCartId (checkout.getCartId() );
             checkoutDto.setPaymentDetailsId (checkout.getPaymentDetailsId() );
             checkoutDto.setDate(checkout.getDate());
             checkoutDto.setTotal(checkout.getTotal());
+            checkoutDto.setContact(checkout.getContact());
+            checkoutDto.setAddress(checkout.getAddress());
             checkoutDtos.add(i,checkoutDto);
         }
         return checkoutDtos;
@@ -56,4 +59,16 @@ public class CheckoutBl {
        //checkoutDto.setDate(transaction.getTxDate());
         return checkoutDto;
     }
+
+    public void delete(Integer idCheckout, Transaction transaction){
+        Checkout checkout = new Checkout();
+        checkout.setCheckoutId(idCheckout);
+        checkout.setTxId(transaction.getTxId());
+        checkout.setTxUserId(transaction.getTxUserId());
+        checkout.setTxHost(transaction.getTxHost());
+        checkout.setTxDate(transaction.getTxDate());
+        checkout.setStatus(0);
+        checkoutDao.delete(checkout);
+    }
+
 }

@@ -9,8 +9,9 @@ Content-Type: application/json
 
 {
   "companyId": 1,
-  "card":4321,
-  "expirationDate": "2021-12-20",
+  "card":"4321 1234 1234 1234",
+  "month": "Enero",
+  "year": 2025,
   "securityCode": 123,
   "name": "Alonso Herrera",
   "phone": "12345678",

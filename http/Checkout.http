@@ -1,4 +1,4 @@
-GET http://localhost:8080/v1/orders
+GET http://localhost:8080/v1/checkout
 Accept: application/json
 
 ###
@@ -16,6 +16,11 @@ Content-Type: application/json
   "address": "alonso@gmail.com"
 
 }
+
+###########
+DELETE http://localhost:8080/v1/checkout/5
+Accept: application/json
+
 ###########
 
 

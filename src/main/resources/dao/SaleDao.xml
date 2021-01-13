@@ -10,6 +10,8 @@
                company_id as companyId,
                card as card
                expiration_date as expirationDate
+               month as month
+               year as year
                security_code as securityCode
                name as name,
                phone as phone,
@@ -23,7 +25,7 @@
 
     <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.Sale">
         INSERT INTO sale VALUES (
-            null,  #{companyId}, #{card},#{expirationDate}, #{securityCode}, #{name},#{phone}, #{direction},#{total},
+            null,  #{companyId}, #{card},#{month},#{year}, #{securityCode}, #{name},#{phone}, #{direction},#{total},
              #{txId}, #{txHost}, #{txUserId}, #{txDate}, #{status}
         )
     </insert>
@@ -31,12 +33,12 @@
 
 
     <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Company">
-        UPDATE `company`
+        UPDATE `sale`
         SET status=#{status}
             WHERE company_id = #{companyId}
     </delete>
     <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Company">
-        UPDATE `company`
+        UPDATE `sale`
         SET name=#{name}, direction=#{direction},phone=#{phone}, email=#{email}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
         WHERE company_id = #{companyId}
     </update>

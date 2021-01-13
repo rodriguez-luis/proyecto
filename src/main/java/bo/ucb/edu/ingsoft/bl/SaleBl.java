@@ -26,7 +26,8 @@ public class SaleBl {
         Sale sale = new Sale();
         sale.setCompanyId(saleDto.getCompanyId());
         sale.setCard(saleDto.getCard());
-        sale.setExpirationDate(saleDto.getExpirationDate());
+        sale.setMonth(saleDto.getMonth());
+        sale.setYear(saleDto.getYear());
         sale.setSecurityCode(saleDto.getSecurityCode());
         sale.setName(saleDto.getName());
         sale.setPhone(saleDto.getPhone());

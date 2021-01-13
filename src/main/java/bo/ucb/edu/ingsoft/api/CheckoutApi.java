@@ -28,7 +28,7 @@ public class CheckoutApi {
         this.checkoutBl = checkoutBl;
         this.transactionBl =  transactionBl;
     }
-    @RequestMapping(value = "/orders", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<CheckoutDto> selectCheckouts(HttpServletRequest request) {
         return checkoutBl.selectCheckouts();
     }
@@ -41,5 +41,14 @@ public class CheckoutApi {
         transactionBl.createTransaction(transaction);
         CheckoutDto checkoutResponse = checkoutBl.createCheckout(checkoutDto, transaction);
         return checkoutResponse;
+    }
+
+
+    @RequestMapping(value="/{id}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable("id") Integer idCheckout, HttpServletRequest request ){
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transaction=transactionBl.createTransaction(transaction);
+        checkoutBl.delete(idCheckout, transaction);
+
     }
 }

@@ -10,4 +10,5 @@ import java.util.List;
 public interface CheckoutDao {
     public void create(Checkout checkout);
     public List<Checkout> getOrders();
+    public void delete(Checkout checkout);
 }
