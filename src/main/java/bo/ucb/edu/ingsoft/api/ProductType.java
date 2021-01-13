@@ -74,7 +74,7 @@ public class ProductType {
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE)
 
-    public ProductTypeDto productTypeCreate (@RequestBody ProductTypeDto productTypeDto,
+    public ProductTypeDto productTypeCreate (@ Valid @RequestBody ProductTypeDto productTypeDto,
 HttpServletRequest request){
         Transaction transaction = TransactionUtil.createTransaction(request);
         transactionBl.createTransaction(transaction);

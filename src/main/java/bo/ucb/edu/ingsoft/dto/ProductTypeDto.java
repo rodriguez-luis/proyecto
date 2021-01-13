@@ -3,19 +3,19 @@ package bo.ucb.edu.ingsoft.dto;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Entity;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
-@Service
 public class ProductTypeDto {
     /*{
        "typename": "MotherBoard"
    }*/
-    @NotEmpty(message = "el camno no debe de estar vacio")
     private Integer productTypeId;
-    @NotEmpty(message = "el campo debe ser llenado correctamente")
+    @NotBlank(message = "el campo debe ser llenado correctamente")
     private String typeName;
     //private Integer statusId;
     //private Transaction transaction;
