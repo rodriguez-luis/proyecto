@@ -15,7 +15,8 @@ public class ProductTypeDto {
        "typename": "MotherBoard"
    }*/
     private Integer productTypeId;
-    @NotBlank(message = "el campo debe ser llenado correctamente")
+    @Size(min = 3, max = 15)
+    // @NotBlank(message = "el campo debe ser llenado correctamente")
     private String typeName;
     //private Integer statusId;
     //private Transaction transaction;

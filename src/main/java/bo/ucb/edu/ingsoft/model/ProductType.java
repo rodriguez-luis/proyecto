@@ -7,13 +7,15 @@ import org.springframework.stereotype.Service;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import java.util.Date;
 
 public class ProductType {
     @Id
     private Integer productTypeId;
-    @NotBlank (message = "el campo debe ser llenado correctamente")
+    @Size(min = 3, max = 15)
+    //@NotBlank (message = "el campo debe ser llenado correctamente")
     private String typeName;
     private Transaction transaction;
     private Integer status;
