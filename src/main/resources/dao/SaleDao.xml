@@ -46,16 +46,17 @@
         )
     </insert>
 
-
+    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Sale">
+        UPDATE `sale`
+        SET card=#{card}, month=#{month},year=#{year}, security_code=#{securityCode} ,name=#{name}, phone=#{phone},
+        direction=#{direction}, total=#{total}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
+        WHERE sale_id = #{saleId}
+    </update>
 
     <delete id="delete" parameterType="bo.ucb.edu.ingsoft.model.Company">
         UPDATE `sale`
         SET status=#{status}
             WHERE company_id = #{companyId}
     </delete>
-    <update id="update" parameterType="bo.ucb.edu.ingsoft.model.Company">
-        UPDATE `sale`
-        SET name=#{name}, direction=#{direction},phone=#{phone}, email=#{email}, tx_id = #{txId}, tx_host = #{txHost}, tx_user_id = #{txUserId}, tx_date = #{txDate}
-        WHERE company_id = #{companyId}
-    </update>
+
 </mapper>

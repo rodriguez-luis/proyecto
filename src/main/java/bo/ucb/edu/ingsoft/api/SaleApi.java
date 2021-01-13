@@ -53,5 +53,14 @@ public class SaleApi {
         return saleResponse;
     }
 
+    @RequestMapping(method = RequestMethod.PATCH, produces = MediaType.APPLICATION_JSON_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE)
+    public SaleDto updateSale(@RequestBody SaleDto saleDto, HttpServletRequest request) {
+        Transaction transaction = TransactionUtil.createTransaction(request);
+        transactionBl.createTransaction(transaction);
+        SaleDto saleResponse = saleBl.updateSale(saleDto, transaction);
+        return saleResponse;
+    }
+
 
 }

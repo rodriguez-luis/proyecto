@@ -27,16 +27,21 @@ Content-Type: application/json
 
 ##########
 ###########
-PATCH http://localhost:8080/v1/company
+PATCH http://localhost:8080/v1/sale
 Accept: application/json
 Content-Type: application/json
 
 {
-  "companyId": 2,
-  "name": "monoPcmono",
-  "direction": "Av. Uyustus N1000",
-  "phone": "25252525",
-  "email": "suyu@gmail.com"
+  "saleId": 1,
+  "companyId": 1,
+  "card":"1111 1234 1234 1234",
+  "month": "mayo",
+  "year": 2028,
+  "securityCode": 789,
+  "name": "Alonso Herrera",
+  "phone": "12345678",
+  "direction": "Los andes",
+  "total": 1000
 }
 
 ###########

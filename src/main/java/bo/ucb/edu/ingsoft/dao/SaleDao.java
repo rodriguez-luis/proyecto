@@ -13,4 +13,6 @@ public interface SaleDao {
     public List<Sale> getSale();
     public Sale findBySaleId(Integer saleId);
     public void create(Sale sale);
+    public void update(Sale sale);
+
 }

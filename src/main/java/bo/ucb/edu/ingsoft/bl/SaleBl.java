@@ -98,4 +98,27 @@ public class SaleBl {
         return saleDto;
 
     }
+
+    public SaleDto updateSale(SaleDto saleDto, Transaction transaction){
+        Sale sale = new Sale();
+        sale.setSaleId(saleDto.getSaleId());
+        sale.setCompanyId(saleDto.getCompanyId());
+        sale.setCard(saleDto.getCard());
+        sale.setMonth(saleDto.getMonth());
+        sale.setYear(saleDto.getYear());
+        sale.setSecurityCode(saleDto.getSecurityCode());
+        sale.setName(saleDto.getName());
+        sale.setPhone(saleDto.getPhone());
+        sale.setDirection(saleDto.getDirection());
+        sale.setTotal(saleDto.getTotal());
+
+        sale.setTxId(transaction.getTxId());
+        sale.setTxUserId(transaction.getTxUserId());
+        sale.setTxHost(transaction.getTxHost());
+        sale.setTxDate(transaction.getTxDate());
+        sale.setStatus(1);
+
+        saleDao.update(sale);
+        return saleDto;
+    }
 }
