@@ -3,7 +3,7 @@ GET http://localhost:8080/v1/company
 Accept: application/json
 
 ###########
-GET http://localhost:8080/v1/company/1
+GET http://localhost:8080/v1/company/1000
 Accept: application/json
 
 ###########

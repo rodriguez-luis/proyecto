@@ -67,9 +67,6 @@ public class ProductType {
             return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
 
         }
-
-
-
     }
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)

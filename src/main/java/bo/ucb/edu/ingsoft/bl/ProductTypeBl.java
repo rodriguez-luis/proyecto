@@ -54,7 +54,8 @@ public class ProductTypeBl {
         if (optional.isPresent()) {
 
         } else {
-            throw new RuntimeException("No se pudo encontrar ese productType  " + productTypeId);
+            response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("no existe en db")));
+            //throw new RuntimeException("No se pudo encontrar ese productTypee  " + productTypeId);
         }
 
 
@@ -63,15 +64,15 @@ public class ProductTypeBl {
 
         ProductTypeDto productTypeDto = new ProductTypeDto();
         try{
-        productTypeDto.setProductTypeId(productType.getProductTypeId());
-        lalo = productType.getProductTypeId();
-            if (lalo == null){
+            lalo = productType.getProductTypeId();
+        System.out.println(lalo);
+            if (lalo == 0){
                 response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("no existe en db")));
               //  return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
             }
         }catch (DataAccessException e){
             productTypeDto.setProductTypeId(productType.getProductTypeId());
-            if (lalo == null){
+            if (lalo == 0){
                 response.put("mnje", "El  pt id ".concat(productTypeId.toString().concat("no existe en db")));
                 //  return new ResponseEntity<Map<String, Object>>(response,HttpStatus.NOT_FOUND);
             }
@@ -80,6 +81,8 @@ public class ProductTypeBl {
 
 
         }
+        productTypeDto.setProductTypeId(productType.getProductTypeId());
+
         productTypeDto.setTypeName(productType.getType_name());
         return productTypeDto;
     }

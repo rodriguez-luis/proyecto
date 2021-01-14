@@ -71,7 +71,12 @@ public class ProductType {
     }
 
     public Integer getProductTypeId() {
-        return productTypeId;
+        System.out.println(productTypeId);
+        if (productTypeId == null){
+            return 0;
+        }
+        else{
+        return productTypeId;}
     }
 
     public void setProductTypeId(Integer productTypeId) {
