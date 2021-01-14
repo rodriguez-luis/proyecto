@@ -3,6 +3,11 @@ GET http://localhost:8080/v1/user
 Accept: application/json
 
 #############
+
+GET http://localhost:8080/v1/user/2
+Accept: application/json
+
+#############
 POST http://localhost:8080/v1/user
 Accept: application/json
 Content-Type: application/json

@@ -4,18 +4,22 @@ package bo.ucb.edu.ingsoft.model;
 
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 import java.util.Date;
-
+@Entity
+@Table(name = "product_type")
 public class ProductType {
     @Id
     private Integer productTypeId;
     @Size(min = 3, max = 15)
     //@NotBlank (message = "el campo debe ser llenado correctamente")
+    @Column(unique = true)
     private String typeName;
     private Transaction transaction;
     private Integer status;

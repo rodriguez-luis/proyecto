@@ -1,22 +1,29 @@
 package bo.ucb.edu.ingsoft.dto;
 
 import bo.ucb.edu.ingsoft.model.Transaction;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
-
+@Entity
+@Table(name = "product_type")
 public class ProductTypeDto {
     /*{
        "typename": "MotherBoard"
    }*/
+    @Id
     private Integer productTypeId;
     @Size(min = 3, max = 15)
     // @NotBlank(message = "el campo debe ser llenado correctamente")
+    @Column(unique = true)
     private String typeName;
     //private Integer statusId;
     //private Transaction transaction;
