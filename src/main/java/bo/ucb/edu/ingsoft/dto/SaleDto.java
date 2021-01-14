@@ -6,8 +6,9 @@ public class SaleDto {
 
     private Integer saleId;
     private Integer companyId;
-    private Integer card;
-    private Date expirationDate;
+    private String card;
+    private String month;
+    private Integer year;
     private Integer securityCode;
 
     private String name;
@@ -31,20 +32,28 @@ public class SaleDto {
         this.companyId = companyId;
     }
 
-    public Integer getCard() {
+    public String getCard() {
         return card;
     }
 
-    public void setCard(Integer card) {
+    public void setCard(String card) {
         this.card = card;
     }
 
-    public Date getExpirationDate() {
-        return expirationDate;
+    public String getMonth() {
+        return month;
     }
 
-    public void setExpirationDate(Date expirationDate) {
-        this.expirationDate = expirationDate;
+    public void setMonth(String month) {
+        this.month = month;
+    }
+
+    public Integer getYear() {
+        return year;
+    }
+
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     public Integer getSecurityCode() {
@@ -93,7 +102,8 @@ public class SaleDto {
                 "saleId=" + saleId +
                 ", companyId=" + companyId +
                 ", card=" + card +
-                ", expirationDate=" + expirationDate +
+                ", month=" + month + '\'' +
+                ", year=" + year +
                 ", securityCode=" + securityCode +
                 ", name='" + name + '\'' +
                 ", phone='" + phone + '\'' +

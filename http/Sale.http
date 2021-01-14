@@ -2,6 +2,12 @@
 GET http://localhost:8080/v1/sale
 Accept: application/json
 
+###########
+GET http://localhost:8080/v1/sale/1
+Accept: application/json
+
+###########
+
 ##########
 POST http://localhost:8080/v1/sale
 Accept: application/json
@@ -9,8 +15,9 @@ Content-Type: application/json
 
 {
   "companyId": 1,
-  "card":4321,
-  "expirationDate": "2021-12-20",
+  "card":"4321 1234 1234 1234",
+  "month": "Enero",
+  "year": 2025,
   "securityCode": 123,
   "name": "Alonso Herrera",
   "phone": "12345678",
@@ -19,6 +26,28 @@ Content-Type: application/json
 }
 
 ##########
+###########
+PATCH http://localhost:8080/v1/sale
+Accept: application/json
+Content-Type: application/json
 
+{
+  "saleId": 1,
+  "companyId": 1,
+  "card":"1111 1234 1234 1234",
+  "month": "mayo",
+  "year": 2028,
+  "securityCode": 789,
+  "name": "Alonso Herrera",
+  "phone": "12345678",
+  "direction": "Los andes",
+  "total": 1000
+}
+
+###########
+DELETE http://localhost:8080/v1/sale/4
+Accept: application/json
+
+###
 ###
 

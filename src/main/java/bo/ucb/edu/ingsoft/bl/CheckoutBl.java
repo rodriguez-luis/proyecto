@@ -3,7 +3,9 @@ package bo.ucb.edu.ingsoft.bl;
 import bo.ucb.edu.ingsoft.dao.CheckoutDao;
 import bo.ucb.edu.ingsoft.dao.TransactionDao;
 import bo.ucb.edu.ingsoft.dto.CheckoutDto;
+import bo.ucb.edu.ingsoft.dto.CompanyDto;
 import bo.ucb.edu.ingsoft.model.Checkout;
+import bo.ucb.edu.ingsoft.model.Company;
 import bo.ucb.edu.ingsoft.model.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,15 +27,34 @@ public class CheckoutBl {
         for (int i=0; i< checkouts.size(); i++){
             Checkout checkout= checkouts.get(i);
             CheckoutDto checkoutDto = new CheckoutDto();
+
             checkoutDto.setCheckoutId (checkout.getCheckoutId());
             checkoutDto.setCartId (checkout.getCartId() );
             checkoutDto.setPaymentDetailsId (checkout.getPaymentDetailsId() );
             checkoutDto.setDate(checkout.getDate());
             checkoutDto.setTotal(checkout.getTotal());
+            checkoutDto.setContact(checkout.getContact());
+            checkoutDto.setAddress(checkout.getAddress());
             checkoutDtos.add(i,checkoutDto);
         }
         return checkoutDtos;
     }
+
+    public CheckoutDto findCheckoutById(Integer checkoutId) {
+        Checkout checkout = checkoutDao.findByCheckoutId(checkoutId);
+        CheckoutDto checkoutDto = new CheckoutDto();
+        checkoutDto.setCheckoutId(checkout.getCheckoutId());
+        checkoutDto.setCartId(checkout.getCartId());
+        checkoutDto.setPaymentDetailsId(checkout.getPaymentDetailsId());
+
+        checkoutDto.setDate(checkout.getDate());
+        checkoutDto.setTotal(checkout.getTotal());
+        checkoutDto.setContact(checkout.getContact());
+        checkoutDto.setAddress(checkout.getAddress());
+        return checkoutDto;
+    }
+
+
     public CheckoutDto createCheckout(CheckoutDto checkoutDto, Transaction transaction) {
         Checkout checkout = new Checkout();
         checkout.setCheckoutId(checkoutDto.getCheckoutId());
@@ -56,4 +77,34 @@ public class CheckoutBl {
        //checkoutDto.setDate(transaction.getTxDate());
         return checkoutDto;
     }
+
+    public void delete(Integer idCheckout, Transaction transaction){
+        Checkout checkout = new Checkout();
+        checkout.setCheckoutId(idCheckout);
+        checkout.setTxId(transaction.getTxId());
+        checkout.setTxUserId(transaction.getTxUserId());
+        checkout.setTxHost(transaction.getTxHost());
+        checkout.setTxDate(transaction.getTxDate());
+        checkout.setStatus(0);
+        checkoutDao.delete(checkout);
+    }
+
+    public CheckoutDto updateCheckout(CheckoutDto checkoutDto, Transaction transaction){
+        Checkout checkout = new Checkout();
+        checkout.setCheckoutId(checkoutDto.getCheckoutId());
+        checkout.setCartId(checkoutDto.getCartId());
+        checkout.setPaymentDetailsId(checkoutDto.getPaymentDetailsId());
+        checkout.setDate(checkoutDto.getDate());
+        checkout.setTotal(checkoutDto.getTotal());
+        checkout.setContact(checkoutDto.getContact());
+        checkout.setAddress(checkoutDto.getAddress());
+        checkout.setTxId(transaction.getTxId());
+        checkout.setTxUserId(transaction.getTxUserId());
+        checkout.setTxHost(transaction.getTxHost());
+        checkout.setTxDate(transaction.getTxDate());
+        checkout.setStatus(1);
+        checkoutDao.update(checkout);
+        return checkoutDto;
+    }
+
 }

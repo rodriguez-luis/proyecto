@@ -1,4 +1,8 @@
-GET http://localhost:8080/v1/orders
+GET http://localhost:8080/v1/checkout
+Accept: application/json
+
+###########
+GET http://localhost:8080/v1/checkout/1
 Accept: application/json
 
 ###
@@ -16,6 +20,26 @@ Content-Type: application/json
   "address": "alonso@gmail.com"
 
 }
+
+###########
+PATCH http://localhost:8080/v1/checkout
+Accept: application/json
+Content-Type: application/json
+
+{
+  "checkoutId": 1,
+  "cartId": 1,
+  "paymentDetailsId": 2,
+  "date": "2020-12-20",
+  "total": 5000,
+  "contact": "alonso",
+  "address": "alonso@gmail.com"
+}
+
+###########
+DELETE http://localhost:8080/v1/checkout/5
+Accept: application/json
+
 ###########
 
 
