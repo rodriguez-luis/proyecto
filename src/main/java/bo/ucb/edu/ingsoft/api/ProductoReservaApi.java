@@ -4,6 +4,7 @@ package bo.ucb.edu.ingsoft.api;
 import bo.ucb.edu.ingsoft.bl.CustomerBl;
 import bo.ucb.edu.ingsoft.bl.ProductoReservaBl;
 import bo.ucb.edu.ingsoft.bl.TransactionBl;
+import bo.ucb.edu.ingsoft.dto.CompanyDto;
 import bo.ucb.edu.ingsoft.dto.ProductoReservaDto;
 import bo.ucb.edu.ingsoft.model.*;
 import bo.ucb.edu.ingsoft.util.TransactionUtil;
@@ -14,6 +15,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @CrossOrigin(origins = {"http://localhost:4200"})
 @RestController
@@ -31,6 +33,11 @@ public class ProductoReservaApi {
         this.transactionBl =  transactionBl;
     }
 
+
+    @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<ProductoReservaDto> listPr(HttpServletRequest request) {
+        return productoReservaBl.listPr();
+    }
 
 /***/
     @RequestMapping(method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE,

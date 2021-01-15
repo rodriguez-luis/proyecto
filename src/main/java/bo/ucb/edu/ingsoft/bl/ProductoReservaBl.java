@@ -1,11 +1,16 @@
 package bo.ucb.edu.ingsoft.bl;
 
 import bo.ucb.edu.ingsoft.dao.*;
+import bo.ucb.edu.ingsoft.dto.CompanyDto;
+import bo.ucb.edu.ingsoft.dto.ProductDto;
 import bo.ucb.edu.ingsoft.dto.ProductoReservaDto;
 import bo.ucb.edu.ingsoft.dto.UserDto;
 import bo.ucb.edu.ingsoft.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ProductoReservaBl {
@@ -21,6 +26,69 @@ public class ProductoReservaBl {
         this.productDao = productDao;
         this.checkoutDao = checkoutDao;
         this.transactionDao = transactionDao;
+    }
+
+    //lista de productosReserva
+    public List<ProductoReservaDto> listPr(){
+        List<Product> products= productDao.getProducts();// datos productos, accedemos al metodo  productDao.getProducts()
+        List<Checkout> checkouts= checkoutDao.getOrders();// datos checkout, accedemos al metodo  productDao.getProducts()
+
+        List<ProductoReserva> prs = productoReservaDao.getPr();
+        List<ProductoReservaDto> prsDto = new ArrayList<ProductoReservaDto>();
+
+        for(int i=0; i < prs.size(); i++){
+         //   for(int j=0; j < products.size(); j++) {  //datos productos
+                Product producto = products.get(i);//datos productos
+                Checkout checkout = checkouts.get(i);//datos checkout
+
+                ProductoReserva productoReserva = prs.get(i);
+                ProductoReservaDto productoReservaDto = new ProductoReservaDto();
+
+                //datos de productoReserva
+                productoReservaDto.setPrId(productoReserva.getPrId());
+                productoReservaDto.setProductId(productoReserva.getProductId());
+                productoReservaDto.setCheckoutId(productoReserva.getCheckoutId());
+                productoReservaDto.setCantidad(productoReserva.getCantidad());
+
+                //datos de producto
+                productoReservaDto.setProductName(producto.getProductName());
+                productoReservaDto.setUnitPrice(producto.getUnitPrice());
+                //datos de Checkout= Reserva
+                productoReservaDto.setContact(checkout.getContact());
+                productoReservaDto.setAddress(checkout.getAddress());
+
+                prsDto.add(i, productoReservaDto);
+       //     }
+        }
+        return prsDto;
+    }
+
+
+    //lista de productos prueba
+    public List<ProductDto> selectProducts(){
+        List<Product> products= productDao.getProducts();// datos productos
+        List<ProductDto> productsDto = new ArrayList<ProductDto>();
+
+        for (int i=0; i< products.size(); i++){
+            Product product= products.get(i);
+            ProductDto productDto = new ProductDto();
+
+            productDto.setProductId(product.getProductId());
+            productDto.setProductName(product.getProductName());
+            productDto.setModel(product.getModel());
+            productDto.setProductDescription(product.getProductDescription());
+            productDto.setStock(product.getStock());
+            productDto.setWeight(product.getWeight());
+            productDto.setCompanyId(product.getCompanyId());
+            productDto.setProductTypeId(product.getProductTypeId());
+            productDto.setCityId(product.getCityId());
+            productDto.setUnitPrice(product.getUnitPrice());
+            productDto.setCurrency(product.getCurrency());
+            productDto.setBrandId(product.getBrandId());
+            productDto.setImg(product.getImg());
+            productsDto.add(i,productDto);
+        }
+        return productsDto;
     }
 
     public ProductoReservaDto createPr(ProductoReservaDto prDto, Transaction transaction) {
