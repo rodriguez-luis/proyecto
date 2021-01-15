@@ -13,8 +13,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.Date;
-@Entity
-@Table(name = "product_type")
 public class ProductTypeDto {
     /*{
        "typename": "MotherBoard"
@@ -23,7 +21,6 @@ public class ProductTypeDto {
     private Integer productTypeId;
     @Size(min = 3, max = 15)
     // @NotBlank(message = "el campo debe ser llenado correctamente")
-    @Column(unique = true)
     private String typeName;
     //private Integer statusId;
     //private Transaction transaction;
