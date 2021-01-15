@@ -9,7 +9,7 @@
                pr_id as prId,
                product_id as productId,
                checkout_id as checkoutId,
-               cantidad as cantidad,
+               cantidad as cantidad
         FROM productoReserva
         WHERE
             status = 1

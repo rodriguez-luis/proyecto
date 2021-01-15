@@ -8,6 +8,11 @@ public class ProductoReserva {
     private Integer productId;
     private Integer checkoutId;
     private Integer cantidad;
+    //datos del producto
+    private String productName;
+    private Double unitPrice;
+    //
+
     private Integer status;
     private Transaction transaction;
 
@@ -89,6 +94,22 @@ public class ProductoReserva {
         this.transaction.setTxDate(txDate);
     }
 
+    //DAtos del producto
+    public String getProductName() {
+        return productName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public Double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
 
     @Override
     public String toString() {
@@ -97,10 +118,13 @@ public class ProductoReserva {
                 ", productId=" + productId +
                 ", checkoutId=" + checkoutId +
                 ", cantidad=" + cantidad +
+                ", productName='" + productName + '\'' +
+                ", unitPrice=" + unitPrice +
                 ", txId=" + transaction.getTxId() +
                 ", txHost='" + transaction.getTxHost() + '\'' +
                 ", txUserId=" + transaction.getTxUserId() +
                 ", txDate=" + transaction.getTxDate() +
                 '}';
     }
+
 }
