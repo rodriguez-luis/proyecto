@@ -31,13 +31,15 @@ public class ProductoReservaBl {
     //lista de productosReserva
     public List<ProductoReservaDto> listPr(){
         List<Product> products= productDao.getProducts();// datos productos, accedemos al metodo  productDao.getProducts()
+        List<Checkout> checkouts= checkoutDao.getOrders();// datos checkout, accedemos al metodo  productDao.getProducts()
 
         List<ProductoReserva> prs = productoReservaDao.getPr();
         List<ProductoReservaDto> prsDto = new ArrayList<ProductoReservaDto>();
 
         for(int i=0; i < prs.size(); i++){
-            for(int j=0; j < products.size(); j++) {  //datos productos
-                Product producto = products.get(j);//datos productos
+         //   for(int j=0; j < products.size(); j++) {  //datos productos
+                Product producto = products.get(i);//datos productos
+                Checkout checkout = checkouts.get(i);//datos checkout
 
                 ProductoReserva productoReserva = prs.get(i);
                 ProductoReservaDto productoReservaDto = new ProductoReservaDto();
@@ -51,9 +53,12 @@ public class ProductoReservaBl {
                 //datos de producto
                 productoReservaDto.setProductName(producto.getProductName());
                 productoReservaDto.setUnitPrice(producto.getUnitPrice());
+                //datos de Checkout= Reserva
+                productoReservaDto.setContact(checkout.getContact());
+                productoReservaDto.setAddress(checkout.getAddress());
 
                 prsDto.add(i, productoReservaDto);
-            }
+       //     }
         }
         return prsDto;
     }
