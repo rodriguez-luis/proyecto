@@ -9,11 +9,13 @@ import bo.ucb.edu.ingsoft.model.Transaction;
 import bo.ucb.edu.ingsoft.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.awt.print.Pageable;
 import java.util.*;
 
 @Service
@@ -44,6 +46,24 @@ public class ProductTypeBl {
         }
         return productTypeDtos;
     }
+
+//    public Page<ProductTypeDto> listProducttypee(){
+//        List<ProductType> productTypes = productTypeDao.getProducttype();
+//        List<ProductTypeDto> productTypeDtos = new ArrayList<ProductTypeDto>();
+//
+//        for(int i=0; i < productTypes.size(); i++){
+//            ProductType productType = productTypes.get(i);
+//            ProductTypeDto productTypeDto = new ProductTypeDto();
+//
+//            productTypeDto.setProductTypeId(productType.getProductTypeId());
+//            productTypeDto.setTypeName(productType.getType_name());
+//
+//
+//            productTypeDtos.add(i, productTypeDto);
+//        }
+//        return productTypeDtos;
+//    }
+
 
 
     public ProductTypeDto findByProductTypeById (Integer productTypeId){
