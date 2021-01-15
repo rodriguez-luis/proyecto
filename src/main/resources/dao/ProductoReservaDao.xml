@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bo.ucb.edu.ingsoft.dao.ProductoReservaDao">
+
+    <select id="getPr"  resultType="bo.ucb.edu.ingsoft.model.ProductoReserva">
+        SELECT
+               pr_id as prId,
+               product_id as productId,
+               checkout_id as checkoutId,
+               cantidad as cantidad,
+        FROM productoReserva
+        WHERE
+            status = 1
+    </select>
+    <select id="findByPrId" parameterType="int" resultType="bo.ucb.edu.ingsoft.model.ProductoReserva">
+        SELECT
+               pr_id as prId,
+               product_id as productId,
+               checkout_id as checkoutId,
+               cantidad as cantidad,
+        FROM productoReserva
+        WHERE
+            pr_id = #{prId}
+    </select>
+
+    <insert id="create" parameterType="bo.ucb.edu.ingsoft.model.ProductoReserva">
+        INSERT INTO productoReserva VALUES (
+            null, #{productId}, #{checkoutId},#{cantidad},
+              #{status})
+    </insert>
+
+
+</mapper>

@@ -1,0 +1,58 @@
+###########
+GET http://localhost:8080/v1/pr
+Accept: application/json
+
+###########
+GET http://localhost:8080/v1/pr/1
+Accept: application/json
+
+###########
+
+POST http://localhost:8080/v1/pr
+Accept: application/json
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "checkoutId": 1,
+  "cantidad": 10,
+  "productName": "Procesador",
+  "model": "I5 9400",
+  "productDescription": "Intel I5 novena generacion",
+  "stock": 5,
+  "weight": 5.5,
+  "unitPrice": 9000,
+  "currency": 1,
+  "img": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6306/6306415_sd.jpg",
+  "companyId": 2,
+  "productTypeId": 1,
+  "cityId": 1,
+  "brandId": 1,
+
+  "date": "2030-12-20",
+  "total": 1000,
+  "contact": "ALONSO",
+  "address": "alonso@gmail.com",
+
+  "cartId": 2,
+  "paymentDetailsId": 2
+}
+###########
+PATCH http://localhost:8080/v1/company
+Accept: application/json
+Content-Type: application/json
+
+{
+  "companyId": 2,
+  "name": "monoPcmono",
+  "direction": "Av. Uyustus N1000",
+  "phone": "25252525",
+  "email": "suyu@gmail.com"
+}
+
+###########
+DELETE http://localhost:8080/v1/company/9
+Accept: application/json
+
+###
+

@@ -42,6 +42,7 @@ public class CustomerBl {
         person.setTxHost(transaction.getTxHost());
         person.setTxUserId(transaction.getTxUserId());
         person.setTxDate(transaction.getTxDate());
+
         person.setCityId(userDto.getCityId());
         person.setFirstName(userDto.getFirstName());
         person.setLastName(userDto.getLastName());
@@ -56,6 +57,7 @@ public class CustomerBl {
         user.setTxHost(transaction.getTxHost());
         user.setTxUserId(transaction.getTxUserId());
         user.setTxDate(transaction.getTxDate());
+
         user.setPersonId(userDto.getPersonId());
         user.setCompanyId(userDto.getCompanyId());
         user.setUsername(userDto.getUsername());
